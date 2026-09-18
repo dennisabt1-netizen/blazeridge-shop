@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="/blazeridge-shop/" />
   <title>Log in — BlazeRidge</title>
-  <meta name="description" content="Optional Google or email sign-in for BlazeRidge. Purchases work without an account." />
+  <meta name="description" content="Optional Google sign-in for BlazeRidge. Purchases work without an account." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -30,7 +30,7 @@
   <main>
     <section class="wrap login-wrap">
       <h1>Log <em style="color:var(--ember);font-style:italic;font-family:Instrument Serif,Georgia,serif">in</em></h1>
-      <p class="lede">Optional — you can shop and buy without an account. Sign in with Google or email if you want a saved session on this device.</p>
+      <p class="lede">Optional — you can shop and buy without an account. Sign in with Google if you want a saved session on this device.</p>
       <div class="panel">
         <div id="auth-session" class="auth-session" hidden></div>
 
@@ -46,32 +46,12 @@
           </button>
         </div>
 
-        <div class="auth-divider" role="separator"><span>or email</span></div>
-
-        <div class="email-mode-tabs" role="tablist" aria-label="Email auth mode">
-          <button type="button" class="email-tab active" data-email-mode="signin">Sign in</button>
-          <button type="button" class="email-tab" data-email-mode="signup">Create account</button>
-          <span id="email-mode-badge" class="mode-badge" hidden>Demo</span>
-        </div>
-
-        <form id="email-auth-form" class="email-auth-form" data-mode="signin" novalidate>
-          <label>
-            <span class="sr-only">Email</span>
-            <input type="email" name="email" autocomplete="email" required placeholder="Email" />
-          </label>
-          <label>
-            <span class="sr-only">Password</span>
-            <input type="password" name="password" autocomplete="current-password" required placeholder="Password (min 6)" minlength="6" />
-          </label>
-          <button type="submit" class="btn" style="width:100%">Sign in with email</button>
-          <button type="button" class="btn-ghost btn-sm" id="btn-magic-link" hidden style="width:100%;margin-top:.5rem">Send magic link</button>
-        </form>
-
-        <p id="email-auth-note" class="auth-note warn-note"></p>
+        <div class="auth-divider" role="separator"><span>email</span></div>
+        <p class="auth-note" style="text-align:center;margin:.5rem 0 0">Email login — coming soon. For now use Google, or just shop without an account.</p>
 
         <div class="oauth-msg" id="oauth-msg" role="status"></div>
         <p class="muted" style="margin:1.25rem 0 0;font-size:.85rem;text-align:center">
-          Google Sign-In via Google Identity Services. Apple Sign-In is not available.
+          Google Sign-In via Google Identity Services. Newsletter signup is separate (Formspree).
         </p>
       </div>
       <p style="text-align:center;margin-top:1.5rem"><a class="link-back" href="shop.html">← Back to shop</a></p>
@@ -118,25 +98,19 @@
       function show(text, warning) {
         msg.textContent = text || "";
         msg.classList.toggle("show", !!text);
-        msg.classList.toggle("warn", warning !== false && !!text);
+        msg.classList.toggle("warn", !!warning);
       }
-      document.getElementById("btn-google").addEventListener("click", () => {
-        const r = BlazeRidgeAuth.start("google");
-        show(r.message, !r.ok);
-      });
-      document.getElementById("btn-apple").addEventListener("click", () => {
-        const r = BlazeRidgeAuth.start("apple");
-        show(r.message, true);
-      });
-      window.addEventListener("blazeridge:google-signed-in", (event) => {
-        const name = event.detail && event.detail.name ? `Signed in as ${event.detail.name}.` : "Signed in with Google.";
-        show(name, false);
-        if (BlazeRidgeAuth.updateLoginUi) BlazeRidgeAuth.updateLoginUi();
-      });
-      window.addEventListener("blazeridge:signed-in", (event) => {
-        const email = event.detail && event.detail.email;
-        if (email) show("Signed in as " + email + ".", false);
-      });
+      const googleBtn = document.getElementById("btn-google");
+      if (googleBtn) {
+        googleBtn.addEventListener("click", () => {
+          if (!window.BlazeRidgeAuth) return show("Auth not loaded.", true);
+          const r = BlazeRidgeAuth.start("google");
+          if (r && r.message) show(r.message, !r.ok);
+        });
+      }
+      if (window.BlazeRidgeAuth && BlazeRidgeAuth.initGoogle) {
+        BlazeRidgeAuth.initGoogle();
+      }
     })();
   </script>
 

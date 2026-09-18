@@ -78,3 +78,5 @@ Open http://localhost:8080/ — note: `<base href="/blazeridge-shop/">` is set f
 ## Deploy
 
 Push `main` to `dennisabt1-netizen/blazeridge-shop`. GitHub Pages is enabled from `main` `/` (site root = this folder).
+
+Email/password login is intentionally not enabled (Google + Formspree newsletter only).
