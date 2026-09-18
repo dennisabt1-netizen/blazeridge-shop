@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="/blazeridge-shop/" />
-  <title>BlazeRidge Shop — Money rules that stick</title>
-  <meta name="description" content="Digital tools from BlazeRidge: money rules, bias checklists, habit trackers, subscription audits." />
+  <title>About — BlazeRidge</title>
+  <meta name="description" content="About BlazeRidge: money rules that stick — digital tools for faceless finance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -16,11 +16,11 @@
   <header class="wrap header">
     <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
     <nav class="nav" aria-label="Primary">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="faq.html">FAQ</a>
       <a class="btn-login" href="login.html">Log in</a>
     </nav>
@@ -28,21 +28,18 @@
 
   <main>
     <section class="wrap hero">
-      <p class="eyebrow">Digital tools · faceless finance</p>
-      <h1>Money rules that <em>stick</em>.</h1>
-      <p class="lede">Short, usable downloads for people who watch finance Shorts — not sit through courses. Instant delivery via Stripe.</p>
-      <div class="hero-actions">
-        <a class="btn" href="shop.html">Browse shop</a>
-        <a class="btn-ghost" href="about.html">About BlazeRidge</a>
-      </div>
+      <p class="eyebrow">About</p>
+      <h1 class="page-title">Built for people who watch <em>Shorts</em>, not courses.</h1>
     </section>
-
-    <section class="wrap section">
-      <div class="section-head">
-        <h2>Featured tools</h2>
-        <a class="link-back" href="shop.html">View all →</a>
-      </div>
-      <div class="products" id="home-products"></div>
+    <section class="wrap section prose">
+      <p>BlazeRidge makes short, usable digital tools — money rules, bias checklists, habit trackers, subscription audits — for viewers who want stickiness over theory.</p>
+      <h2>What you get</h2>
+      <p>Instant downloads after Stripe checkout. No memberships, no upsell funnels in the PDF. Install a rule or worksheet in a day and move on.</p>
+      <h2>YouTube</h2>
+      <p>Follow the channel for faceless finance Shorts: <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a>.</p>
+      <h2>Disclaimer</h2>
+      <p>Educational content only — not personalized financial, tax, or investment advice. Decisions are yours.</p>
+      <p style="margin-top:2rem"><a class="btn" href="shop.html">Browse the shop</a></p>
     </section>
   </main>
   <footer class="wrap footer">
@@ -65,29 +62,6 @@
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/app.js"></script>
-
-  <script>
-    (function () {
-      const money = BlazeRidgeApp.money;
-      const products = BLAZERIDGE_CONFIG.products.slice(0, 4);
-      const el = document.getElementById("home-products");
-      el.innerHTML = products.map(p => `
-        <article class="card${p.featured ? " featured" : ""}">
-          <p class="tag">${p.tag}</p>
-          <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h2>
-          <p>${p.description}</p>
-          <div class="row">
-            <span class="price">${money(p.price)}</span>
-            <div class="card-actions">
-              <button type="button" class="btn-ghost btn-sm" data-add-cart="${p.id}">Add</button>
-              <a class="btn btn-sm" href="${p.paymentLink}" target="_blank" rel="noopener">Buy</a>
-            </div>
-          </div>
-        </article>
-      `).join("");
-      BlazeRidgeApp.bindAddButtons(el);
-    })();
-  </script>
 
 </body>
 </html>

@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="/blazeridge-shop/" />
-  <title>BlazeRidge Shop — Money rules that stick</title>
-  <meta name="description" content="Digital tools from BlazeRidge: money rules, bias checklists, habit trackers, subscription audits." />
+  <title>Product — BlazeRidge</title>
+  <meta name="description" content="BlazeRidge digital tool details and purchase options." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -16,8 +16,8 @@
   <header class="wrap header">
     <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
     <nav class="nav" aria-label="Primary">
-      <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
       <a href="about.html">About</a>
@@ -27,22 +27,11 @@
   </header>
 
   <main>
-    <section class="wrap hero">
-      <p class="eyebrow">Digital tools · faceless finance</p>
-      <h1>Money rules that <em>stick</em>.</h1>
-      <p class="lede">Short, usable downloads for people who watch finance Shorts — not sit through courses. Instant delivery via Stripe.</p>
-      <div class="hero-actions">
-        <a class="btn" href="shop.html">Browse shop</a>
-        <a class="btn-ghost" href="about.html">About BlazeRidge</a>
-      </div>
-    </section>
-
-    <section class="wrap section">
-      <div class="section-head">
-        <h2>Featured tools</h2>
-        <a class="link-back" href="shop.html">View all →</a>
-      </div>
-      <div class="products" id="home-products"></div>
+    <div class="wrap" style="padding-top:1.25rem">
+      <a class="link-back" href="shop.html">← Back to shop</a>
+    </div>
+    <section class="wrap product-layout" id="product-root">
+      <p class="muted">Loading…</p>
     </section>
   </main>
   <footer class="wrap footer">
@@ -68,24 +57,29 @@
 
   <script>
     (function () {
+      const p = BlazeRidgeApp.productByParam();
+      const root = document.getElementById("product-root");
+      if (!p) {
+        root.innerHTML = `<div class="empty-state"><h2>Product not found</h2><p><a class="btn" href="shop.html">Browse shop</a></p></div>`;
+        return;
+      }
+      document.title = p.name + " — BlazeRidge";
       const money = BlazeRidgeApp.money;
-      const products = BLAZERIDGE_CONFIG.products.slice(0, 4);
-      const el = document.getElementById("home-products");
-      el.innerHTML = products.map(p => `
-        <article class="card${p.featured ? " featured" : ""}">
+      root.innerHTML = `
+        <div class="product-visual" aria-hidden="true">${p.name.split(" ").slice(0, 2).join(" ")}</div>
+        <div class="product-meta">
           <p class="tag">${p.tag}</p>
-          <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h2>
-          <p>${p.description}</p>
-          <div class="row">
-            <span class="price">${money(p.price)}</span>
-            <div class="card-actions">
-              <button type="button" class="btn-ghost btn-sm" data-add-cart="${p.id}">Add</button>
-              <a class="btn btn-sm" href="${p.paymentLink}" target="_blank" rel="noopener">Buy</a>
-            </div>
+          <h1>${p.name}</h1>
+          <p class="muted">${p.longDescription || p.description}</p>
+          <span class="price">${money(p.price)}</span>
+          <div class="actions">
+            <button type="button" class="btn" data-add-cart="${p.id}">Add to cart</button>
+            <a class="btn-ghost" href="${p.paymentLink}" target="_blank" rel="noopener">Buy now</a>
           </div>
-        </article>
-      `).join("");
-      BlazeRidgeApp.bindAddButtons(el);
+          <p class="muted" style="margin-top:1.25rem;font-size:.85rem">Secure checkout via Stripe Payment Link. Instant digital delivery after payment.</p>
+        </div>
+      `;
+      BlazeRidgeApp.bindAddButtons(root);
     })();
   </script>
 

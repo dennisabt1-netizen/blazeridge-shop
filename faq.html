@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/blazeridge-shop/" />
+  <title>FAQ — BlazeRidge</title>
+  <meta name="description" content="Frequently asked questions about BlazeRidge digital tools and checkout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="wrap header">
+    <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a class="btn-login" href="login.html">Log in</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" style="padding-bottom:1rem">
+      <p class="eyebrow">FAQ</p>
+      <h1 class="page-title">Questions, <em>answered</em></h1>
+    </section>
+    <section class="wrap section">
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How do I pay?</summary>
+          <div class="faq-body">Each product has a Stripe Payment Link. From Shop or Product, hit Buy / Buy now. From Cart → Checkout, pay each line item with its own link. Card payments are processed by Stripe.</div>
+        </details>
+        <details class="faq-item">
+          <summary>When do I get the file?</summary>
+          <div class="faq-body">After a successful Stripe payment, fulfillment follows your Stripe / email delivery setup (download link or attachment). Keep the receipt email.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I buy multiple products at once?</summary>
+          <div class="faq-body">Yes — add them to the cart. On checkout you’ll open one Payment Link per product (static GitHub Pages can’t run a combined Stripe Checkout Session without a backend).</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need an account?</summary>
+          <div class="faq-body">No account is required to buy. Log in (Google / Apple) is a placeholder until OAuth client IDs are configured — see README.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Refunds?</summary>
+          <div class="faq-body">Digital goods are generally final once delivered. Contact via the YouTube channel for edge cases.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is this financial advice?</summary>
+          <div class="faq-body">No. Educational tools only — not personalized financial, tax, or investment advice.</div>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <div class="footer-grid">
+      <div>
+        <p>Educational content only — not personalized financial, tax, or investment advice.</p>
+        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="login.html">Log in</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

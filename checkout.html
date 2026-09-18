@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/blazeridge-shop/" />
+  <title>Checkout — BlazeRidge</title>
+  <meta name="description" content="Pay for BlazeRidge tools via Stripe Payment Links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="wrap header">
+    <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html" class="active">Cart</a>
+      <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a class="btn-login" href="login.html">Log in</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" style="padding-bottom:1rem">
+      <p class="eyebrow">Checkout</p>
+      <h1 class="page-title">Pay with <em>Stripe</em></h1>
+      <p class="lede">This shop runs on GitHub Pages (static). Checkout uses Stripe Payment Links — one secure link per product. Pay each line item to complete your order.</p>
+    </section>
+    <section class="wrap section" id="checkout-root"></section>
+  </main>
+  <footer class="wrap footer">
+    <div class="footer-grid">
+      <div>
+        <p>Educational content only — not personalized financial, tax, or investment advice.</p>
+        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="login.html">Log in</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    (function () {
+      const money = BlazeRidgeApp.money;
+      const root = document.getElementById("checkout-root");
+
+      function render() {
+        const items = BlazeRidgeCart.enriched();
+        if (!items.length) {
+          root.innerHTML = `
+            <div class="empty-state panel">
+              <h2>Nothing to check out</h2>
+              <p>Your cart is empty.</p>
+              <p style="margin-top:1.25rem"><a class="btn" href="shop.html">Browse shop</a></p>
+            </div>`;
+          return;
+        }
+        root.innerHTML = `
+          <div class="panel">
+            <ul class="checkout-list">
+              ${items.map(i => `
+                <li>
+                  <div>
+                    <div class="cart-item-name">${i.name}</div>
+                    <div class="muted" style="font-size:.85rem">Qty ${i.qty} · ${money(i.lineTotal)}
+                      ${i.qty > 1 ? " · Payment Link is per unit — open the link once per copy if you need multiples" : ""}
+                    </div>
+                  </div>
+                  <a class="btn" href="${i.paymentLink}" target="_blank" rel="noopener">Pay ${money(i.price)}</a>
+                </li>
+              `).join("")}
+            </ul>
+            <div class="cart-summary">
+              <div>
+                <span class="muted">Cart total (reference)</span>
+                <div class="total">${money(BlazeRidgeCart.subtotal())}</div>
+              </div>
+              <button type="button" class="btn-ghost" id="clear-after">Clear cart</button>
+            </div>
+          </div>
+          <p class="notice" style="margin-top:1rem">
+            <strong>How it works:</strong> Each “Pay” button opens the live Stripe Payment Link for that product.
+            After you’ve paid for the items you want, you can clear the cart. Digital files are delivered by Stripe / your fulfillment email.
+          </p>
+          <p class="notice notice-warn" style="margin-top:.75rem">
+            Multi-item carts check out <strong>one product at a time</strong> (Payment Links). There is no combined Checkout Session on this static site.
+          </p>`;
+
+        document.getElementById("clear-after").addEventListener("click", () => {
+          BlazeRidgeCart.clear();
+          BlazeRidgeApp.toast("Cart cleared");
+          render();
+        });
+      }
+      render();
+    })();
+  </script>
+
+</body>
+</html>

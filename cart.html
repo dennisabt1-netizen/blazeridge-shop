@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/blazeridge-shop/" />
+  <title>Cart — BlazeRidge</title>
+  <meta name="description" content="Your BlazeRidge shopping cart." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="wrap header">
+    <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html" class="active">Cart</a>
+      <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a class="btn-login" href="login.html">Log in</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" style="padding-bottom:1rem">
+      <p class="eyebrow">Cart</p>
+      <h1 class="page-title">Your <em>cart</em></h1>
+    </section>
+    <section class="wrap section" id="cart-root"></section>
+  </main>
+  <footer class="wrap footer">
+    <div class="footer-grid">
+      <div>
+        <p>Educational content only — not personalized financial, tax, or investment advice.</p>
+        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="login.html">Log in</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    (function () {
+      const money = BlazeRidgeApp.money;
+      const root = document.getElementById("cart-root");
+
+      function render() {
+        const items = BlazeRidgeCart.enriched();
+        if (!items.length) {
+          root.innerHTML = `
+            <div class="empty-state panel">
+              <h2>Cart is empty</h2>
+              <p>Add tools from the shop, then check out with Stripe Payment Links.</p>
+              <p style="margin-top:1.25rem"><a class="btn" href="shop.html">Browse shop</a></p>
+            </div>`;
+          return;
+        }
+        root.innerHTML = `
+          <div class="panel" style="overflow-x:auto">
+            <table class="cart-table">
+              <thead>
+                <tr><th>Product</th><th>Qty</th><th>Price</th><th></th></tr>
+              </thead>
+              <tbody>
+                ${items.map(i => `
+                  <tr data-id="${i.id}">
+                    <td>
+                      <div class="cart-item-name"><a href="product.html?id=${encodeURIComponent(i.id)}">${i.name}</a></div>
+                      <div class="muted" style="font-size:.8rem">${i.tag}</div>
+                    </td>
+                    <td>
+                      <div class="qty-ctrl">
+                        <button type="button" data-dec="${i.id}" aria-label="Decrease">−</button>
+                        <span>${i.qty}</span>
+                        <button type="button" data-inc="${i.id}" aria-label="Increase">+</button>
+                      </div>
+                    </td>
+                    <td>${money(i.lineTotal)}</td>
+                    <td><button type="button" class="btn-ghost btn-sm" data-remove="${i.id}">Remove</button></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+            <div class="cart-summary">
+              <div>
+                <span class="muted">Subtotal</span>
+                <div class="total">${money(BlazeRidgeCart.subtotal())}</div>
+              </div>
+              <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+                <a class="btn-ghost" href="shop.html">Continue shopping</a>
+                <a class="btn" href="checkout.html">Checkout</a>
+              </div>
+            </div>
+          </div>
+          <p class="notice" style="margin-top:1rem">
+            <strong>Static checkout:</strong> On the next page you’ll pay each item via its Stripe Payment Link (one link per product). No account required.
+          </p>`;
+
+        root.querySelectorAll("[data-inc]").forEach(b => b.addEventListener("click", () => {
+          const id = b.getAttribute("data-inc");
+          const cur = BlazeRidgeCart.getItems().find(x => x.id === id);
+          BlazeRidgeCart.setQty(id, (cur ? cur.qty : 0) + 1);
+          render();
+        }));
+        root.querySelectorAll("[data-dec]").forEach(b => b.addEventListener("click", () => {
+          const id = b.getAttribute("data-dec");
+          const cur = BlazeRidgeCart.getItems().find(x => x.id === id);
+          BlazeRidgeCart.setQty(id, (cur ? cur.qty : 1) - 1);
+          render();
+        }));
+        root.querySelectorAll("[data-remove]").forEach(b => b.addEventListener("click", () => {
+          BlazeRidgeCart.remove(b.getAttribute("data-remove"));
+          render();
+        }));
+      }
+
+      window.addEventListener("blazeridge:cart", () => BlazeRidgeApp.updateCartBadge());
+      render();
+    })();
+  </script>
+
+</body>
+</html>
