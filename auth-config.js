@@ -1,11 +1,13 @@
+/** Public OAuth client config for GIS. Generated from box secret — do not paste into chats. */
 window.BLAZERIDGE_AUTH = {
-  "googleClientId": null,
+  "GOOGLE_CLIENT_ID": "823070581477-9edfs9ct1q82eg0277g6ktc6e04jd30c.apps.googleusercontent.com",
+  "googleClientId": "823070581477-9edfs9ct1q82eg0277g6ktc6e04jd30c.apps.googleusercontent.com",
   "appleClientId": null,
+  "APPLE_CLIENT_ID": "",
   "authEnabled": {
     "google": true,
     "apple": false
   },
   "origin": "https://dennisabt1-netizen.github.io",
   "redirectUri": "https://dennisabt1-netizen.github.io/blazeridge-shop/"
-}
-;
+};

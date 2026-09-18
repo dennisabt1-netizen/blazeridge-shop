@@ -34,21 +34,13 @@ Current Payment Links (live):
 | Payday Automation | €9 | https://buy.stripe.com/cNidRaf3d8KreoW8Vp5J606 |
 | Debt Snowball | €9 | https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605 |
 
-## Keys Dennis must provide (optional — for real login)
+## Login
 
-Purchases work today without these. Fill **public** values only into `config.js` (never commit secrets):
+Google Sign-In uses **Google Identity Services**. The public client ID lives in `auth-config.js` (and `auth-config.json`). Authorized JS origin: `https://dennisabt1-netizen.github.io`.
 
-| Key | Where to get it | Purpose |
-|-----|-----------------|---------|
-| `GOOGLE_CLIENT_ID` | [Google Cloud Console](https://console.cloud.google.com/) → APIs & Services → Credentials → OAuth 2.0 Client ID (Web). Authorized JS origin: `https://dennisabt1-netizen.github.io` | Google Sign-In button |
-| `APPLE_CLIENT_ID` | [Apple Developer](https://developer.apple.com/) → Certificates, Identifiers & Profiles → Identifiers → Services ID (Sign in with Apple). Return URL / domain for Pages | Apple Sign-In button |
-| `FIREBASE_API_KEY` | Firebase Console → Project settings → Web app | Optional free Firebase Auth |
-| `FIREBASE_AUTH_DOMAIN` | same | Optional Firebase Auth |
-| `FIREBASE_PROJECT_ID` | same | Optional Firebase Auth |
+Apple Sign-In is **not** enabled (button hidden / stub only).
 
-**Do not** put Stripe secret keys (`sk_…`) in this repo. Payment Links already encode the product/price on Stripe’s side.
-
-Stripe Payment Links are already wired. No Stripe publishable key is required for the current Payment Link flow.
+Purchases work without logging in. **Do not** put Stripe secret keys (`sk_…`) in this repo. Payment Links already encode the product/price on Stripe’s side.
 
 ## Local preview
 

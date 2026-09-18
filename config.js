@@ -1,6 +1,6 @@
 /**
  * BlazeRidge Shop — public config (safe to commit).
- * Fill placeholders for optional OAuth later. Never put secret keys here.
+ * Google Sign-In client ID lives in auth-config.js (public GIS ID only). Never put secret keys here.
  * Checkout uses Stripe Payment Links on each product (static GitHub Pages).
  */
 window.BLAZERIDGE_CONFIG = {
@@ -24,78 +24,84 @@ window.BLAZERIDGE_CONFIG = {
     {
       id: "money-rules",
       slug: "money-rules",
+      image: "images/money-rules.png",
       name: "27 Money Rules That Stick",
       tag: "PDF · 11 pages",
       price: 12,
       description:
-        "If-then rules that stop impulse leaks — install in a day. Short, usable downloads for people who watch finance Shorts — not sit through courses.",
+        "Twenty-seven if-then rules you can actually keep. Made for Shorts watchers who want something that sticks — not another 40-page course.",
       longDescription:
-        "A pocket system of 27 if-then money rules you can install in an afternoon. Built for faceless finance viewers who want stickiness over theory: impulse leaks, spending defaults, and weekly resets. Instant PDF download after purchase.",
+        "A pocket system of 27 if-then money rules you can install in an afternoon. For people who want stickiness over theory — impulse leaks, spending defaults, weekly resets. Instant PDF after purchase.",
       featured: false,
       paymentLink: "https://buy.stripe.com/6oU9AUcV5gcTeoWb3x5J600"
     },
     {
       id: "bias-checklist",
       slug: "bias-checklist",
+      image: "images/bias-checklist.png",
       name: "Buyer’s Bias Checklist",
       tag: "Checklist · 1 page",
       price: 9,
       description:
-        "Catch cart biases before you spend — psych × money in one printable page.",
+        "A one-page gut-check before you hit buy. Catch the sneaky biases that empty wallets.",
       longDescription:
-        "A one-page checklist that surfaces common purchase biases (scarcity, sunk cost, social proof, anchoring) right before you hit buy. Print it, keep it by your desk, or open it on your phone at checkout.",
+        "One page that surfaces scarcity, sunk cost, social proof, and anchoring right before you buy. Print it, stick it by your desk, or open it on your phone at checkout.",
       featured: false,
       paymentLink: "https://buy.stripe.com/5kQ9AUg7h6Cj2Ge6Nh5J601"
     },
     {
       id: "habit-tracker",
       slug: "habit-tracker",
+      image: "images/habit-tracker.png",
       name: "Habit × Money Tracker",
       tag: "Bundle · Excel + Notion",
       price: 19,
       description:
-        "Weekly habits + spending caps — reusable system pack for Excel and Notion.",
+        "Link your weekly habits to spending caps. Excel + Notion pack you can reuse every month.",
       longDescription:
-        "A dual-format pack (Excel + Notion) that links weekly habits to spending caps. Track what you do and what you spend in the same rhythm — reusable templates, not another abandoned spreadsheet.",
+        "Excel + Notion templates that link weekly habits to spending caps. Same rhythm for what you do and what you spend — reusable, not another abandoned spreadsheet.",
       featured: true,
       paymentLink: "https://buy.stripe.com/eVqaEYcV57Gn80y1sX5J602"
     },
     {
       id: "subscription-audit",
       slug: "subscription-audit",
+      image: "images/subscription-audit.png",
       name: "Subscription Audit",
       tag: "Worksheet · 1 page",
       price: 9,
       description:
-        "Annualize charges, score usage, keep / trim / cancel — one worksheet.",
+        "List every recurring charge, see the real yearly cost, and decide keep / trim / cancel in one sitting.",
       longDescription:
-        "List every recurring charge, annualize it, score real usage, then decide keep / trim / cancel. Designed to finish in one sitting and reclaim silent monthly leaks.",
+        "List every recurring charge, annualize it, score real usage, then keep / trim / cancel. Built to finish in one sitting and reclaim silent monthly leaks.",
       featured: false,
       paymentLink: "https://buy.stripe.com/8x214og7hd0H94C9Zt5J604"
     },
     {
       id: "payday-automation",
       slug: "payday-automation",
+      image: "images/payday.png",
       name: "Payday Automation",
       tag: "Worksheet · 1 page",
       price: 9,
       description:
-        "Route every paycheck on autopilot — bills, buffers, and goals before discretionary spend.",
+        "A simple payday playbook: bills, buffers, and goals first — so leftover money is actually leftover.",
       longDescription:
-        "A one-page payday playbook: split your deposit into bills, buffers, and goals before discretionary money hits your main account. Less willpower, more automatic follow-through.",
+        "One-page payday playbook: split the deposit into bills, buffers, and goals before discretionary money hits your main account. Less willpower, more autopilot.",
       featured: false,
       paymentLink: "https://buy.stripe.com/cNidRaf3d8KreoW8Vp5J606"
     },
     {
       id: "debt-snowball",
       slug: "debt-snowball",
+      image: "images/debt-snowball.png",
       name: "Debt Snowball",
       tag: "Tracker · printable",
       price: 9,
       description:
-        "List debts, pick the snowball order, and track every payment until zero.",
+        "Write down the balances, pick a snowball order, and track every payment until you hit zero.",
       longDescription:
-        "A printable debt snowball tracker: list balances, set minimums, attack the smallest first, and roll freed payments forward. Simple momentum math — no spreadsheets required.",
+        "Printable snowball tracker: list balances, set minimums, attack the smallest first, roll freed payments forward. Simple momentum math — no spreadsheet required.",
       featured: false,
       paymentLink: "https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605"
     }

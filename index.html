@@ -28,18 +28,18 @@
 
   <main>
     <section class="wrap hero">
-      <p class="eyebrow">Digital tools · faceless finance</p>
+      <p class="eyebrow">Little tools · big calm</p>
       <h1>Money rules that <em>stick</em>.</h1>
-      <p class="lede">Short, usable downloads for people who watch finance Shorts — not sit through courses. Instant delivery via Stripe.</p>
+      <p class="lede">Short downloads for people who watch finance Shorts — not sit through courses. Grab a worksheet, use it today, move on.</p>
       <div class="hero-actions">
-        <a class="btn" href="shop.html">Browse shop</a>
-        <a class="btn-ghost" href="about.html">About BlazeRidge</a>
+        <a class="btn" href="shop.html">See the tools</a>
+        <a class="btn-ghost" href="about.html">Why BlazeRidge</a>
       </div>
     </section>
 
     <section class="wrap section">
       <div class="section-head">
-        <h2>Featured tools</h2>
+        <h2>Start here</h2>
         <a class="link-back" href="shop.html">View all →</a>
       </div>
       <div class="products" id="home-products"></div>
@@ -61,6 +61,7 @@
       </nav>
     </div>
   </footer>
+  <script src="auth-config.js"></script>
   <script src="config.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
@@ -73,6 +74,9 @@
       const el = document.getElementById("home-products");
       el.innerHTML = products.map(p => `
         <article class="card${p.featured ? " featured" : ""}">
+          <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
+            <img src="${p.image}" alt="" loading="lazy" width="640" height="480" />
+          </a>
           <p class="tag">${p.tag}</p>
           <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h2>
           <p>${p.description}</p>

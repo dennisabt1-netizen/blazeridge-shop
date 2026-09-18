@@ -50,6 +50,7 @@
       </nav>
     </div>
   </footer>
+  <script src="auth-config.js"></script>
   <script src="config.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
@@ -65,8 +66,11 @@
       }
       document.title = p.name + " — BlazeRidge";
       const money = BlazeRidgeApp.money;
+      const img = p.image
+        ? `<div class="product-visual has-image"><img src="${p.image}" alt="${p.name}" width="800" height="600" /></div>`
+        : `<div class="product-visual" aria-hidden="true">${p.name.split(" ").slice(0, 2).join(" ")}</div>`;
       root.innerHTML = `
-        <div class="product-visual" aria-hidden="true">${p.name.split(" ").slice(0, 2).join(" ")}</div>
+        ${img}
         <div class="product-meta">
           <p class="tag">${p.tag}</p>
           <h1>${p.name}</h1>
@@ -76,7 +80,7 @@
             <button type="button" class="btn" data-add-cart="${p.id}">Add to cart</button>
             <a class="btn-ghost" href="${p.paymentLink}" target="_blank" rel="noopener">Buy now</a>
           </div>
-          <p class="muted" style="margin-top:1.25rem;font-size:.85rem">Secure checkout via Stripe Payment Link. Instant digital delivery after payment.</p>
+          <p class="muted" style="margin-top:1.25rem;font-size:.85rem">Secure Stripe checkout. Digital file after payment — keep your receipt email handy.</p>
         </div>
       `;
       BlazeRidgeApp.bindAddButtons(root);

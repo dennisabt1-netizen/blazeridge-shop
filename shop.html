@@ -28,9 +28,9 @@
 
   <main>
     <section class="wrap hero" style="padding-bottom:1rem">
-      <p class="eyebrow">Catalog</p>
-      <h1 class="page-title">All <em>tools</em></h1>
-      <p class="lede">Add to cart or buy instantly with Stripe Payment Links. New SKUs land here first.</p>
+      <p class="eyebrow">The shelf</p>
+      <h1 class="page-title">Pick what you need <em>today</em></h1>
+      <p class="lede">Add a few to your cart, or buy one instantly with Stripe. No memberships, no upsell maze.</p>
     </section>
     <section class="wrap">
       <div class="products" id="shop-grid"></div>
@@ -52,6 +52,7 @@
       </nav>
     </div>
   </footer>
+  <script src="auth-config.js"></script>
   <script src="config.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
@@ -63,6 +64,9 @@
       const el = document.getElementById("shop-grid");
       el.innerHTML = BLAZERIDGE_CONFIG.products.map(p => `
         <article class="card${p.featured ? " featured" : ""}">
+          <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
+            <img src="${p.image}" alt="" loading="lazy" width="640" height="480" />
+          </a>
           <p class="tag">${p.tag}</p>
           <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h2>
           <p>${p.description}</p>
