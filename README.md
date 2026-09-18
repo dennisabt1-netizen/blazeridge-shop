@@ -13,6 +13,7 @@ Dark + ember digital tools storefront. Hosted on **GitHub Pages** (free, static 
 | Product | `product.html?id=<sku>` |
 | Cart | `cart.html` |
 | Checkout | `checkout.html` |
+| Newsletter | `newsletter.html` |
 | About | `about.html` |
 | FAQ | `faq.html` |
 | Login | `login.html` |
@@ -36,11 +37,34 @@ Current Payment Links (live):
 
 ## Login
 
-Google Sign-In uses **Google Identity Services**. The public client ID lives in `auth-config.js` (and `auth-config.json`). Authorized JS origin: `https://dennisabt1-netizen.github.io`.
-
-Apple Sign-In is **not** enabled (button hidden / stub only).
+- **Google Sign-In** uses **Google Identity Services**. The public client ID lives in `auth-config.js` (and `auth-config.json`). Authorized JS origin: `https://dennisabt1-netizen.github.io`.
+- **Email / password** UI is live on `login.html`. Until Firebase keys are set, it runs in **localStorage demo mode** (accounts stay on that browser only).
+- **Magic Link** appears when Firebase is configured.
+- Apple Sign-In is **not** enabled (button hidden / stub only).
 
 Purchases work without logging in. **Do not** put Stripe secret keys (`sk_…`) in this repo. Payment Links already encode the product/price on Stripe’s side.
+
+### Keys for real email auth (optional)
+
+Set these in `config.js` (or under `firebase` in `auth-config.js`):
+
+| Key | Where |
+|-----|--------|
+| `FIREBASE_API_KEY` | Firebase project → Project settings → Web app |
+| `FIREBASE_AUTH_DOMAIN` | Usually `your-project.firebaseapp.com` |
+| `FIREBASE_PROJECT_ID` | Firebase project ID |
+
+Enable **Email/Password** (and optionally **Email link**) in Firebase Authentication → Sign-in method. Add the Pages origin to authorized domains.
+
+## Newsletter
+
+Home, footer (all pages), and `newsletter.html` share a Name + Email form (`js/newsletter.js`).
+
+| Key | Purpose |
+|-----|---------|
+| `FORMSPREE_ENDPOINT` in `config.js` | Free Formspree form URL, e.g. `https://formspree.io/f/xxxx` |
+
+If `FORMSPREE_ENDPOINT` is empty, signups are saved to `localStorage` key `blazeridge_newsletter_signups` and a mailto fallback is offered. Do not invent a fake Formspree URL — create a free form at [formspree.io](https://formspree.io) and paste the endpoint.
 
 ## Local preview
 

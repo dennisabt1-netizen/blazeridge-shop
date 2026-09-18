@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <base href="/blazeridge-shop/" />
-  <title>FAQ — BlazeRidge</title>
-  <meta name="description" content="Frequently asked questions about BlazeRidge digital tools and checkout." />
+  <title>Newsletter — BlazeRidge Brief</title>
+  <meta name="description" content="BlazeRidge Brief: short free money notes. Issue #1 — one money leak most people ignore." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -20,52 +20,58 @@
       <a href="shop.html">Shop</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
-      <a href="newsletter.html">Newsletter</a>
+      <a href="newsletter.html" class="active">Newsletter</a>
       <a href="about.html">About</a>
-      <a href="faq.html" class="active">FAQ</a>
+      <a href="faq.html">FAQ</a>
       <a class="btn-login" href="login.html">Log in</a>
     </nav>
   </header>
 
   <main>
-    <section class="wrap hero" style="padding-bottom:1rem">
-      <p class="eyebrow">FAQ</p>
-      <h1 class="page-title">Quick <em>answers</em></h1>
+    <section class="wrap hero" style="padding-bottom:1.5rem">
+      <p class="eyebrow">Free · short</p>
+      <h1 class="page-title">BlazeRidge <em>Brief</em></h1>
+      <p class="lede">One tight money note at a time. No fluff courses — just habits you can use today.</p>
     </section>
-    <section class="wrap section">
-      <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>How do I pay?</summary>
-          <div class="faq-body">Each product has a Stripe Payment Link. From Shop or Product, hit Buy / Buy now. From Cart → Checkout, pay each line item with its own link. Card payments are processed by Stripe.</div>
-        </details>
-        <details class="faq-item">
-          <summary>When do I get the file?</summary>
-          <div class="faq-body">After a successful Stripe payment, fulfillment follows your Stripe / email delivery setup (download link or attachment). Keep the receipt email.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I buy multiple products at once?</summary>
-          <div class="faq-body">Yes — add them to the cart. On checkout you’ll open one Payment Link per product (static GitHub Pages can’t run a combined Stripe Checkout Session without a backend).</div>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need an account?</summary>
-          <div class="faq-body">No account needed to buy. Optional Google Sign-In is available on the Log in page if you want a saved session. Apple Sign-In is not offered.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Refunds?</summary>
-          <div class="faq-body">Digital goods are generally final once delivered. Contact via the YouTube channel for edge cases.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is this financial advice?</summary>
-          <div class="faq-body">No. Educational tools only — not personalized financial, tax, or investment advice.</div>
-        </details>
+
+    <section class="wrap section newsletter-signup-block">
+      <div class="panel newsletter-panel">
+        <h2>Get the next issue</h2>
+        <p class="muted">Name + email. Unsubscribe anytime. We never sell your address.</p>
+        <form class="newsletter-form newsletter-form-inline" data-newsletter-form data-source="newsletter-page" novalidate>
+          <input type="text" name="name" placeholder="Name" autocomplete="name" aria-label="Name" />
+          <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email" />
+          <button type="submit" class="btn">Subscribe</button>
+          <p class="newsletter-status" data-newsletter-status hidden></p>
+          <a class="newsletter-mailto" data-newsletter-mailto hidden href="#">Open mailto instead</a>
+        </form>
       </div>
     </section>
+
+    <section class="wrap section">
+      <article class="issue panel">
+        <p class="eyebrow">BlazeRidge Brief · Issue #1</p>
+        <h1 class="issue-title">One money leak most people ignore</h1>
+        <p class="lede">Your subscriptions are quiet — until you add them up.</p>
+        <p>Hey —</p>
+        <p>Quick one from BlazeRidge.</p>
+        <p>Most people don’t have a spending problem. They have a <strong>visibility</strong> problem.</p>
+        <p>Open your bank app. Count recurring charges. Don’t cancel yet — just list them.</p>
+        <p>That’s the whole habit: see the leak before you plug it.</p>
+        <p>Want the one-pager for keep / trim / cancel?<br>
+        <a href="https://buy.stripe.com/8x214og7hd0H94C9Zt5J604">Subscription Audit (€9)</a></p>
+        <p>Everything else: <a href="shop.html">Shop</a> ·
+        YouTube <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+        <p class="signoff">— BlazeRidge<br><small>Educational only — not personalized financial advice.</small></p>
+      </article>
+    </section>
   </main>
+
   <footer class="wrap footer">
     <div class="footer-newsletter">
       <h3>BlazeRidge Brief</h3>
       <p>Short money notes — free. No spam.</p>
-      <form class="newsletter-form" data-newsletter-form data-source="footer-faq" novalidate>
+      <form class="newsletter-form" data-newsletter-form data-source="footer-newsletter" novalidate>
         <input type="text" name="name" placeholder="Name" autocomplete="name" aria-label="Name" />
         <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email" />
         <button type="submit" class="btn btn-sm">Subscribe</button>
@@ -95,6 +101,5 @@
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
   <script src="js/app.js"></script>
-
 </body>
 </html>

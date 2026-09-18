@@ -2,6 +2,7 @@
  * BlazeRidge Shop — public config (safe to commit).
  * Google Sign-In client ID lives in auth-config.js (public GIS ID only). Never put secret keys here.
  * Checkout uses Stripe Payment Links on each product (static GitHub Pages).
+ * Newsletter: set FORMSPREE_ENDPOINT for real signups. Email auth: set FIREBASE_* for real email.
  */
 window.BLAZERIDGE_CONFIG = {
   siteName: "BlazeRidge",
@@ -15,6 +16,9 @@ window.BLAZERIDGE_CONFIG = {
   FIREBASE_API_KEY: "",
   FIREBASE_AUTH_DOMAIN: "",
   FIREBASE_PROJECT_ID: "",
+
+  // Free Formspree form URL (e.g. https://formspree.io/f/xxxx). Empty = localStorage demo.
+  FORMSPREE_ENDPOINT: "",
 
   /**
    * Products — add new SKUs here; pages read from this list.
