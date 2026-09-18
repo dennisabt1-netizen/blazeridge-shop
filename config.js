@@ -9,9 +9,9 @@ window.BLAZERIDGE_CONFIG = {
   currencySymbol: "€",
   basePath: "/blazeridge-shop/",
 
-  // Optional — for future Firebase / GIS / Apple Sign In (leave empty = UI stubs only)
-  GOOGLE_CLIENT_ID: "",
-  APPLE_CLIENT_ID: "",
+  // Runtime auth-config.js supplies the public GIS client ID when configured.
+  GOOGLE_CLIENT_ID: (window.BLAZERIDGE_AUTH && window.BLAZERIDGE_AUTH.googleClientId) || "",
+  APPLE_CLIENT_ID: (window.BLAZERIDGE_AUTH && window.BLAZERIDGE_AUTH.appleClientId) || "",
   FIREBASE_API_KEY: "",
   FIREBASE_AUTH_DOMAIN: "",
   FIREBASE_PROJECT_ID: "",
