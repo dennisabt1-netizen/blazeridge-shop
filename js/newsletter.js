@@ -6,8 +6,14 @@
   const STORAGE_KEY = "blazeridge_newsletter_signups";
 
   function endpoint() {
+    const auth = global.BLAZERIDGE_AUTH || {};
     const cfg = global.BLAZERIDGE_CONFIG || {};
-    return String(cfg.FORMSPREE_ENDPOINT || "").trim();
+    return String(
+      auth.FORMSPREE_ENDPOINT ||
+      auth.formspreeEndpoint ||
+      cfg.FORMSPREE_ENDPOINT ||
+      ""
+    ).trim();
   }
 
   function saveLocal(entry) {
