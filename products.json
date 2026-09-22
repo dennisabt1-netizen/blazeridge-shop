@@ -7,7 +7,7 @@
       "price": 29,
       "currency": "EUR",
       "category": "Template",
-      "image": "",
+      "image": "images/products/notion-business-os.webp",
       "downloadFile": "downloads/notion-business-os.zip",
       "tags": ["Notion", "Template", "Business", "Produktivität"]
     },
@@ -18,7 +18,7 @@
       "price": 19,
       "currency": "EUR",
       "category": "Design-Assets",
-      "image": "",
+      "image": "images/products/canva-social-pack.webp",
       "downloadFile": "downloads/canva-social-pack.zip",
       "tags": ["Canva", "Social Media", "Design", "Templates"]
     },
@@ -29,7 +29,7 @@
       "price": 24,
       "currency": "EUR",
       "category": "AI-Prompts",
-      "image": "",
+      "image": "images/products/ai-prompt-library.webp",
       "downloadFile": "downloads/ai-prompt-library.pdf",
       "tags": ["AI", "Prompts", "Content", "Marketing"]
     },
@@ -40,7 +40,7 @@
       "price": 14,
       "currency": "EUR",
       "category": "Template",
-      "image": "",
+      "image": "images/products/resume-cover-kit.webp",
       "downloadFile": "downloads/resume-cover-kit.zip",
       "tags": ["Lebenslauf", "Bewerbung", "Template", "Karriere"]
     },
@@ -51,7 +51,7 @@
       "price": 12,
       "currency": "EUR",
       "category": "Planer",
-      "image": "",
+      "image": "images/products/digital-planner-2026.webp",
       "downloadFile": "downloads/digital-planner-2026.pdf",
       "tags": ["Planer", "GoodNotes", "PDF", "Produktivität"]
     },
@@ -62,7 +62,7 @@
       "price": 29,
       "currency": "EUR",
       "category": "Content-Templates",
-      "image": "",
+      "image": "images/products/faceless-reels-scripts.webp",
       "downloadFile": "downloads/faceless-reels-scripts.pdf",
       "tags": ["Reels", "TikTok", "Skripte", "Content"]
     },
@@ -73,7 +73,7 @@
       "price": 49,
       "currency": "EUR",
       "category": "Kurs",
-      "image": "",
+      "image": "images/products/ai-content-machine-course.webp",
       "downloadFile": "downloads/ai-content-machine-course.zip",
       "tags": ["Kurs", "AI", "Content", "Video"]
     },
@@ -84,7 +84,7 @@
       "price": 19,
       "currency": "EUR",
       "category": "Design-Assets",
-      "image": "",
+      "image": "images/products/lightroom-preset-creator.webp",
       "downloadFile": "downloads/lightroom-preset-creator.zip",
       "tags": ["Lightroom", "Presets", "Foto", "Design"]
     },
@@ -95,7 +95,7 @@
       "price": 17,
       "currency": "EUR",
       "category": "E-Book",
-      "image": "",
+      "image": "images/products/ebook-digitale-produkte-2026.webp",
       "downloadFile": "downloads/ebook-digitale-produkte-2026.pdf",
       "tags": ["E-Book", "Business", "Marketing", "Digitale Produkte"]
     },
@@ -106,7 +106,7 @@
       "price": 15,
       "currency": "EUR",
       "category": "Template",
-      "image": "",
+      "image": "images/products/marketing-dashboard-sheets.webp",
       "downloadFile": "downloads/marketing-dashboard-sheets.zip",
       "tags": ["Google Sheets", "Marketing", "Dashboard", "Template"]
     }

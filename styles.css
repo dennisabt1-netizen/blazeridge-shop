@@ -127,7 +127,7 @@ main { flex: 1; }
 }
 .card.featured { border-color: rgba(232,93,4,.5); box-shadow: 0 0 0 1px rgba(232,93,4,.14); }
 .card-media {
-  display: block; margin: 0; aspect-ratio: 4/3; overflow: hidden;
+  display: block; margin: 0; aspect-ratio: 16/9; overflow: hidden;
   background: var(--wood);
 }
 .card-media img {
@@ -216,7 +216,7 @@ main { flex: 1; }
   .product-layout { grid-template-columns: 1fr; }
 }
 .product-visual {
-  aspect-ratio: 4/3; border-radius: var(--radius);
+  aspect-ratio: 16/9; border-radius: var(--radius);
   background:
     radial-gradient(ellipse at 30% 20%, rgba(232,93,4,.25), transparent 55%),
     linear-gradient(160deg, var(--panel-2), var(--wood));
