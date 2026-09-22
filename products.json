@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": "notion-business-os",
+      "title": "Notion Business OS Template",
+      "description": "Komplettes Notion-System für Solo-Unternehmer: Projekte, Aufgaben, Finanzen, Content-Planung und Kunden-CRM in einem Dashboard.",
+      "price": 29,
+      "currency": "EUR",
+      "category": "Template",
+      "image": "images/products/notion-business-os.png",
+      "downloadFile": "downloads/notion-business-os.zip",
+      "tags": ["Notion", "Template", "Business", "Produktivitä·§t"]
+    },
+    {
+      "id": "canva-social-pack",
+      "title": "Canva Social Media Template Pack",
+      "description": "200+ bearbeitbare Canva-Vorlagen für Posts, Stories, Reels-Cover und Thumbnails. Perfekt für Creator und kleine Marken.",
+      "price": 19,
+      "currency": "EUR",
+      "category": "Design-Assets",
+      "image": "images/products/canva-social-pack.png",
+      "downloadFile": "downloads/canva-social-pack.zip",
+      "tags": ["Canva", "Social Media", "Design", "Templates"]
+    },
+    {
+      "id": "ai-prompt-library",
+      "title": "AI Prompt Library for Creators",
+      "description": "500+ hochkonvertierende Prompts für Content-Ideen, Skripte, E-Mails, Landingpages und Marketing-Strategien.",
+      "price": 24,
+      "currency": "EUR",
+      "category": "AI-Prompts",
+      "image": "images/products/ai-prompt-library.png",
+      "downloadFile": "downloads/ai-prompt-library.pdf",
+      "tags": ["AI", "Prompts", "Content", "Marketing"]
+    },
+    {
+      "id": "resume-cover-kit",
+      "title": "Ultimate Resume & Cover Letter Kit",
+      "description": "Editierbare Lebenslauf- und Anschreiben-Vorlagen (Google Docs & Canva) mit ATS-optimierten Formulierungen.",
+      "price": 14,
+      "currency": "EUR",
+      "category": "Template",
+      "image": "images/products/resume-cover-kit.png",
+      "downloadFile": "downloads/resume-cover-kit.zip",
+      "tags": ["Lebenslauf", "Bewerbung", "Template", "Karriere"]
+    },
+    {
+      "id": "digital-planner-2026",
+      "title": "Digital Planner 2026 (GoodNotes/PDF)",
+      "description": "Hyperlinkter digitaler Planer mit Tages-, Wochen- und Monatsansichten, Habit-Trackern und Zielsetzungsseiten.",
+      "price": 12,
+      "currency": "EUR",
+      "category": "Planer",
+      "image": "images/products/digital-planner-2026.png",
+      "downloadFile": "downloads/digital-planner-2026.pdf",
+      "tags": ["Planer", "GoodNotes", "PDF", "Produktivitä·§t"]
+    },
+    {
+      "id": "faceless-reels-scripts",
+      "title": "Faceless Reels Script Pack",
+      "description": "100 fertige Skripte für Shorts, Reels und TikTok im faceless Stil. Inkl. Hooks, CTAs und Struktur-Vorlagen.",
+      "price": 29,
+      "currency": "EUR",
+      "category": "Content-Templates",
+      "image": "images/products/faceless-reels-scripts.png",
+      "downloadFile": "downloads/faceless-reels-scripts.pdf",
+      "tags": ["Reels", "TikTok", "Skripte", "Content"]
+    },
+    {
+      "id": "ai-content-machine-course",
+      "title": "Mini-Kurs: AI Content Machine",
+      "description": "90-Minuten-Videokurs plus Arbeitsblä·§tter: Von der Idee zum fertigen Content-System mit AI-Tools.",
+      "price": 49,
+      "currency": "EUR",
+      "category": "Kurs",
+      "image": "images/products/ai-content-machine-course.png",
+      "downloadFile": "downloads/ai-content-machine-course.zip",
+      "tags": ["Kurs", "AI", "Content", "Video"]
+    },
+    {
+      "id": "lightroom-preset-creator",
+      "title": "Lightroom Preset Pack – Creator Edition",
+      "description": "20 professionelle Lightroom-Presets für Fotos und Reels-Thumbnails. Mobile & Desktop-kompatibel.",
+      "price": 19,
+      "currency": "EUR",
+      "category": "Design-Assets",
+      "image": "images/products/lightroom-preset-creator.png",
+      "downloadFile": "downloads/lightroom-preset-creator.zip",
+      "tags": ["Lightroom", "Presets", "Foto", "Design"]
+    },
+    {
+      "id": "ebook-digitale-produkte-2026",
+      "title": "E-Book: Digitale Produkte verkaufen 2026",
+      "description": "80 Seiten Praxis-Guide: Produktideen, Pricing, Plattformen, Marketing und Launch-Strategien für Creator.",
+      "price": 17,
+      "currency": "EUR",
+      "category": "E-Book",
+      "image": "images/products/ebook-digitale-produkte-2026.png",
+      "downloadFile": "downloads/ebook-digitale-produkte-2026.pdf",
+      "tags": ["E-Book", "Business", "Marketing", "Digitale Produkte"]
+    },
+    {
+      "id": "marketing-dashboard-sheets",
+      "title": "Marketing Dashboard Template (Google Sheets)",
+      "description": "All-in-One Dashboard für KPIs, Werbebudget, Kampagnen-Performance und Content-Planung in Google Sheets.",
+      "price": 15,
+      "currency": "EUR",
+      "category": "Template",
+      "image": "images/products/marketing-dashboard-sheets.png",
+      "downloadFile": "downloads/marketing-dashboard-sheets.zip",
+      "tags": ["Google Sheets", "Marketing", "Dashboard", "Template"]
+    }
+  ]
+}
