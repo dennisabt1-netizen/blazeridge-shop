@@ -8,6 +8,7 @@
       "currency": "EUR",
       "category": "Template",
       "image": "images/products/notion-business-os.webp",
+      "paymentLink": "https://buy.stripe.com/3cI9AU08jgcT80y4F95J609",
       "downloadFile": "downloads/notion-business-os.zip",
       "tags": ["Notion", "Template", "Business", "Produktivität"]
     },
@@ -19,6 +20,7 @@
       "currency": "EUR",
       "category": "Design-Assets",
       "image": "images/products/canva-social-pack.webp",
+      "paymentLink": "https://buy.stripe.com/28E9AU3kv3q75Sqc7B5J608",
       "downloadFile": "downloads/canva-social-pack.zip",
       "tags": ["Canva", "Social Media", "Design", "Templates"]
     },
@@ -30,6 +32,7 @@
       "currency": "EUR",
       "category": "AI-Prompts",
       "image": "images/products/ai-prompt-library.webp",
+      "paymentLink": "https://buy.stripe.com/6oU9AU7ALaSz0y6dbF5J60a",
       "downloadFile": "downloads/ai-prompt-library.pdf",
       "tags": ["AI", "Prompts", "Content", "Marketing"]
     },
@@ -41,6 +44,7 @@
       "currency": "EUR",
       "category": "Template",
       "image": "images/products/resume-cover-kit.webp",
+      "paymentLink": "https://buy.stripe.com/00w5kE9IT0dV80ydbF5J60b",
       "downloadFile": "downloads/resume-cover-kit.zip",
       "tags": ["Lebenslauf", "Bewerbung", "Template", "Karriere"]
     },
@@ -52,6 +56,7 @@
       "currency": "EUR",
       "category": "Planer",
       "image": "images/products/digital-planner-2026.webp",
+      "paymentLink": "https://buy.stripe.com/bJe4gAf3d0dVbcKefJ5J607",
       "downloadFile": "downloads/digital-planner-2026.pdf",
       "tags": ["Planer", "GoodNotes", "PDF", "Produktivität"]
     },
@@ -63,6 +68,7 @@
       "currency": "EUR",
       "category": "Content-Templates",
       "image": "images/products/faceless-reels-scripts.webp",
+      "paymentLink": "https://buy.stripe.com/bJefZi7AL9Ova8G8Vp5J60c",
       "downloadFile": "downloads/faceless-reels-scripts.pdf",
       "tags": ["Reels", "TikTok", "Skripte", "Content"]
     },
@@ -74,6 +80,7 @@
       "currency": "EUR",
       "category": "Kurs",
       "image": "images/products/ai-content-machine-course.webp",
+      "paymentLink": "https://buy.stripe.com/dRmaEYdZ9e4L5Sqb3x5J60e",
       "downloadFile": "downloads/ai-content-machine-course.zip",
       "tags": ["Kurs", "AI", "Content", "Video"]
     },
@@ -85,6 +92,7 @@
       "currency": "EUR",
       "category": "Design-Assets",
       "image": "images/products/lightroom-preset-creator.webp",
+      "paymentLink": "https://buy.stripe.com/cNi9AU3kv6Cjgx4dbF5J60d",
       "downloadFile": "downloads/lightroom-preset-creator.zip",
       "tags": ["Lightroom", "Presets", "Foto", "Design"]
     },
@@ -96,6 +104,7 @@
       "currency": "EUR",
       "category": "E-Book",
       "image": "images/products/ebook-digitale-produkte-2026.webp",
+      "paymentLink": "https://buy.stripe.com/8x27sM8EPaSz3Kib3x5J60f",
       "downloadFile": "downloads/ebook-digitale-produkte-2026.pdf",
       "tags": ["E-Book", "Business", "Marketing", "Digitale Produkte"]
     },
@@ -107,6 +116,7 @@
       "currency": "EUR",
       "category": "Template",
       "image": "images/products/marketing-dashboard-sheets.webp",
+      "paymentLink": "https://buy.stripe.com/14AeVe6wH8Kr3Ki5Jd5J60g",
       "downloadFile": "downloads/marketing-dashboard-sheets.zip",
       "tags": ["Google Sheets", "Marketing", "Dashboard", "Template"]
     }
