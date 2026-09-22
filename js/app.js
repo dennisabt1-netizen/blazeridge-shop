@@ -12,6 +12,27 @@
     return s + Number(n).toFixed(n % 1 ? 2 : 0);
   }
 
+  function escapeHtml(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#039;"
+    })[char]);
+  }
+
+  function productImage(product, className) {
+    const name = escapeHtml(product.name);
+    const initials = escapeHtml(product.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join(""));
+    if (!product.image) {
+      return `<span class="${className || "product-cover"} product-cover-fallback" role="img" aria-label="${name}">${initials}</span>`;
+    }
+    return `<img src="${escapeHtml(product.image)}" alt="${name}" loading="lazy" width="640" height="480"
+      onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+      <span class="${className || "product-cover"} product-cover-fallback" role="img" aria-label="${name}" hidden>${initials}</span>`;
+  }
+
   function productByParam() {
     const params = new URLSearchParams(global.location.search);
     const id = params.get("id") || params.get("slug");
@@ -26,6 +47,11 @@
       el.hidden = n === 0;
       el.setAttribute("aria-label", n + " items in cart");
     });
+    const shortcut = document.getElementById("cart-shortcut");
+    if (shortcut) {
+      shortcut.hidden = n === 0;
+      shortcut.querySelector("span").textContent = n + (n === 1 ? " item" : " items");
+    }
   }
 
   function toast(msg, kind) {
@@ -57,6 +83,27 @@
   }
 
   function init() {
+    document.querySelectorAll(".nav").forEach((nav) => {
+      if (!nav.querySelector('a[href="contact.html"]')) {
+        const link = document.createElement("a");
+        link.href = "contact.html";
+        link.textContent = "Contact";
+        const login = nav.querySelector(".btn-login");
+        nav.insertBefore(link, login || null);
+      }
+    });
+    document.querySelectorAll(".footer-nav").forEach((nav) => {
+      if (!nav.querySelector('a[href="friends.html"]')) {
+        nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
+      }
+      if (!nav.querySelector('a[href="contact.html"]')) {
+        nav.insertAdjacentHTML("beforeend", '<a href="contact.html">Contact</a>');
+      }
+    });
+    if (!document.getElementById("cart-shortcut")) {
+      document.body.insertAdjacentHTML("beforeend",
+        '<a id="cart-shortcut" class="cart-shortcut" href="cart.html" hidden aria-label="Open cart"><span>0 items</span><strong>View cart →</strong></a>');
+    }
     updateCartBadge();
     global.addEventListener("blazeridge:cart", updateCartBadge);
     bindAddButtons();
@@ -70,6 +117,8 @@
 
   global.BlazeRidgeApp = {
     money,
+    escapeHtml,
+    productImage,
     productByParam,
     updateCartBadge,
     toast,

@@ -32,8 +32,18 @@
       <p class="eyebrow">The shelf</p>
       <h1 class="page-title">Pick what you need <em>today</em></h1>
       <p class="lede">Add a few to your cart, or buy one instantly with Stripe. No memberships, no upsell maze.</p>
+      <div class="trust-row" aria-label="Shop benefits">
+        <span>Instant digital delivery</span><span>Secure Stripe payment</span><span>No account required</span>
+      </div>
     </section>
     <section class="wrap">
+      <div class="shop-tools" aria-label="Product filters">
+        <label class="search-field"><span class="sr-only">Search products</span>
+          <input type="search" id="product-search" placeholder="Search tools…" autocomplete="off" />
+        </label>
+        <div class="filter-chips" id="category-filters" aria-label="Filter by category"></div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+      </div>
       <div class="products" id="shop-grid"></div>
     </section>
   </main>
@@ -67,6 +77,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
@@ -74,26 +85,74 @@
 
   <script>
     (function () {
-      const money = BlazeRidgeApp.money;
       const el = document.getElementById("shop-grid");
-      el.innerHTML = BLAZERIDGE_CONFIG.products.map(p => `
-        <article class="card${p.featured ? " featured" : ""}">
-          <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
-            <img src="${p.image}" alt="" loading="lazy" width="640" height="480" />
-          </a>
-          <p class="tag">${p.tag}</p>
-          <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h2>
-          <p>${p.description}</p>
-          <div class="row">
-            <span class="price">${money(p.price)}</span>
-            <div class="card-actions">
-              <button type="button" class="btn-ghost btn-sm" data-add-cart="${p.id}">Add</button>
-              <a class="btn btn-sm" href="${p.paymentLink}" target="_blank" rel="noopener">Buy</a>
+      el.innerHTML = Array.from({ length: 6 }, () => `
+        <article class="card card-skeleton" aria-hidden="true">
+          <span class="skeleton-media"></span><span class="skeleton-line"></span>
+          <span class="skeleton-line short"></span>
+        </article>`).join("");
+
+      Promise.resolve(window.BLAZERIDGE_PRODUCTS_READY).then(() => {
+        const money = BlazeRidgeApp.money;
+        const escape = BlazeRidgeApp.escapeHtml;
+        const products = BLAZERIDGE_CONFIG.products;
+        const search = document.getElementById("product-search");
+        const filters = document.getElementById("category-filters");
+        const count = document.getElementById("result-count");
+        let activeCategory = "All";
+        const categories = ["All", ...new Set(products.map(p => p.tag))];
+        filters.innerHTML = categories.map(category =>
+          `<button type="button" class="filter-chip${category === "All" ? " active" : ""}" data-category="${escape(category)}">${escape(category)}</button>`
+        ).join("");
+
+        function render() {
+          const term = search.value.trim().toLowerCase();
+          const visible = products.filter(p => {
+            const categoryMatch = activeCategory === "All" || p.tag === activeCategory;
+            const text = `${p.name} ${p.description} ${p.tag}`.toLowerCase();
+            return categoryMatch && (!term || text.includes(term));
+          });
+          count.textContent = `${visible.length} ${visible.length === 1 ? "product" : "products"}`;
+          if (!visible.length) {
+            el.innerHTML = `<div class="empty-state panel shop-empty"><h2>No matching tools</h2><p>Try another term or reset the category filter.</p><button class="btn-ghost" type="button" id="reset-filters">Reset filters</button></div>`;
+            document.getElementById("reset-filters").addEventListener("click", () => {
+              search.value = ""; activeCategory = "All";
+              filters.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.category === "All"));
+              render();
+            });
+            return;
+          }
+          el.innerHTML = visible.map(p => `
+          <article class="card${p.featured ? " featured" : ""}">
+            <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
+              ${BlazeRidgeApp.productImage(p)}
+            </a>
+            <p class="tag">${escape(p.tag)}${p.comingSoon ? " · Coming soon" : ""}</p>
+            <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${escape(p.name)}</a></h2>
+            <p>${escape(p.description)}</p>
+            <div class="row">
+              <span class="price">${money(p.price)}</span>
+              <div class="card-actions">
+                <button type="button" class="btn-ghost btn-sm" data-add-cart="${escape(p.id)}">Add</button>
+                ${p.paymentLink
+                  ? `<a class="btn btn-sm" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy</a>`
+                  : `<span class="availability">Stripe link pending</span>`}
+              </div>
             </div>
-          </div>
-        </article>
-      `).join("");
-      BlazeRidgeApp.bindAddButtons(el);
+          </article>
+        `).join("");
+          BlazeRidgeApp.bindAddButtons(el);
+        }
+        search.addEventListener("input", render);
+        filters.addEventListener("click", event => {
+          const button = event.target.closest("[data-category]");
+          if (!button) return;
+          activeCategory = button.dataset.category;
+          filters.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === button));
+          render();
+        });
+        render();
+      });
     })();
   </script>
 

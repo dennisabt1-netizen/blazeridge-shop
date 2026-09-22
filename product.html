@@ -65,6 +65,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
@@ -72,32 +73,41 @@
 
   <script>
     (function () {
-      const p = BlazeRidgeApp.productByParam();
       const root = document.getElementById("product-root");
-      if (!p) {
-        root.innerHTML = `<div class="empty-state"><h2>Product not found</h2><p><a class="btn" href="shop.html">Browse shop</a></p></div>`;
-        return;
-      }
-      document.title = p.name + " — BlazeRidge";
-      const money = BlazeRidgeApp.money;
-      const img = p.image
-        ? `<div class="product-visual has-image"><img src="${p.image}" alt="${p.name}" width="800" height="600" /></div>`
-        : `<div class="product-visual" aria-hidden="true">${p.name.split(" ").slice(0, 2).join(" ")}</div>`;
-      root.innerHTML = `
-        ${img}
-        <div class="product-meta">
-          <p class="tag">${p.tag}</p>
-          <h1>${p.name}</h1>
-          <p class="muted">${p.longDescription || p.description}</p>
-          <span class="price">${money(p.price)}</span>
-          <div class="actions">
-            <button type="button" class="btn" data-add-cart="${p.id}">Add to cart</button>
-            <a class="btn-ghost" href="${p.paymentLink}" target="_blank" rel="noopener">Buy now</a>
+      Promise.resolve(window.BLAZERIDGE_PRODUCTS_READY).then(() => {
+        const p = BlazeRidgeApp.productByParam();
+        if (!p) {
+          root.innerHTML = `<div class="empty-state"><h2>Product not found</h2><p><a class="btn" href="shop.html">Browse shop</a></p></div>`;
+          return;
+        }
+        const escape = BlazeRidgeApp.escapeHtml;
+        document.title = p.name + " — BlazeRidge";
+        root.innerHTML = `
+          <div class="product-visual has-image">${BlazeRidgeApp.productImage(p, "product-cover")}</div>
+          <div class="product-meta">
+            <p class="tag">${escape(p.tag)}${p.comingSoon ? " · Coming soon" : ""}</p>
+            <h1>${escape(p.name)}</h1>
+            <p class="muted">${escape(p.longDescription || p.description)}</p>
+            <span class="price">${BlazeRidgeApp.money(p.price)}</span>
+            <div class="actions">
+              <button type="button" class="btn" data-add-cart="${escape(p.id)}">Add to cart</button>
+              ${p.paymentLink
+                ? `<a class="btn-ghost" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a>`
+                : `<span class="availability availability-large">Stripe checkout is being prepared</span>`}
+            </div>
+            <p class="muted purchase-note">${p.paymentLink
+              ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy."
+              : "You can save this product in your cart now. Checkout activates as soon as its Stripe Payment Link is added."}</p>
+            <ul class="product-facts" aria-label="Purchase information">
+              <li><strong>Format</strong><span>${escape(p.tag)}</span></li>
+              <li><strong>Delivery</strong><span>Digital download</span></li>
+              <li><strong>Access</strong><span>No account required</span></li>
+              <li><strong>Support</strong><span><a href="contact.html">Contact BlazeRidge</a></span></li>
+            </ul>
           </div>
-          <p class="muted" style="margin-top:1.25rem;font-size:.85rem">Secure Stripe checkout. Digital file after payment — keep your receipt email handy.</p>
-        </div>
-      `;
-      BlazeRidgeApp.bindAddButtons(root);
+        `;
+        BlazeRidgeApp.bindAddButtons(root);
+      });
     })();
   </script>
 

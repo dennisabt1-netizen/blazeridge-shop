@@ -14,6 +14,8 @@ Dark + ember digital tools storefront. Hosted on **GitHub Pages** (free, static 
 | Cart | `cart.html` |
 | Checkout | `checkout.html` |
 | Newsletter | `newsletter.html` |
+| Contact | `contact.html` |
+| Tell a friend | `friends.html` |
 | About | `about.html` |
 | FAQ | `faq.html` |
 | Login | `login.html` |

@@ -7,9 +7,9 @@
       "price": 29,
       "currency": "EUR",
       "category": "Template",
-      "image": "images/products/notion-business-os.png",
+      "image": "",
       "downloadFile": "downloads/notion-business-os.zip",
-      "tags": ["Notion", "Template", "Business", "Produktivitä·§t"]
+      "tags": ["Notion", "Template", "Business", "Produktivität"]
     },
     {
       "id": "canva-social-pack",
@@ -18,7 +18,7 @@
       "price": 19,
       "currency": "EUR",
       "category": "Design-Assets",
-      "image": "images/products/canva-social-pack.png",
+      "image": "",
       "downloadFile": "downloads/canva-social-pack.zip",
       "tags": ["Canva", "Social Media", "Design", "Templates"]
     },
@@ -29,7 +29,7 @@
       "price": 24,
       "currency": "EUR",
       "category": "AI-Prompts",
-      "image": "images/products/ai-prompt-library.png",
+      "image": "",
       "downloadFile": "downloads/ai-prompt-library.pdf",
       "tags": ["AI", "Prompts", "Content", "Marketing"]
     },
@@ -40,7 +40,7 @@
       "price": 14,
       "currency": "EUR",
       "category": "Template",
-      "image": "images/products/resume-cover-kit.png",
+      "image": "",
       "downloadFile": "downloads/resume-cover-kit.zip",
       "tags": ["Lebenslauf", "Bewerbung", "Template", "Karriere"]
     },
@@ -51,9 +51,9 @@
       "price": 12,
       "currency": "EUR",
       "category": "Planer",
-      "image": "images/products/digital-planner-2026.png",
+      "image": "",
       "downloadFile": "downloads/digital-planner-2026.pdf",
-      "tags": ["Planer", "GoodNotes", "PDF", "Produktivitä·§t"]
+      "tags": ["Planer", "GoodNotes", "PDF", "Produktivität"]
     },
     {
       "id": "faceless-reels-scripts",
@@ -62,18 +62,18 @@
       "price": 29,
       "currency": "EUR",
       "category": "Content-Templates",
-      "image": "images/products/faceless-reels-scripts.png",
+      "image": "",
       "downloadFile": "downloads/faceless-reels-scripts.pdf",
       "tags": ["Reels", "TikTok", "Skripte", "Content"]
     },
     {
       "id": "ai-content-machine-course",
       "title": "Mini-Kurs: AI Content Machine",
-      "description": "90-Minuten-Videokurs plus Arbeitsblä·§tter: Von der Idee zum fertigen Content-System mit AI-Tools.",
+      "description": "90-Minuten-Videokurs plus Arbeitsblätter: Von der Idee zum fertigen Content-System mit AI-Tools.",
       "price": 49,
       "currency": "EUR",
       "category": "Kurs",
-      "image": "images/products/ai-content-machine-course.png",
+      "image": "",
       "downloadFile": "downloads/ai-content-machine-course.zip",
       "tags": ["Kurs", "AI", "Content", "Video"]
     },
@@ -84,7 +84,7 @@
       "price": 19,
       "currency": "EUR",
       "category": "Design-Assets",
-      "image": "images/products/lightroom-preset-creator.png",
+      "image": "",
       "downloadFile": "downloads/lightroom-preset-creator.zip",
       "tags": ["Lightroom", "Presets", "Foto", "Design"]
     },
@@ -95,7 +95,7 @@
       "price": 17,
       "currency": "EUR",
       "category": "E-Book",
-      "image": "images/products/ebook-digitale-produkte-2026.png",
+      "image": "",
       "downloadFile": "downloads/ebook-digitale-produkte-2026.pdf",
       "tags": ["E-Book", "Business", "Marketing", "Digitale Produkte"]
     },
@@ -106,7 +106,7 @@
       "price": 15,
       "currency": "EUR",
       "category": "Template",
-      "image": "images/products/marketing-dashboard-sheets.png",
+      "image": "",
       "downloadFile": "downloads/marketing-dashboard-sheets.zip",
       "tags": ["Google Sheets", "Marketing", "Dashboard", "Template"]
     }

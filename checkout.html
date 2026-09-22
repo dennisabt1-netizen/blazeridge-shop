@@ -65,6 +65,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
@@ -97,7 +98,9 @@
                       ${i.qty > 1 ? " · Payment Link is per unit — open the link once per copy if you need multiples" : ""}
                     </div>
                   </div>
-                  <a class="btn" href="${i.paymentLink}" target="_blank" rel="noopener">Pay ${money(i.price)}</a>
+                  ${i.paymentLink
+                    ? `<a class="btn" href="${i.paymentLink}" target="_blank" rel="noopener">Pay ${money(i.price)}</a>`
+                    : `<span class="availability availability-large">Checkout pending</span>`}
                 </li>
               `).join("")}
             </ul>
@@ -123,7 +126,7 @@
           render();
         });
       }
-      render();
+      Promise.resolve(window.BLAZERIDGE_PRODUCTS_READY).then(render);
     })();
   </script>
 
