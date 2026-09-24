@@ -18,6 +18,7 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
+      <a href="services.html">Services</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
       <a href="newsletter.html">Newsletter</a>
@@ -54,6 +55,7 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
         <a href="cart.html">Cart</a>
         <a href="checkout.html">Checkout</a>
         <a href="newsletter.html">Newsletter</a>
@@ -81,26 +83,35 @@
           return;
         }
         const escape = BlazeRidgeApp.escapeHtml;
+        const formatPrice = BlazeRidgeApp.formatPrice;
+        const service = BlazeRidgeApp.isService(p);
         document.title = p.name + " — BlazeRidge";
+        const actions = service
+          ? `<a class="btn" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy via Stripe</a>
+              <a class="btn-ghost" href="services.html">All services</a>`
+          : `<button type="button" class="btn" data-add-cart="${escape(p.id)}">Add to cart</button>
+              ${p.paymentLink
+                ? `<a class="btn-ghost" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a>`
+                : `<span class="availability availability-large">Stripe checkout is being prepared</span>`}`;
+        const note = service
+          ? "Secure Stripe Payment Link. Services are separate from shop downloads."
+          : (p.paymentLink
+              ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy."
+              : "You can save this product in your cart now. Checkout activates as soon as its Stripe Payment Link is added.");
         root.innerHTML = `
           <div class="product-visual has-image">${BlazeRidgeApp.productImage(p, "product-cover")}</div>
           <div class="product-meta">
             <p class="tag">${escape(p.tag)}${p.comingSoon ? " · Coming soon" : ""}</p>
             <h1>${escape(p.name)}</h1>
             <p class="muted">${escape(p.longDescription || p.description)}</p>
-            <span class="price">${BlazeRidgeApp.money(p.price)}</span>
+            <span class="price">${formatPrice(p)}</span>
             <div class="actions">
-              <button type="button" class="btn" data-add-cart="${escape(p.id)}">Add to cart</button>
-              ${p.paymentLink
-                ? `<a class="btn-ghost" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a>`
-                : `<span class="availability availability-large">Stripe checkout is being prepared</span>`}
+              ${actions}
             </div>
-            <p class="muted purchase-note">${p.paymentLink
-              ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy."
-              : "You can save this product in your cart now. Checkout activates as soon as its Stripe Payment Link is added."}</p>
+            <p class="muted purchase-note">${note}</p>
             <ul class="product-facts" aria-label="Purchase information">
               <li><strong>Format</strong><span>${escape(p.tag)}</span></li>
-              <li><strong>Delivery</strong><span>Digital download</span></li>
+              <li><strong>Delivery</strong><span>${service ? "Pipeline service" : "Digital download"}</span></li>
               <li><strong>Access</strong><span>No account required</span></li>
               <li><strong>Support</strong><span><a href="contact.html">Contact BlazeRidge</a></span></li>
             </ul>

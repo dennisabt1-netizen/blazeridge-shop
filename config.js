@@ -108,6 +108,39 @@ window.BLAZERIDGE_CONFIG = {
         "Printable snowball tracker: list balances, set minimums, attack the smallest first, roll freed payments forward. Simple momentum math — no spreadsheet required.",
       featured: false,
       paymentLink: "https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605"
+    },
+    {
+      id: "pipeline-pilot",
+      slug: "pipeline-pilot",
+      name: "Pipeline Pilot",
+      tag: "Service · one-time",
+      type: "service",
+      category: "service",
+      price: 79,
+      priceLabel: "€79",
+      description:
+        "One-time setup / pilot of the BlazeRidge faceless Shorts pipeline — scripts, packaging, and production handoff.",
+      longDescription:
+        "A focused pilot of the BlazeRidge faceless Shorts pipeline: topic → script flow, packaging defaults, and a clear production handoff so you can ship Shorts without building the system from scratch. One-time setup fee via Stripe.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/14AcN64ozd0H0y68Vp5J60h"
+    },
+    {
+      id: "pipeline-seat",
+      slug: "pipeline-seat",
+      name: "Pipeline Seat",
+      tag: "Service · monthly",
+      type: "service",
+      category: "service",
+      price: 197,
+      interval: "month",
+      priceLabel: "€197/mo",
+      description:
+        "Monthly seat for ongoing access to the BlazeRidge Shorts pipeline — keep the system running with you.",
+      longDescription:
+        "Ongoing monthly seat for the BlazeRidge faceless Shorts pipeline: continued access to the pipeline flow, packaging rhythm, and production handoff as you ship. Cancel anytime via Stripe; digital shop products stay separate.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/6oUaEY5sD9Ov80y5Jd5J60i"
     }
   ]
 };

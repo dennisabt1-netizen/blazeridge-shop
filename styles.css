@@ -550,3 +550,36 @@ main { flex: 1; }
 .issue .signoff { margin-top: 1.5rem; color: var(--muted); }
 .issue .signoff small { font-size: .85rem; opacity: .85; }
 .issue .lede { color: var(--muted); }
+
+/* Services landing */
+.section-title-inline {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 .75rem;
+}
+.proof-panel { max-width: 40rem; }
+.deliverables-grid,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.deliverable-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400; font-size: 1.45rem; margin: .35rem 0 1rem;
+}
+.check-list {
+  margin: 0; padding: 0 0 0 1.1rem; color: var(--muted); font-size: .95rem;
+}
+.check-list li { margin: 0 0 .55rem; }
+.pricing-card h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400; font-size: 1.5rem; margin: .25rem 0 .5rem;
+}
+.pricing-card.featured {
+  border-color: rgba(232,93,4,.5);
+  box-shadow: 0 0 0 1px rgba(232,93,4,.14);
+}
+.price-lg { font-size: 2rem; margin: .5rem 0 .75rem; display: block; }
+.pricing-actions { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+.panel a { color: var(--ember-2); }

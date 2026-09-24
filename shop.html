@@ -18,6 +18,7 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
+      <a href="services.html">Services</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
       <a href="newsletter.html">Newsletter</a>
@@ -66,6 +67,7 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
         <a href="cart.html">Cart</a>
         <a href="checkout.html">Checkout</a>
         <a href="newsletter.html">Newsletter</a>
@@ -93,9 +95,9 @@
         </article>`).join("");
 
       Promise.resolve(window.BLAZERIDGE_PRODUCTS_READY).then(() => {
-        const money = BlazeRidgeApp.money;
+        const formatPrice = BlazeRidgeApp.formatPrice;
         const escape = BlazeRidgeApp.escapeHtml;
-        const products = BLAZERIDGE_CONFIG.products;
+        const products = BlazeRidgeApp.shopProducts();
         const search = document.getElementById("product-search");
         const filters = document.getElementById("category-filters");
         const count = document.getElementById("result-count");
@@ -131,7 +133,7 @@
             <h2><a href="product.html?id=${encodeURIComponent(p.id)}">${escape(p.name)}</a></h2>
             <p>${escape(p.description)}</p>
             <div class="row">
-              <span class="price">${money(p.price)}</span>
+              <span class="price">${formatPrice(p)}</span>
               <div class="card-actions">
                 <button type="button" class="btn-ghost btn-sm" data-add-cart="${escape(p.id)}">Add</button>
                 ${p.paymentLink

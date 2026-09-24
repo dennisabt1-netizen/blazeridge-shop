@@ -33,6 +33,23 @@
       <span class="${className || "product-cover"} product-cover-fallback" role="img" aria-label="${name}" hidden>${initials}</span>`;
   }
 
+  /** Prefer priceLabel / monthly interval when present (services). */
+  function formatPrice(p) {
+    if (p == null) return "";
+    if (typeof p === "number") return money(p);
+    if (p.priceLabel) return p.priceLabel;
+    if (p.interval === "month") return money(p.price) + "/mo";
+    return money(p.price);
+  }
+
+  function isService(p) {
+    return p && (p.type === "service" || p.category === "service");
+  }
+
+  function shopProducts() {
+    return (cfg().products || []).filter((p) => !isService(p));
+  }
+
   function productByParam() {
     const params = new URLSearchParams(global.location.search);
     const id = params.get("id") || params.get("slug");
@@ -84,6 +101,17 @@
 
   function init() {
     document.querySelectorAll(".nav").forEach((nav) => {
+      if (!nav.querySelector('a[href="services.html"]')) {
+        const link = document.createElement("a");
+        link.href = "services.html";
+        link.textContent = "Services";
+        const shop = nav.querySelector('a[href="shop.html"]');
+        if (shop && shop.nextSibling) shop.parentNode.insertBefore(link, shop.nextSibling);
+        else {
+          const login = nav.querySelector(".btn-login");
+          nav.insertBefore(link, login || null);
+        }
+      }
       if (!nav.querySelector('a[href="contact.html"]')) {
         const link = document.createElement("a");
         link.href = "contact.html";
@@ -93,6 +121,12 @@
       }
     });
     document.querySelectorAll(".footer-nav").forEach((nav) => {
+      if (!nav.querySelector('a[href="services.html"]')) {
+        const shop = nav.querySelector('a[href="shop.html"]');
+        const link = '<a href="services.html">Services</a>';
+        if (shop) shop.insertAdjacentHTML("afterend", link);
+        else nav.insertAdjacentHTML("afterbegin", link);
+      }
       if (!nav.querySelector('a[href="friends.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
       }
@@ -119,6 +153,9 @@
     money,
     escapeHtml,
     productImage,
+    formatPrice,
+    isService,
+    shopProducts,
     productByParam,
     updateCartBadge,
     toast,
