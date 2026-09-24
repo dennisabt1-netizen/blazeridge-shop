@@ -110,6 +110,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605"
     },
     {
+      id: "savings-challenge",
+      slug: "savings-challenge",
+      image: "images/savings-challenge.png",
+      name: "52-Week Savings Challenge",
+      tag: "Printable · 7 pages",
+      price: 7,
+      description:
+        "Save a small amount every week and tick the box. Classic, Half-Step, and Reverse trackers plus a pick-any grid.",
+      longDescription:
+        "A 7-page printable savings challenge: Classic (€1 → €52, €1,378 total), Half-Step (€0.50 → €26, €689 total), and Reverse trackers with running totals, a Pick-Any grid for flexible weeks, and a goal & monthly check-in page. Totals are simple arithmetic from your own deposits — no promised returns. PDF delivered by email within 24 hours.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/cNi7sM1cngcT1Ca1sX5J60j"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
