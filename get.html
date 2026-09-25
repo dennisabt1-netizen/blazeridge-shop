@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="referrer" content="no-referrer" />
+  <base href="/blazeridge-shop/" />
+  <title>Your download — BlazeRidge</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dl-card{max-width:640px;margin:2rem auto 4rem;padding:2rem;border:1px solid rgba(255,106,26,.35);border-radius:16px;background:rgba(255,255,255,.03)}
+    .dl-card h1{margin:.2rem 0 1rem}
+    .dl-status{opacity:.85;min-height:1.5em}
+    .dl-note{font-size:.85rem;opacity:.7;margin-top:1.5rem}
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="wrap header">
+    <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
+  </header>
+  <main class="wrap">
+    <section class="dl-card">
+      <p class="eyebrow">Thank you for your purchase</p>
+      <h1 class="page-title" id="dl-title">Preparing your download…</h1>
+      <p class="dl-status" id="dl-status">One moment — unlocking your file in your browser.</p>
+      <p><a class="btn" id="dl-btn" href="#" hidden>Download</a></p>
+      <p class="dl-note">Bookmark this page to download again later. Your Stripe receipt arrives by email separately.
+        Problems? Reach out via <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">@blazeridgeorigin</a> with your receipt number.</p>
+      <p class="dl-note">Educational content only — not personalized financial, tax, or investment advice. Personal use; please don’t share or resell.</p>
+    </section>
+  </main>
+  <script>
+  (async function () {
+    const q = new URLSearchParams(location.search);
+    const fid = q.get("p") || "", key = q.get("k") || "";
+    const $t = document.getElementById("dl-title"), $s = document.getElementById("dl-status"), $b = document.getElementById("dl-btn");
+    const fail = (m) => { $t.textContent = "Download link problem"; $s.textContent = m; };
+    if (!/^[0-9a-f]{32}$/.test(fid) || !key) return fail("This link is incomplete. Please use the full link from your checkout redirect.");
+    try {
+      const cat = await (await fetch("d/catalog.json", { cache: "no-cache" })).json();
+      const meta = cat[fid];
+      if (!meta) return fail("File not found for this link.");
+      $t.textContent = meta.t;
+      const b64 = key.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((key.length + 3) % 4);
+      const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+      const ck = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+      const res = await fetch("d/" + fid + ".bin", { cache: "no-cache" });
+      if (!res.ok) throw new Error("fetch");
+      const buf = new Uint8Array(await res.arrayBuffer());
+      const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: buf.slice(0, 12) }, ck, buf.slice(12));
+      const type = meta.f.endsWith(".zip") ? "application/zip" : "application/pdf";
+      const url = URL.createObjectURL(new Blob([plain], { type }));
+      $b.href = url; $b.download = meta.f; $b.textContent = "Download " + meta.f; $b.hidden = false;
+      $s.textContent = "Your file is ready. Click the button to save it.";
+    } catch (e) {
+      fail("We couldn’t unlock this file (the link may be incomplete or mistyped).");
+    }
+  })();
+  </script>
+</body>
+</html>

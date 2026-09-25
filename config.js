@@ -119,7 +119,7 @@ window.BLAZERIDGE_CONFIG = {
       description:
         "Save a small amount every week and tick the box. Classic, Half-Step, and Reverse trackers plus a pick-any grid.",
       longDescription:
-        "A 7-page printable savings challenge: Classic (€1 → €52, €1,378 total), Half-Step (€0.50 → €26, €689 total), and Reverse trackers with running totals, a Pick-Any grid for flexible weeks, and a goal & monthly check-in page. Totals are simple arithmetic from your own deposits — no promised returns. PDF delivered by email within 24 hours.",
+        "A 7-page printable savings challenge: Classic (€1 → €52, €1,378 total), Half-Step (€0.50 → €26, €689 total), and Reverse trackers with running totals, a Pick-Any grid for flexible weeks, and a goal & monthly check-in page. Totals are simple arithmetic from your own deposits — no promised returns. Instant download after payment.",
       featured: false,
       paymentLink: "https://buy.stripe.com/cNi7sM1cngcT1Ca1sX5J60j"
     },
