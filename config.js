@@ -124,6 +124,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/cNi7sM1cngcT1Ca1sX5J60j"
     },
     {
+      id: "geld-entscheidungs-kit",
+      slug: "geld-entscheidungs-kit",
+      image: "images/geld-entscheidungs-kit.png",
+      name: "Das Geld-Entscheidungs-Kit: 3 Regeln gegen teure Denkfehler",
+      tag: "PDF · 12 Seiten · Deutsch",
+      price: 9,
+      description:
+        "Fünf Denkfehler rund ums Geld verständlich erklärt, drei kurze Regeln für den Moment der Entscheidung: Warten. Drei Fakten. Ein Budget.",
+      longDescription:
+        "12-seitiges PDF-Kit (Deutsch): Verlustangst, Sofort-Impuls, FOMO, Spielgeld-Denken und die Informations-Falle – jeweils mit Alltagsbeispiel und 3-Minuten-Übung. Dazu die 3 Regeln auf einen Blick, ausfüllbare Arbeitsblätter (Entscheidungs-Check, Denkfehler-Logbuch) und ein 30-Tage-Tracker. Bildungsinhalt, keine Finanzberatung. Sofort-Download nach der Zahlung.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/8x2dRag7h4ub80ygnR5J60k"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
