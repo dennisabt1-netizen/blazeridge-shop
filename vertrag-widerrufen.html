@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/blazeridge-shop/" />
+  <title>Vertrag widerrufen — BlazeRidge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header class="wrap header">
+    <a class="logo" href="index.html">Blaze<span>Ridge</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+  </header>
+  <main>
+    <section class="wrap section prose legal">
+<p class="eyebrow">Widerrufsfunktion nach § 356a BGB</p>
+<h1 class="page-title">Vertrag widerrufen</h1>
+<p>Hier können Sie einen bei BlazeRidge online geschlossenen Vertrag widerrufen, solange Ihnen ein Widerrufsrecht zusteht. Einzelheiten, auch zum vorzeitigen Erlöschen bei Sofort-Downloads, stehen in der <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>. Sie können den Widerruf auch formlos per E-Mail an <a href="mailto:Einkaufnow@outlook.de">Einkaufnow@outlook.de</a> erklären.</p>
+<p><button class="btn btn-withdraw" type="button" id="wd-start">Vertrag widerrufen</button></p>
+
+<form class="panel contact-form" id="wd-form" hidden novalidate>
+  <input type="hidden" name="_subject" value="Widerruf (Online-Widerrufsfunktion § 356a BGB)" />
+  <input type="hidden" name="form_type" value="widerruf" />
+  <label>Ihr Name *<input type="text" name="name" autocomplete="name" required /></label>
+  <label>E-Mail-Adresse für die Eingangsbestätigung *<input type="email" name="email" autocomplete="email" required /></label>
+  <label>Beleg- oder Rechnungsnummer (aus der Stripe-E-Mail) *<input type="text" name="beleg" required /></label>
+  <label>Produkt<input type="text" name="produkt" /></label>
+  <label>Kaufdatum<input type="date" name="kaufdatum" /></label>
+  <label>Nachricht (optional)<textarea name="nachricht" rows="3"></textarea></label>
+  <p class="muted">Mit „Weiter“ sehen Sie Ihre Angaben noch einmal, bevor Sie den Widerruf bestätigen.</p>
+  <button class="btn" type="submit" id="wd-next">Weiter</button>
+</form>
+
+<div class="panel" id="wd-review" hidden>
+  <h2>Ihre Widerrufserklärung</h2>
+  <p class="withdraw-review" id="wd-summary"></p>
+  <p><button class="btn" type="button" id="wd-confirm">Widerruf bestätigen</button>
+     <button class="btn-ghost" type="button" id="wd-back">Angaben ändern</button></p>
+  <p class="form-status" id="wd-status" hidden aria-live="polite"></p>
+</div>
+
+<div class="legal-box" id="wd-done" hidden>
+  <h2>Widerruf übermittelt</h2>
+  <p id="wd-done-text"></p>
+  <p>Eine Eingangsbestätigung mit Inhalt, Datum und Uhrzeit Ihres Widerrufs senden wir Ihnen unverzüglich an die angegebene E-Mail-Adresse.</p>
+  <p><button class="btn-ghost" type="button" id="wd-save">Quittung speichern (.txt)</button></p>
+</div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <div class="footer-grid">
+      <div>
+        <p>Bildungsinhalte – keine Anlage-, Finanz-, Steuer- oder Rechtsberatung.</p>
+        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+      </div>
+    <nav class="footer-legal" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a class="footer-withdraw" href="vertrag-widerrufen.html">Vertrag widerrufen</a>
+    </nav>
+    </div>
+  </footer>
+  <script src="auth-config.js"></script>
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var form = $("wd-form"), review = $("wd-review"), done = $("wd-done"), receipt = "";
+    function endpoint() { var a = window.BLAZERIDGE_AUTH || {}; return String(a.FORMSPREE_ENDPOINT || a.formspreeEndpoint || "").trim(); }
+    function summary(fd) {
+      return "Hiermit widerrufe ich den folgenden Vertrag.\n" +
+        "Name: " + fd.get("name") + "\nE-Mail: " + fd.get("email") + "\nBeleg-/Rechnungsnr.: " + fd.get("beleg") +
+        "\nProdukt: " + (fd.get("produkt") || "-") + "\nKaufdatum: " + (fd.get("kaufdatum") || "-") +
+        (fd.get("nachricht") ? "\nNachricht: " + fd.get("nachricht") : "");
+    }
+    $("wd-start").addEventListener("click", function () { form.hidden = false; form.querySelector("input[name=name]").focus(); });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      if (!fd.get("name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email") || "") || !fd.get("beleg")) {
+        alert("Bitte Name, gültige E-Mail-Adresse und Beleg-/Rechnungsnummer angeben."); return;
+      }
+      $("wd-summary").textContent = summary(fd); form.hidden = true; review.hidden = false;
+    });
+    $("wd-back").addEventListener("click", function () { review.hidden = true; form.hidden = false; });
+    $("wd-confirm").addEventListener("click", async function () {
+      var fd = new FormData(form), ts = new Date(), st = $("wd-status");
+      var stamp = ts.toLocaleString("de-DE", { timeZone: "Europe/Berlin" }) + " Uhr (Europe/Berlin)";
+      fd.append("abgesendet_am", ts.toISOString());
+      this.disabled = true; st.hidden = false; st.textContent = "Wird übermittelt …";
+      try {
+        if (!endpoint()) throw new Error("no endpoint");
+        var r = await fetch(endpoint(), { method: "POST", headers: { Accept: "application/json" }, body: fd });
+        if (!r.ok) throw new Error("send failed");
+        receipt = "Widerruf übermittelt am " + stamp + "\n\n" + summary(fd) + "\n\nEmpfänger: Dennis Abate, BlazeRidge, Einkaufnow@outlook.de";
+        $("wd-done-text").textContent = "Übermittelt am " + stamp + ".";
+        review.hidden = true; done.hidden = false;
+      } catch (err) {
+        this.disabled = false;
+        var body = encodeURIComponent(summary(fd));
+        st.innerHTML = 'Die Übermittlung hat nicht geklappt. Bitte senden Sie den Widerruf per E-Mail: ' +
+          '<a href="mailto:Einkaufnow@outlook.de?subject=' + encodeURIComponent("Widerruf") + '&body=' + body + '">E-Mail öffnen</a>';
+      }
+    });
+    $("wd-save").addEventListener("click", function () {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([receipt], { type: "text/plain;charset=utf-8" }));
+      a.download = "BlazeRidge_Widerruf_Quittung.txt"; a.click();
+    });
+  })();
+  </script>
+</body>
+</html>

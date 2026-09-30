@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="referrer" content="no-referrer" />
   <base href="/blazeridge-shop/" />
-  <title>Your download — BlazeRidge</title>
+  <title>Dein Download — BlazeRidge</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .dl-card{max-width:640px;margin:2rem auto 4rem;padding:2rem;border:1px solid rgba(255,106,26,.35);border-radius:16px;background:rgba(255,255,255,.03)}
+    .dl-card{max-width:680px;margin:2rem auto 3rem;padding:2rem;border:1px solid rgba(255,106,26,.35);border-radius:16px;background:rgba(255,255,255,.03)}
     .dl-card h1{margin:.2rem 0 1rem}
     .dl-status{opacity:.85;min-height:1.5em}
-    .dl-note{font-size:.85rem;opacity:.7;margin-top:1.5rem}
+    .dl-note{font-size:.85rem;opacity:.75;margin-top:1.2rem}
+    .dl-confirm{font-size:.88rem;border-left:3px solid var(--ember-2);padding:.6rem .9rem;margin:1rem 0;background:rgba(255,255,255,.03)}
+    .dl-confirm p{margin:0 0 .5rem}
+    .dl-card a{color:var(--ember-2)}
+    [hidden]{display:none !important}
   </style>
 </head>
 <body>
@@ -22,27 +26,58 @@
   </header>
   <main class="wrap">
     <section class="dl-card">
-      <p class="eyebrow">Thank you for your purchase</p>
-      <h1 class="page-title" id="dl-title">Preparing your download…</h1>
-      <p class="dl-status" id="dl-status">One moment — unlocking your file in your browser.</p>
+      <p class="eyebrow">Danke für deinen Kauf · Thank you for your purchase</p>
+      <h1 class="page-title" id="dl-title">Download wird vorbereitet …</h1>
+      <p class="dl-status" id="dl-status">Einen Moment – die Datei wird in deinem Browser entschlüsselt. / Unlocking your file…</p>
+
+      <div class="dl-confirm" id="dl-confirm">
+        <p><strong>Vertragsbestätigung:</strong> Du hast vor dem Kauf ausdrücklich zugestimmt, dass wir vor Ablauf der Widerrufsfrist mit der Bereitstellung des digitalen Inhalts beginnen, und bestätigt, dass du dadurch mit Beginn der Bereitstellung dein Widerrufsrecht verlierst (§ 356 Abs. 6 Nr. 2 BGB). Diese Bestätigung erhältst du zusätzlich mit deiner Rechnung per E-Mail.</p>
+        <p lang="en"><em>Confirmation: before purchase you expressly agreed that provision of the digital content begins before the withdrawal period ends and acknowledged that you thereby lose your right of withdrawal. You also receive this confirmation with your invoice by email.</em></p>
+        <p>Anbieter: Dennis Abate, BlazeRidge, Blumenstr., 89168 Niederstotzingen, Einkaufnow@outlook.de · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. · <a href="agb.html">AGB</a> · <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a></p>
+        <p><button class="btn-ghost btn-sm" type="button" id="dl-save-confirm">Bestätigung speichern (.txt)</button></p>
+      </div>
+
       <p><a class="btn" id="dl-btn" href="#" hidden>Download</a></p>
-      <p class="dl-note">Bookmark this page to download again later. Your Stripe receipt arrives by email separately.
-        Problems? Reach out via <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">@blazeridgeorigin</a> with your receipt number.</p>
-      <p class="dl-note">Educational content only — not personalized financial, tax, or investment advice. Personal use; please don’t share or resell.</p>
+      <p class="dl-note">Setz dir ein Lesezeichen für diese Seite, um die Datei später erneut zu laden. / Bookmark this page to download again later.
+        Probleme? Schreib an <a href="mailto:Einkaufnow@outlook.de">Einkaufnow@outlook.de</a> mit deiner Belegnummer. / Problems? Email us with your receipt number.</p>
+      <p class="dl-note">Bildungsinhalt – keine Anlage-, Finanz-, Steuer- oder Rechtsberatung. Nur für den persönlichen Gebrauch; bitte nicht weitergeben oder weiterverkaufen. / Educational content only; personal use.</p>
     </section>
   </main>
+  <footer class="wrap footer">
+    <div class="footer-grid">
+    <nav class="footer-legal" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a class="footer-withdraw" href="vertrag-widerrufen.html">Vertrag widerrufen</a>
+    </nav>
+    </div>
+  </footer>
   <script>
   (async function () {
     const q = new URLSearchParams(location.search);
-    const fid = q.get("p") || "", key = q.get("k") || "";
+    const fid = q.get("p") || "", key = q.get("k") || "", sid = q.get("session_id") || "";
     const $t = document.getElementById("dl-title"), $s = document.getElementById("dl-status"), $b = document.getElementById("dl-btn");
-    const fail = (m) => { $t.textContent = "Download link problem"; $s.textContent = m; };
-    if (!/^[0-9a-f]{32}$/.test(fid) || !key) return fail("This link is incomplete. Please use the full link from your checkout redirect.");
+    let title = "";
+    document.getElementById("dl-save-confirm").addEventListener("click", function () {
+      const txt = "BlazeRidge – Vertragsbestätigung (Kopie von der Download-Seite)\n" +
+        "Produkt: " + (title || "digitaler Inhalt") + "\nStripe-Checkout-Session: " + (sid || "-") +
+        "\nAufgerufen am: " + new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" }) + " Uhr\n\n" +
+        document.getElementById("dl-confirm").innerText.replace("Bestätigung speichern (.txt)", "").trim() +
+        "\n\nAGB: https://dennisabt1-netizen.github.io/blazeridge-shop/agb.html\n" +
+        "Widerrufsbelehrung: https://dennisabt1-netizen.github.io/blazeridge-shop/widerrufsbelehrung.html\n";
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
+      a.download = "BlazeRidge_Vertragsbestaetigung.txt"; a.click();
+    });
+    const fail = (m) => { $t.textContent = "Problem mit dem Download-Link"; $s.textContent = m; };
+    if (!/^[0-9a-f]{32}$/.test(fid) || !key) return fail("Dieser Link ist unvollständig. Bitte nutze den vollständigen Link aus der Weiterleitung nach dem Kauf. / This link is incomplete.");
     try {
       const cat = await (await fetch("d/catalog.json", { cache: "no-cache" })).json();
       const meta = cat[fid];
-      if (!meta) return fail("File not found for this link.");
-      $t.textContent = meta.t;
+      if (!meta) return fail("Zu diesem Link wurde keine Datei gefunden. / File not found for this link.");
+      title = meta.t; $t.textContent = meta.t;
       const b64 = key.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((key.length + 3) % 4);
       const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
       const ck = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
@@ -53,9 +88,9 @@
       const type = meta.f.endsWith(".zip") ? "application/zip" : "application/pdf";
       const url = URL.createObjectURL(new Blob([plain], { type }));
       $b.href = url; $b.download = meta.f; $b.textContent = "Download " + meta.f; $b.hidden = false;
-      $s.textContent = "Your file is ready. Click the button to save it.";
+      $s.textContent = "Deine Datei ist bereit. Klick auf den Button, um sie zu speichern. / Your file is ready.";
     } catch (e) {
-      fail("We couldn’t unlock this file (the link may be incomplete or mistyped).");
+      fail("Die Datei konnte nicht entschlüsselt werden (der Link ist evtl. unvollständig). / We couldn’t unlock this file.");
     }
   })();
   </script>

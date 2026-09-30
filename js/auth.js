@@ -461,7 +461,8 @@
   global.BlazeRidgeAuth = Auth;
 
   function boot() {
-    if (hasGoogle()) initGoogle();
+    // Google Identity Services nur auf der Login-Seite laden (Datenschutz, pending-legal 2026-09-25)
+    if (hasGoogle() && document.getElementById("google-signin-button")) initGoogle();
     bindEmailForm();
     updateLoginUi();
     completeMagicLinkIfPresent();
