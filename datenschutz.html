@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
   <title>Datenschutz — BlazeRidge</title>
   <link rel="stylesheet" href="styles.css" />
@@ -16,6 +18,7 @@
       <a href="shop.html">Shop</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Kontakt</a>
+      <a class="nav-youtube" href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">YouTube</a>
     </nav>
   </header>
   <main>
@@ -42,7 +45,7 @@
 <h2>8. Speicherung im Browser (localStorage)</h2>
 <p>Für den Warenkorb speichert diese Website Angaben zu ausgewählten Produkten im lokalen Speicher Ihres Browsers (localStorage). Diese Daten verlassen Ihr Gerät nicht. Das ist für die von Ihnen gewünschte Warenkorb-Funktion unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). Sie können die Daten jederzeit über Ihre Browsereinstellungen löschen.</p>
 <h2>9. Anmeldung mit Google (optional)</h2>
-<p>Auf der Login-Seite können Sie sich optional mit Google anmelden (Google Identity Services). Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Das Google-Skript wird erst geladen, wenn Sie die Login-Seite aufrufen bzw. die Anmeldung nutzen; auf den übrigen Seiten findet keine Verbindung zu Google statt. Rechtsgrundlage ist Ihre Einwilligung bzw. die Durchführung der von Ihnen gewünschten Anmeldung (Art. 6 Abs. 1 lit. a bzw. b DSGVO, § 25 TDDDG). Verarbeitet werden Name, E-Mail-Adresse und Profilbild aus Ihrem Google-Konto; sie werden nur lokal in Ihrem Browser gespeichert. Käufe sind ohne Anmeldung möglich.</p>
+<p>Auf der Login-Seite können Sie sich optional mit Google anmelden (Google Identity Services). Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Das Google-Skript wird erst geladen, wenn Sie die Login-Seite aufrufen bzw. die Anmeldung nutzen; auf den übrigen Seiten findet keine Verbindung zu Google statt. Rechtsgrundlage ist Ihre Einwilligung bzw. die Durchführung der von Ihnen gewünschten Anmeldung (Art. 6 Abs. 1 lit. a bzw. b DSGVO, § 25 TDDDG). Bevor eine Sitzung gespeichert wird, prüft die Seite das Google-ID-Token bei Google (oauth2.googleapis.com/tokeninfo) und übernimmt Name, E-Mail-Adresse und Profilbild nur bei gültigem, bestätigtem Token. Diese Angaben bleiben nur lokal in Ihrem Browser. Passwörter speichern wir im Browser nicht. Käufe sind ohne Anmeldung möglich.</p>
 <h2>10. Links zu YouTube</h2>
 <p>Unsere Seiten verlinken auf unseren YouTube-Kanal. Erst wenn Sie einen Link anklicken, werden Daten an YouTube (Google Ireland Limited) übertragen. Eingebettete Videos verwenden wir nicht.</p>
 <h2>11. Speicherdauer</h2>

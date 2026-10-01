@@ -22,14 +22,16 @@
   if (shareButton) {
     shareButton.addEventListener("click", async () => {
       if (!navigator.share) {
-        copyButton.click();
+        if (copyButton) copyButton.click();
+        else show(url);
         return;
       }
       try {
         await navigator.share(payload);
         show("Thanks for sharing BlazeRidge.");
       } catch (error) {
-        if (error.name !== "AbortError") show("Sharing was cancelled. You can copy the link instead.");
+        if (error && error.name === "AbortError") return;
+        show("Sharing didn’t finish. You can copy the link instead.");
       }
     });
   }
