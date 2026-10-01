@@ -609,6 +609,9 @@ main { flex: 1; }
 .price-lg { font-size: 2rem; margin: .5rem 0 .75rem; display: block; }
 .pricing-actions { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .6rem; }
 .panel a { color: var(--ember-2); }
+.panel a.btn { color: #1a0f08; }
+.panel a.btn-ghost { color: var(--text); }
+.panel a.btn-ghost:hover { color: var(--ember-2); }
 
 /* === Rechtliches (pending-legal 2026-09-25) === */
 [hidden] { display: none !important; }
