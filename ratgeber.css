@@ -1,0 +1,47 @@
+/* Ratgeber-/Vorlagen-Seiten (Umzug, Bewerbung, Haushaltsbuch). Nutzt Variablen aus styles.css. */
+.sheet { color: var(--text); }
+.sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.sheet-head h2 { margin: 0; }
+.sheet h3 { font-size: 1rem; margin: 1.25rem 0 .4rem; color: var(--ember-2); }
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li { padding: .3rem 0; border-bottom: 1px dashed var(--line); }
+.checklist label { display: flex; gap: .65rem; align-items: flex-start; cursor: pointer; }
+.checklist input[type="checkbox"] { margin-top: .3rem; width: 1.05rem; height: 1.05rem; accent-color: var(--ember); flex: none; }
+.sheet-meta { margin: .5rem 0 1rem; }
+.sheet-meta .line { display: inline-block; min-width: 9rem; border-bottom: 1px solid var(--muted); margin: 0 1rem 0 .3rem; }
+.sheet-meta .line.short { min-width: 4rem; }
+.sheet-note { color: var(--muted); font-size: .85rem; margin: .75rem 0 0; }
+.hh-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.hh-table th, .hh-table td { border: 1px solid var(--line); padding: .45rem .6rem; text-align: left; }
+.hh-table thead th { background: rgba(232,93,4,.12); }
+.hh-table td { min-width: 6rem; height: 2rem; }
+.hh-table tr.grp th { background: rgba(255,255,255,.04); color: var(--ember-2); font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
+.hh-table tfoot th, .hh-table tfoot td { font-weight: 700; border-top: 2px solid var(--muted); }
+.cta-box { border-color: rgba(232,93,4,.35); }
+.ad-label { display: inline-block; margin: 0 0 .5rem; padding: .15rem .6rem; border: 1px solid var(--ember); border-radius: 999px; color: var(--ember-2); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+.cta-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin: 1rem 0; }
+.small { font-size: .85rem; }
+.calc { display: flex; gap: 1rem; flex-wrap: wrap; align-items: end; margin: .75rem 0; }
+.calc label { display: flex; flex-direction: column; gap: .3rem; font-size: .9rem; color: var(--muted); }
+.calc input, .calc select { background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: .55rem .7rem; font: inherit; }
+.calc-out { font-weight: 600; min-height: 1.6em; }
+.ratgeber-intro, .prose.ratgeber-intro { max-width: 46rem; }
+@media print {
+  @page { margin: 14mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body { display: block; min-height: 0; }
+  .glow, .no-print, .header, .footer, .toast { display: none !important; }
+  .wrap { max-width: none; padding: 0; }
+  .section { padding: 0; }
+  .panel.sheet { background: #fff; border: none; padding: 0; color: #000; }
+  .sheet h2, .sheet h3 { color: #000; }
+  .sheet h3 { margin-top: .9rem; }
+  .sheet { font-size: 10.5pt; line-height: 1.4; }
+  .checklist li { border-bottom: 1px dotted #999; padding: .15rem 0; }
+  .checklist input[type="checkbox"] { accent-color: #000; }
+  .hh-table th, .hh-table td { border-color: #000; color: #000; background: #fff !important; }
+  .hh-table tr.grp th { background: #eee !important; color: #000; }
+  .sheet-meta .line { border-bottom-color: #000; }
+  .sheet-note { color: #333; }
+  .sheet::after { content: "Kostenlose Vorlage von BlazeRidge – dennisabt1-netizen.github.io/blazeridge-shop"; display: block; margin-top: 1rem; font-size: .75rem; color: #555; }
+}
