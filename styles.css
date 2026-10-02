@@ -596,3 +596,11 @@ main { flex: 1; }
 .legal-box p { margin: 0 0 .6rem; }
 .btn-withdraw { font-size: 1.05rem; }
 .withdraw-review { white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: .85rem; }
+
+/* --- conversion / cross-link blocks --- */
+.cta-strip { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.cta-strip h2, .cta-strip h3 { font-family: Instrument Serif, Georgia, serif; font-weight:400; margin:0 0 .35rem; font-size:1.5rem; }
+.cta-strip p { margin:0; max-width:36rem; }
+.upsell-links { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.9rem; }
+.footer-cta { margin:0 0 1.25rem; padding:.9rem 1rem; border:1px solid var(--line); border-radius:12px; display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; justify-content:space-between; }
+.footer-cta p { margin:0; }
