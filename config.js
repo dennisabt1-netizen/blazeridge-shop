@@ -44,12 +44,12 @@ window.BLAZERIDGE_CONFIG = {
       slug: "bias-checklist",
       image: "images/bias-checklist.png",
       name: "Buyer’s Bias Checklist",
-      tag: "Checklist · 1 page",
+      tag: "Checklist · 4 pages · 12 biases",
       price: 9,
       description:
-        "A one-page gut-check before you hit buy. Catch the sneaky biases that empty wallets.",
+        "A 4-page gut-check before you hit buy. 12 cognitive traps that empty wallets, each with a quick check and a fix.",
       longDescription:
-        "One page that surfaces scarcity, sunk cost, social proof, and anchoring right before you buy. Print it, stick it by your desk, or open it on your phone at checkout.",
+        "Four pages covering 12 cognitive traps — including anchoring, scarcity panic, sunk cost, and social proof — each with a trap description, a check question, and a fix to apply right before you buy. Print it, stick it by your desk, or open it on your phone at checkout.",
       featured: false,
       paymentLink: "https://buy.stripe.com/5kQ9AUg7h6Cj2Ge6Nh5J601"
     },
