@@ -9,17 +9,17 @@
 
   function money(n) {
     const s = cfg().currencySymbol || "€";
-    return s + Number(n).toFixed(n % 1 ? 2 : 0);
+    const amount = global.BlazeRidgeSafe ? global.BlazeRidgeSafe.moneyAmount(n) : Number(n) || 0;
+    return s + amount.toFixed(amount % 1 ? 2 : 0);
   }
 
   function escapeHtml(value) {
-    return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      "\"": "&quot;",
-      "'": "&#039;"
-    })[char]);
+    if (global.BlazeRidgeSafe) return global.BlazeRidgeSafe.escapeHtml(value);
+    return String(value == null ? "" : value);
+  }
+
+  function safePaymentUrl(value) {
+    return global.BlazeRidgeSafe ? global.BlazeRidgeSafe.safePaymentUrl(value) : "";
   }
 
   function productImage(product, className) {
@@ -53,7 +53,7 @@
   function productByParam() {
     const params = new URLSearchParams(global.location.search);
     const id = params.get("id") || params.get("slug");
-    if (!id) return cfg().products[0] || null;
+    if (!id) return null;
     return (cfg().products || []).find((p) => p.id === id || p.slug === id) || null;
   }
 
@@ -99,8 +99,38 @@
     });
   }
 
+  const YOUTUBE = "https://www.youtube.com/@blazeridgeorigin";
+
+  function ensureLink(parent, href, text, before) {
+    if (parent.querySelector('a[href="' + href + '"]')) return;
+    const link = document.createElement("a");
+    link.href = href;
+    link.textContent = text;
+    parent.insertBefore(link, before || null);
+  }
+
   function init() {
+    document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+      const rel = new Set((link.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
+      rel.add("noopener");
+      rel.add("noreferrer");
+      link.setAttribute("rel", Array.from(rel).join(" "));
+    });
     document.querySelectorAll(".nav").forEach((nav) => {
+      const cartLinks = Array.from(nav.querySelectorAll('a[href="cart.html"]'));
+      if (cartLinks.length > 1) {
+        const primary = cartLinks.find((link) => !link.classList.contains("cart-link")) || cartLinks[0];
+        cartLinks.forEach((link) => {
+          if (link === primary) return;
+          const badge = link.querySelector("[data-cart-count]");
+          if (badge && !primary.querySelector("[data-cart-count]")) {
+            primary.classList.add("cart-link");
+            primary.appendChild(document.createTextNode(" "));
+            primary.appendChild(badge);
+          }
+          link.remove();
+        });
+      }
       if (!nav.querySelector('a[href="services.html"]')) {
         const link = document.createElement("a");
         link.href = "services.html";
@@ -112,10 +142,23 @@
           nav.insertBefore(link, login || null);
         }
       }
+      if (!nav.querySelector('a[href="stack.html"]')) {
+        ensureLink(nav, "stack.html", "Stack", nav.querySelector('a[href="services.html"]'));
+      }
       if (!nav.querySelector('a[href="contact.html"]')) {
         const link = document.createElement("a");
         link.href = "contact.html";
         link.textContent = "Contact";
+        const login = nav.querySelector(".btn-login");
+        nav.insertBefore(link, login || null);
+      }
+      if (!nav.querySelector('a[href="' + YOUTUBE + '"]')) {
+        const link = document.createElement("a");
+        link.href = YOUTUBE;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "nav-youtube";
+        link.textContent = "YouTube";
         const login = nav.querySelector(".btn-login");
         nav.insertBefore(link, login || null);
       }
@@ -130,9 +173,27 @@
       if (!nav.querySelector('a[href="friends.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
       }
+      if (!nav.querySelector('a[href="stack.html"]')) {
+        nav.insertAdjacentHTML("beforeend", '<a href="stack.html">Stack</a>');
+      }
       if (!nav.querySelector('a[href="contact.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="contact.html">Contact</a>');
       }
+      if (!nav.querySelector('a[href="' + YOUTUBE + '"]')) {
+        nav.insertAdjacentHTML("beforeend", '<a href="' + YOUTUBE + '" target="_blank" rel="noopener noreferrer">YouTube</a>');
+      }
+    });
+    document.querySelectorAll(".footer").forEach((footer) => {
+      if (footer.querySelector('a[href="' + YOUTUBE + '"]')) return;
+      const slot = footer.querySelector(".footer-grid p, p");
+      if (!slot) return;
+      slot.appendChild(document.createTextNode(" · "));
+      const link = document.createElement("a");
+      link.href = YOUTUBE;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "@blazeridgeorigin";
+      slot.appendChild(link);
     });
     if (!document.getElementById("cart-shortcut")) {
       document.body.insertAdjacentHTML("beforeend",
@@ -152,6 +213,7 @@
   global.BlazeRidgeApp = {
     money,
     escapeHtml,
+    safePaymentUrl,
     productImage,
     formatPrice,
     isService,

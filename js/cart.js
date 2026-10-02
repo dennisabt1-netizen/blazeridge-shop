@@ -4,10 +4,19 @@
 (function (global) {
   const KEY = "blazeridge_cart_v1";
 
+  const MAX_QTY = 20;
+
   function read() {
     try {
       const raw = localStorage.getItem(KEY);
-      return raw ? JSON.parse(raw) : [];
+      const parsed = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter((item) => item && typeof item.id === "string")
+        .map((item) => ({
+          id: item.id,
+          qty: Math.min(MAX_QTY, Math.max(1, parseInt(item.qty, 10) || 1))
+        }));
     } catch {
       return [];
     }
@@ -29,34 +38,36 @@
     },
 
     count() {
-      return read().reduce((n, i) => n + (i.qty || 0), 0);
+      return this.enriched().reduce((n, i) => n + (i.qty || 0), 0);
     },
 
     subtotal() {
-      return read().reduce((sum, i) => {
-        const p = getProduct(i.id);
-        return sum + (p ? p.price * i.qty : 0);
-      }, 0);
+      return this.enriched().reduce((sum, i) => sum + i.lineTotal, 0);
     },
 
     add(id, qty) {
-      qty = Math.max(1, parseInt(qty, 10) || 1);
+      const product = getProduct(id);
+      if (!product || product.type === "service" || product.category === "service") return read();
+      qty = Math.min(MAX_QTY, Math.max(1, parseInt(qty, 10) || 1));
       const items = read();
-      const existing = items.find((i) => i.id === id);
-      if (existing) existing.qty += qty;
-      else items.push({ id, qty });
+      const existing = items.find((i) => i.id === product.id);
+      if (existing) existing.qty = Math.min(MAX_QTY, existing.qty + qty);
+      else items.push({ id: product.id, qty });
       write(items);
       return items;
     },
 
     setQty(id, qty) {
+      const product = getProduct(id);
       qty = parseInt(qty, 10) || 0;
       let items = read();
-      if (qty <= 0) items = items.filter((i) => i.id !== id);
+      const key = product ? product.id : id;
+      if (!product || qty <= 0) items = items.filter((i) => i.id !== id && i.id !== key);
       else {
-        const existing = items.find((i) => i.id === id);
+        qty = Math.min(MAX_QTY, Math.max(1, qty));
+        const existing = items.find((i) => i.id === key);
         if (existing) existing.qty = qty;
-        else items.push({ id, qty });
+        else if (product.type !== "service" && product.category !== "service") items.push({ id: key, qty });
       }
       write(items);
       return items;
@@ -75,7 +86,8 @@
         .map((i) => {
           const p = getProduct(i.id);
           if (!p) return null;
-          return { ...p, qty: i.qty, lineTotal: p.price * i.qty };
+          const price = global.BlazeRidgeSafe ? global.BlazeRidgeSafe.moneyAmount(p.price) : Number(p.price) || 0;
+          return { ...p, qty: i.qty, lineTotal: price * i.qty };
         })
         .filter(Boolean);
     }

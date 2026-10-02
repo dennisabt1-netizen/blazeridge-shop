@@ -19,6 +19,7 @@ Dark + ember digital tools storefront. Hosted on **GitHub Pages** (free, static 
 | About | `about.html` |
 | FAQ | `faq.html` |
 | Login | `login.html` |
+| Calm Money Stack | `stack.html` |
 
 Cart uses `localStorage`. Checkout uses **Stripe Payment Links** (one link per product). No serverless backend.
 
@@ -42,8 +43,9 @@ Current Payment Links (live):
 ## Login
 
 - **Google Sign-In** uses **Google Identity Services**. The public client ID lives in `auth-config.js` (and `auth-config.json`). Authorized JS origin: `https://dennisabt1-netizen.github.io`.
-- **Email / password** UI is live on `login.html`. Until Firebase keys are set, it runs in **localStorage demo mode** (accounts stay on that browser only).
+- **Email / password** stays off until Firebase keys are set. The site does not store passwords or demo password hashes in the browser.
 - **Magic Link** appears when Firebase is configured.
+- Google sign-in keeps a session only after Google’s tokeninfo endpoint accepts the ID token.
 - Apple Sign-In is **not** enabled (button hidden / stub only).
 
 Purchases work without logging in. **Do not** put Stripe secret keys (`sk_…`) in this repo. Payment Links already encode the product/price on Stripe’s side.
@@ -83,4 +85,6 @@ Open http://localhost:8080/ — note: `<base href="/blazeridge-shop/">` is set f
 
 Push `main` to `dennisabt1-netizen/blazeridge-shop`. GitHub Pages is enabled from `main` `/` (site root = this folder).
 
-Email/password login is intentionally not enabled (Google + Formspree newsletter only).
+Email/password login is intentionally not enabled (Google + Formspree newsletter only). Buy buttons only accept `https://buy.stripe.com/` links.
+
+The **Calm Money Stack** (`stack.html`) sells three existing worksheets (Subscription Audit, Payday Automation, Habit × Money Tracker) as separate Stripe payments, then points creators at Pipeline Pilot (€79) and Pipeline Seat (€197/mo). YouTube: https://www.youtube.com/@blazeridgeorigin

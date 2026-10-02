@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
-  <title>FAQ — BlazeRidge</title>
-  <meta name="description" content="Frequently asked questions about BlazeRidge digital tools and checkout." />
+  <title>Calm Money Stack — BlazeRidge</title>
+  <meta name="description" content="Buy the BlazeRidge Calm Money Stack: subscription audit, payday automation, and the habit tracker. Each file has its own Stripe link." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,55 +17,32 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
+      <a href="stack.html" class="active">Stack</a>
       <a href="services.html">Services</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
       <a href="newsletter.html">Newsletter</a>
       <a href="about.html">About</a>
-      <a href="faq.html" class="active">FAQ</a>
+      <a href="faq.html">FAQ</a>
+      <a class="nav-youtube" href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a class="btn-login" href="login.html">Log in</a>
     </nav>
   </header>
 
   <main>
     <section class="wrap hero" style="padding-bottom:1rem">
-      <p class="eyebrow">FAQ</p>
-      <h1 class="page-title">Quick <em>answers</em></h1>
+      <p class="eyebrow">From the channel to a paid file</p>
+      <h1 class="page-title">The Calm Money <em>Stack</em></h1>
+      <p class="lede">Three short worksheets for the leaks Shorts viewers actually ask about. Pay with Stripe, one file at a time. No fake bundle price.</p>
     </section>
-    <section class="wrap section">
-      <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>How do I pay?</summary>
-          <div class="faq-body">Each product has a Stripe Payment Link. From Shop or Product, hit Buy / Buy now. From Cart → Checkout, pay each line item with its own link. Card payments are processed by Stripe.</div>
-        </details>
-        <details class="faq-item">
-          <summary>When do I get the file?</summary>
-          <div class="faq-body">Right after a successful Stripe payment you’re redirected to your download page — save the file and bookmark the page. Stripe also emails your receipt.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I buy multiple products at once?</summary>
-          <div class="faq-body">Yes — add them to the cart. On checkout you’ll open one Payment Link per product (static GitHub Pages can’t run a combined Stripe Checkout Session without a backend).</div>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need an account?</summary>
-          <div class="faq-body">No account needed to buy. Optional Google Sign-In is available on the Log in page if you want a saved session. Apple Sign-In is not offered.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Refunds?</summary>
-          <div class="faq-body">For digital downloads the right of withdrawal can end once delivery starts, if you agreed to that before paying. Use <a href="vertrag-widerrufen.html">Vertrag widerrufen</a> or <a href="contact.html">Contact</a> and include the email from your Stripe receipt. The YouTube channel is for the show, not for order support.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is this financial advice?</summary>
-          <div class="faq-body">No. Educational tools only — not personalized financial, tax, or investment advice.</div>
-        </details>
-      </div>
-    </section>
+    <section class="wrap section" id="stack-root"></section>
   </main>
+
   <footer class="wrap footer">
     <div class="footer-newsletter">
       <h3>BlazeRidge Brief</h3>
       <p>Short money notes — free. No spam.</p>
-      <form class="newsletter-form" data-newsletter-form data-source="footer-faq" novalidate>
+      <form class="newsletter-form" data-newsletter-form data-source="footer-stack" novalidate>
         <input type="text" name="name" placeholder="Name" autocomplete="name" aria-label="Name" />
         <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email" />
         <button type="submit" class="btn btn-sm">Subscribe</button>
@@ -76,10 +53,11 @@
     <div class="footer-grid">
       <div>
         <p>Educational content only — not personalized financial, tax, or investment advice.</p>
-        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener">@blazeridgeorigin</a></p>
+        <p>© BlazeRidge · <a href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">@blazeridgeorigin</a></p>
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="shop.html">Shop</a>
+        <a href="stack.html">Stack</a>
         <a href="services.html">Services</a>
         <a href="cart.html">Cart</a>
         <a href="checkout.html">Checkout</a>
@@ -100,10 +78,11 @@
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
   <script src="js/safe.js"></script>
+  <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
   <script src="js/app.js"></script>
-
+  <script src="js/offers.js"></script>
 </body>
 </html>

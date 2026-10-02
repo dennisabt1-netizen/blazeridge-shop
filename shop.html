@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
   <title>Shop — BlazeRidge</title>
   <meta name="description" content="Browse BlazeRidge digital tools: money rules, checklists, trackers, and audits." />
@@ -29,7 +31,7 @@
     <section class="wrap hero" style="padding-bottom:1rem">
       <p class="eyebrow">The shelf</p>
       <h1 class="page-title">Pick what you need <em>today</em></h1>
-      <p class="lede">Add a few to your cart, or buy one instantly with Stripe. No memberships, no upsell maze.</p>
+      <p class="lede">Add a few to your cart, or buy one instantly with Stripe. No account required.</p>
       <div class="trust-row" aria-label="Shop benefits">
         <span>Instant digital delivery</span><span>Secure Stripe payment</span><span>No account required</span>
       </div>
@@ -83,6 +85,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/safe.js"></script>
   <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
@@ -101,6 +104,7 @@
       Promise.resolve(window.BLAZERIDGE_PRODUCTS_READY).then(() => {
         const formatPrice = BlazeRidgeApp.formatPrice;
         const escape = BlazeRidgeApp.escapeHtml;
+        const pay = (product) => BlazeRidgeApp.safePaymentUrl(product.paymentLink);
         const products = BlazeRidgeApp.shopProducts();
         const search = document.getElementById("product-search");
         const filters = document.getElementById("category-filters");
@@ -140,8 +144,8 @@
               <span class="price">${formatPrice(p)}</span>
               <div class="card-actions">
                 <button type="button" class="btn-ghost btn-sm" data-add-cart="${escape(p.id)}">Add</button>
-                ${p.paymentLink
-                  ? `<a class="btn btn-sm" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy</a>`
+                ${pay(p)
+                  ? `<a class="btn btn-sm" href="${escape(pay(p))}" target="_blank" rel="noopener noreferrer">Buy</a>`
                   : `<span class="availability">Stripe link pending</span>`}
               </div>
             </div>
