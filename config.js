@@ -135,7 +135,7 @@ window.BLAZERIDGE_CONFIG = {
       longDescription:
         "23-seitiges PDF (Deutsch), reiner Text zum Selbstausfüllen in Word, LibreOffice oder Google Docs: Lebenslauf-Aufbau mit Muster und Formulierungsbausteinen, drei Muster-Anschreiben plus Baukasten, Checkliste vor dem Absenden, Mini-Leitfaden Vorstellungsgespräch (10 Fragen, STAR-Methode), Satzbausteine für die Gehaltsverhandlung ohne Zahlenversprechen sowie allgemeine Hinweise zu Kündigung und Arbeitszeugnis. Alle Muster mit frei erfundenen Daten. Allgemeine Orientierungshilfe, keine Rechts-, Steuer- oder Karriereberatung; keine Garantie für Einladungen, Zusagen oder ein bestimmtes Gehalt. Sofort-Download nach der Zahlung.",
       featured: false,
-      paymentLink: "" // TODO: nach Anlage in Stripe die Payment-Link-URL (https://buy.stripe.com/...) eintragen
+      paymentLink: "https://buy.stripe.com/cNifZi2grbWD94C7Rl5J60n"
     },
     {
       id: "geld-entscheidungs-kit",
