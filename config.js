@@ -138,6 +138,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/8x2dRag7h4ub80ygnR5J60k"
     },
     {
+      id: "komplett-bundle",
+      slug: "komplett-bundle",
+      image: "images/komplett-bundle.png",
+      name: "BlazeRidge Komplett-Bundle: alle 8 Geld-Produkte als ZIP",
+      tag: "ZIP · 7 PDFs + Excel/Notion · Deutsch & Englisch",
+      price: 29,
+      description:
+        "Alle 8 BlazeRidge-Geld-Produkte in einem Download. Summe der Einzelpreise: 83 € – im Bundle 29 €.",
+      longDescription:
+        "Ein ZIP mit allen 8 digitalen BlazeRidge-Geld-Produkten: Geld-Entscheidungs-Kit (Deutsch), 27 Money Rules That Stick, Buyer’s Bias Checklist, Subscription Audit, Payday Automation Checklist, Debt Snowball One-Pager, 52-Week Savings Challenge und der Habit × Money Tracker (Excel, CSV, Notion, Anleitung). Sieben der acht Produkte sind englischsprachig, das Geld-Entscheidungs-Kit ist deutsch. Summe der aktuellen Einzelpreise: 83 € – im Bundle 29 €. Bildungsinhalt, keine Anlage-, Finanz-, Steuer- oder Rechtsberatung. Sofort-Download nach der Zahlung, nur für den persönlichen Gebrauch.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/7sYeVe9IT9Ov4Om0oT5J60m"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
