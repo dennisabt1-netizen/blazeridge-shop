@@ -124,6 +124,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/cNi7sM1cngcT1Ca1sX5J60j"
     },
     {
+      id: "bewerbungs-kit",
+      slug: "bewerbungs-kit",
+      image: "images/bewerbungs-kit.png",
+      name: "Bewerbungs-Kit Kompakt: Lebenslauf, Anschreiben, Gespräch & Gehalt",
+      tag: "PDF · 23 Seiten · Deutsch",
+      price: 9.9,
+      description:
+        "Texte, Muster und Checklisten für deine Bewerbung: Lebenslauf (auch ATS-freundlich), drei Anschreiben-Muster mit Baukasten, 10 Interviewfragen mit STAR-Methode und Satzbausteine für die Gehaltsverhandlung.",
+      longDescription:
+        "23-seitiges PDF (Deutsch), reiner Text zum Selbstausfüllen in Word, LibreOffice oder Google Docs: Lebenslauf-Aufbau mit Muster und Formulierungsbausteinen, drei Muster-Anschreiben plus Baukasten, Checkliste vor dem Absenden, Mini-Leitfaden Vorstellungsgespräch (10 Fragen, STAR-Methode), Satzbausteine für die Gehaltsverhandlung ohne Zahlenversprechen sowie allgemeine Hinweise zu Kündigung und Arbeitszeugnis. Alle Muster mit frei erfundenen Daten. Allgemeine Orientierungshilfe, keine Rechts-, Steuer- oder Karriereberatung; keine Garantie für Einladungen, Zusagen oder ein bestimmtes Gehalt. Sofort-Download nach der Zahlung.",
+      featured: false,
+      paymentLink: "" // TODO: nach Anlage in Stripe die Payment-Link-URL (https://buy.stripe.com/...) eintragen
+    },
+    {
       id: "geld-entscheidungs-kit",
       slug: "geld-entscheidungs-kit",
       image: "images/geld-entscheidungs-kit.png",
