@@ -39,7 +39,7 @@ Current Payment Links (live):
 | Wochenplan & Einkaufs-Kit: Meal-Prep sparsam (DE) | €7,90 | https://buy.stripe.com/dRm5kE5sDd0Hft0dbF5J60p |
 | Bewerbungs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/cNifZi2grbWD94C7Rl5J60n |
 | Umzugs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/28E4gA08j0dVft0c7B5J60o |
-| Haushaltsbuch-Kit Kompakt (DE) | €8,90 | _(Payment Link folgt)_ |
+| Haushaltsbuch-Kit Kompakt (DE) | €8,90 | https://buy.stripe.com/eVqcN6aMX5yf6Wu0oT5J60B |
 | Geld-Entscheidungs-Kit (DE) | €9 | https://buy.stripe.com/8x2dRag7h4ub80ygnR5J60k |
 | Komplett-Bundle (ZIP, 8 Produkte) | €29 | https://buy.stripe.com/7sYeVe9IT9Ov4Om0oT5J60m |
 | Neuer Job (ZIP, Bundle) | €19,90 | https://buy.stripe.com/00waEYdZ9d0Ha8G7Rl5J60z |

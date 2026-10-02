@@ -177,7 +177,7 @@ window.BLAZERIDGE_CONFIG = {
       longDescription:
         "19-seitiges PDF (Deutsch) mit Eingabefeldern zum Ausfüllen am Bildschirm oder zum Ausdrucken: Startübersicht für Einnahmen, Konten und Fixkosten, Umrechnung von Jahres- und Quartalskosten auf den Monat, drei Monatspläne (Geplant, Tatsächlich, Differenz), Ausgaben-Journal mit Wochenstand, Jahresübersicht und Jahreskalender, Zielplaner, Zahlungskalender, Unterlagen-Übersicht sowie Monats-, Quartals- und Jahres-Check. Jahresunabhängig: Du startest, wann du willst. Organisations-Werkzeug, keine Finanz-, Steuer-, Rechts- oder Schuldnerberatung; keine Spar- oder Anlageempfehlung, keine Garantie für ein bestimmtes Ergebnis. Musterzahlen sind frei erfunden. Sofort-Download nach der Zahlung, nur für den persönlichen Gebrauch; Vervielfältigung und Weitergabe über die private Nutzung hinaus sind nicht gestattet.",
       featured: false,
-      paymentLink: "" // TODO: nach Anlage in Stripe die Payment-Link-URL (https://buy.stripe.com/...) eintragen
+      paymentLink: "https://buy.stripe.com/eVqcN6aMX5yf6Wu0oT5J60B"
     },
     {
       id: "geld-entscheidungs-kit",
