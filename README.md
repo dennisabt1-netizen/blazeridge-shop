@@ -37,6 +37,7 @@ Current Payment Links (live):
 | Payday Automation | €9 | https://buy.stripe.com/cNidRaf3d8KreoW8Vp5J606 |
 | Debt Snowball | €9 | https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605 |
 | Bewerbungs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/cNifZi2grbWD94C7Rl5J60n |
+| Umzugs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/28E4gA08j0dVft0c7B5J60o |
 | Geld-Entscheidungs-Kit (DE) | €9 | https://buy.stripe.com/8x2dRag7h4ub80ygnR5J60k |
 | Komplett-Bundle (ZIP, 8 Produkte) | €29 | https://buy.stripe.com/7sYeVe9IT9Ov4Om0oT5J60m |
 

@@ -138,6 +138,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/cNifZi2grbWD94C7Rl5J60n"
     },
     {
+      id: "umzugs-kit",
+      slug: "umzugs-kit",
+      image: "images/umzugs-kit.png",
+      name: "Umzugs-Kit Kompakt: Zeitplan, Checklisten, Vorlagen & Planer",
+      tag: "PDF · 22 Seiten · Deutsch",
+      price: 9.9,
+      description:
+        "Dein Umzug in 8 Wochen: Zeitplan zum Abhaken, Checkliste für Ummeldungen und Adressänderungen, Schreiben-Vorlagen, Kosten- und Kartonplaner und Übergabeprotokoll für die Wohnung.",
+      longDescription:
+        "22-seitiges PDF (Deutsch) zum Ausfüllen am Bildschirm oder zum Ausdrucken: Umzugs-Zeitplan von acht Wochen vorher bis nach Tag X, Checklisten für Behörden, Versicherungen, Strom, Internet, Bank und Arbeitgeber, neutrale Vorlagen (Kündigung, Sonderkündigung, Nachsendeauftrag, Adressänderung, Zählerstand), Kosten- und Kartonplaner mit Eingabefeldern und eine Übergabeprotokoll-Checkliste. Allgemeine Orientierungshilfe, keine Rechts-, Steuer- oder Versicherungsberatung; Fristen und Regelungen prüfst du selbst. Vorlagen sind neutrale Muster mit Platzhaltern. Sofort-Download nach der Zahlung.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/28E4gA08j0dVft0c7B5J60o"
+    },
+    {
       id: "geld-entscheidungs-kit",
       slug: "geld-entscheidungs-kit",
       image: "images/geld-entscheidungs-kit.png",
