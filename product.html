@@ -27,7 +27,6 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
-      <a href="services.html">Services</a>
       <a href="cart.html">Cart</a>
       <a href="cart.html" class="cart-link" aria-label="Cart"><span class="badge" data-cart-count hidden>0</span></a>
       <a href="newsletter.html">Newsletter</a>
@@ -44,7 +43,7 @@
     <section class="wrap product-layout" id="product-root">
       <p class="muted">Loading…</p>
     </section>
-<section class="wrap section" style="padding-top:0"><div class="panel cta-strip"><div><p class="eyebrow" style="margin:0 0 .25rem">Go further</p><h2>More from BlazeRidge</h2><p class="muted">The Komplett-Bundle (€29) covers all 8 shop products. Or go further with the Shorts pipeline: Pilot €79, Seat €197/mo.</p><div class="upsell-links"><a class="btn-ghost btn-sm" href="product.html?id=komplett-bundle">Komplett-Bundle</a><a class="btn btn-sm" href="services.html">Pipeline services</a></div></div></div></section>
+<section class="wrap section" style="padding-top:0"><div class="panel cta-strip"><div><p class="eyebrow" style="margin:0 0 .25rem">Go further</p><h2>More from BlazeRidge</h2><p class="muted">The Komplett-Bundle (€29) covers all 8 money products in one download.</p><div class="upsell-links"><a class="btn btn-sm" href="product.html?id=komplett-bundle">Komplett-Bundle</a></div></div></div></section>
   </main>
   <footer class="wrap footer">
     <div class="footer-newsletter">
@@ -58,10 +57,6 @@
         <a class="newsletter-mailto" data-newsletter-mailto hidden href="#">Open mailto instead</a>
       </form>
     </div>
-    <div class="footer-cta panel">
-      <p><strong>Pipeline Services:</strong> Pilot €79 · Seat €197/mo — faceless Shorts pipeline.</p>
-      <a class="btn btn-sm" href="services.html">View services</a>
-    </div>
     <div class="footer-grid">
       <div>
         <p>Educational content only — not personalized financial, tax, or investment advice.</p>
@@ -69,7 +64,6 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="shop.html">Shop</a>
-        <a href="services.html">Services</a>
         <a href="cart.html">Cart</a>
         <a href="checkout.html">Checkout</a>
         <a href="newsletter.html">Newsletter</a>
@@ -90,6 +84,7 @@
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
   <script src="js/outbound.js"></script>
+  <script src="js/crosssell.js"></script>
   <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
@@ -110,16 +105,15 @@
         const service = BlazeRidgeApp.isService(p);
         document.title = p.name + " — BlazeRidge";
         const actions = service
-          ? `<a class="btn" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy via Stripe</a>
-              <a class="btn-ghost" href="services.html">All services</a>`
+          ? `<span class="availability availability-large">Currently not bookable</span>`
           : `<button type="button" class="btn" data-add-cart="${escape(p.id)}">Add to cart</button>
               ${p.paymentLink
                 ? `<a class="btn-ghost" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a>`
                 : `<span class="availability availability-large">Stripe checkout is being prepared</span>`}`;
         const note = service
-          ? "Secure Stripe Payment Link. Services are separate from shop downloads."
+          ? "This service is currently not bookable."
           : (p.paymentLink
-              ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy."
+              ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy. Endpreis; gemäß § 19 UStG wird keine Umsatzsteuer berechnet."
               : "You can save this product in your cart now. Checkout activates as soon as its Stripe Payment Link is added.");
         root.innerHTML = `
           <div class="product-visual has-image">${BlazeRidgeApp.productImage(p, "product-cover")}</div>
@@ -132,6 +126,7 @@
               ${actions}
             </div>
             <p class="muted purchase-note">${note}</p>
+            ${window.BlazeRidgeCrossSell ? BlazeRidgeCrossSell.html(p.id) : ""}
             <ul class="product-facts" aria-label="Purchase information">
               <li><strong>Format</strong><span>${escape(p.tag)}</span></li>
               <li><strong>Delivery</strong><span>${service ? "Pipeline service" : "Digital download"}</span></li>

@@ -43,7 +43,7 @@
   <input type="hidden" name="form_type" value="widerruf" />
   <label>Ihr Name *<input type="text" name="name" autocomplete="name" required /></label>
   <label>E-Mail-Adresse für die Eingangsbestätigung *<input type="email" name="email" autocomplete="email" required /></label>
-  <label>Beleg- oder Rechnungsnummer (aus der Stripe-E-Mail) *<input type="text" name="beleg" required /></label>
+  <label>Beleg- oder Rechnungsnummer (aus der Stripe-E-Mail, falls zur Hand)<input type="text" name="beleg" /></label>
   <label>Produkt<input type="text" name="produkt" /></label>
   <label>Kaufdatum<input type="date" name="kaufdatum" /></label>
   <label>Nachricht (optional)<textarea name="nachricht" rows="3"></textarea></label>
@@ -91,7 +91,7 @@
     function endpoint() { var a = window.BLAZERIDGE_AUTH || {}; return String(a.FORMSPREE_ENDPOINT || a.formspreeEndpoint || "").trim(); }
     function summary(fd) {
       return "Hiermit widerrufe ich den folgenden Vertrag.\n" +
-        "Name: " + fd.get("name") + "\nE-Mail: " + fd.get("email") + "\nBeleg-/Rechnungsnr.: " + fd.get("beleg") +
+        "Name: " + fd.get("name") + "\nE-Mail: " + fd.get("email") + "\nBeleg-/Rechnungsnr.: " + (fd.get("beleg") || "-") +
         "\nProdukt: " + (fd.get("produkt") || "-") + "\nKaufdatum: " + (fd.get("kaufdatum") || "-") +
         (fd.get("nachricht") ? "\nNachricht: " + fd.get("nachricht") : "");
     }
@@ -99,8 +99,8 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var fd = new FormData(form);
-      if (!fd.get("name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email") || "") || !fd.get("beleg")) {
-        alert("Bitte Name, gültige E-Mail-Adresse und Beleg-/Rechnungsnummer angeben."); return;
+      if (!fd.get("name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email") || "")) {
+        alert("Bitte Name und eine gültige E-Mail-Adresse angeben."); return;
       }
       $("wd-summary").textContent = summary(fd); form.hidden = true; review.hidden = false;
     });

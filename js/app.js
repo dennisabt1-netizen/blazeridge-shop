@@ -101,17 +101,6 @@
 
   function init() {
     document.querySelectorAll(".nav").forEach((nav) => {
-      if (!nav.querySelector('a[href="services.html"]')) {
-        const link = document.createElement("a");
-        link.href = "services.html";
-        link.textContent = "Services";
-        const shop = nav.querySelector('a[href="shop.html"]');
-        if (shop && shop.nextSibling) shop.parentNode.insertBefore(link, shop.nextSibling);
-        else {
-          const login = nav.querySelector(".btn-login");
-          nav.insertBefore(link, login || null);
-        }
-      }
       if (!nav.querySelector('a[href="contact.html"]')) {
         const link = document.createElement("a");
         link.href = "contact.html";
@@ -121,12 +110,6 @@
       }
     });
     document.querySelectorAll(".footer-nav").forEach((nav) => {
-      if (!nav.querySelector('a[href="services.html"]')) {
-        const shop = nav.querySelector('a[href="shop.html"]');
-        const link = '<a href="services.html">Services</a>';
-        if (shop) shop.insertAdjacentHTML("afterend", link);
-        else nav.insertAdjacentHTML("afterbegin", link);
-      }
       if (!nav.querySelector('a[href="friends.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
       }

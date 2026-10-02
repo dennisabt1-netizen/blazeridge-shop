@@ -264,6 +264,65 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/9B6bJ24oz6Cj6Wu6Nh5J60u"
     },
     {
+      id: "katzen-umzug",
+      slug: "katzen-umzug",
+      image: "images/katzen-umzug.png",
+      name: "Katzen-Umzug: Checkliste & Eingewöhnung (4 Seiten, A4, DE)",
+      tag: "PDF · 4 Seiten · A4",
+      price: 3.9,
+      description:
+        "Zeitplan für den Umzug mit Katze, Umzugstag & Rückzugsraum, 14-Tage-Eingewöhnungs-Log sowie Ummelde- und Sicherheitscheck. Zum Ausdrucken und Abhaken. Sofort-Download als PDF.",
+      longDescription:
+        "Umzug mit Katze – ruhig planen und gut ankommen. 4 A4-Seiten zum Ausdrucken und Abhaken.\n\nENTHALTEN\n1) Umzugs-Zeitplan (4 Wochen bis Umzugstag)\n2) Umzugstag & Rückzugsraum (Transport, Basislager in der neuen Wohnung)\n3) Eingewöhnungs-Log für 14 Tage (frisst, Streu, erkundet, spielt, Notizen)\n4) Ummelden & Sicherheitscheck neue Wohnung (Register, Praxis, Versicherung, Fenster/Balkon)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %, nicht „an Seite anpassen“).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Telefonnummern sind nicht vorgedruckt – du trägst sie selbst ein.\n• Allgemeine Checkliste und Beobachtungsvorlage, keine Diagnose. Ersetzt keine tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI, ohne Fremdbilder.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/3cIfZi08j0dVa8G8Vp5J60v"
+    },
+    {
+      id: "hunde-gesundheitsmappe",
+      slug: "hunde-gesundheitsmappe",
+      image: "images/hunde-gesundheitsmappe.png",
+      name: "Hunde-Gesundheitsmappe: Tracker & Logs (6 Seiten, A4, DE)",
+      tag: "PDF · 6 Seiten · A4",
+      price: 6.9,
+      description:
+        "Jahresübersicht, Tierarztbesuch-Log, Medikamenten-Übersicht, Gewichtsverlauf mit Diagramm, Beobachtungs-Log und Futterwechsel-Log für Hundehalter. Zum Ausdrucken und Ausfüllen. Sofort-Download als PDF.",
+      longDescription:
+        "Alle Gesundheitsthemen deines Hundes in einer Mappe – 6 A4-Seiten zum Ausdrucken und Ausfüllen.\n\nENTHALTEN\n1) Jahresübersicht (Termine je Monat, abhaken)\n2) Tierarztbesuch-Log (Anlass, Besprochenes, Kosten)\n3) Medikamente & Mittel (Eintragen laut Tierarztpraxis)\n4) Gewichtsverlauf (Tabelle + Diagramm zum Einzeichnen)\n5) Beobachtungs-Log (Notizen fürs nächste Tierarztgespräch)\n6) Futterwechsel-Log (Verträglichkeit festhalten)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Dokumentationsvorlage ohne Dosierempfehlung und ohne Diagnose. Ersetzt keine tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI, ohne Fremdbilder.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/3cI6oIg7h0dVft0efJ5J60w"
+    },
+    {
+      id: "senior-pflegeplaner",
+      slug: "senior-pflegeplaner",
+      image: "images/senior-pflegeplaner.png",
+      name: "Senior-Hund-Pflegeplaner: Routine & Beobachtung (5 Seiten, A4, DE)",
+      tag: "PDF · 5 Seiten · A4",
+      price: 6.9,
+      description:
+        "Steckbrief & Alltag, Wochenplan Routine, 14-Tage-Alltags-Beobachtungen, Komfort-Checkliste und Vorbereitung fürs Tierarztgespräch für Halter älterer Hunde. Zum Ausdrucken. Sofort-Download als PDF.",
+      longDescription:
+        "Für Halter älterer Hunde: Routinen planen, Veränderungen bemerken, gut vorbereitet zur Tierarztpraxis. 5 A4-Seiten zum Ausdrucken.\n\nENTHALTEN\n1) Steckbrief & Alltag (Ausgangslage, Routinen)\n2) Wochenplan Routine (Morgen/Mittag/Abend, Ruhe & Pflege)\n3) Alltags-Beobachtungen für 14 Tage (Appetit, Trinken, Bewegung, Schlaf, Notizen)\n4) Komfort zu Hause (allgemeine Anregungen zum Abhaken)\n5) Tierarztgespräch vorbereiten (Fragen, Beobachtungen, nächster Termin)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Beobachtungs- und Dokumentationsvorlage, keine Diagnose, keine Behandlungs- oder Heilversprechen. Ersetzt keine tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI, ohne Fremdbilder.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/4gM6oIaMXgcT80yb3x5J60x"
+    },
+    {
+      id: "pet-komplett",
+      slug: "pet-komplett",
+      image: "images/pet-komplett.png",
+      name: "Pet-Komplett: 7 Hunde- & Katzen-Pakete (34 Seiten, A4, DE)",
+      tag: "ZIP · 7 Pakete · 34 Seiten",
+      price: 24.9,
+      description:
+        "Alle 7 Pet-Pakete in einem Download: Pet-Planer, Infoblatt & Notfallplan, Welpen-Starter, Urlaub mit Hund, Katzen-Umzug, Hunde-Gesundheitsmappe und Senior-Hund-Pflegeplaner – 34 Seiten A4 zum Ausdrucken. Sofort-Download als ZIP.",
+      longDescription:
+        "Das Komplettpaket für Hunde- und Katzenhalter – 7 Pakete mit 34 A4-Seiten zum Ausdrucken, Ausfüllen und Abhaken. Gegenüber dem Einzelkauf sparst du rund 40 %.\n\nENTHALTEN (je Ordner Gesamt-PDF + Einzelseiten)\n01 Pet-Planer-Bundle (5 Blätter)\n02 Haustier-Infoblatt & Notfallplan (6 Seiten)\n03 Welpen-Starter-Paket (6 Seiten)\n04 Urlaub mit Hund: Packliste & Reise-Checkpunkte (2 Seiten)\n05 Katzen-Umzug: Checkliste & Eingewöhnung (4 Seiten)\n06 Hunde-Gesundheitsmappe: Tracker & Logs (6 Seiten)\n07 Senior-Hund-Pflegeplaner (5 Seiten)\nDazu LIESMICH.txt mit Inhaltsverzeichnis.\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → ZIP entpacken → PDF drucken (A4, Skalierung 100 %).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Allgemeine Hinweise und Dokumentationsvorlagen, keine Diagnosen, keine Dosierempfehlungen. Ersetzen keine tierärztliche Beratung, keinen Impfpass und keinen Notruf. Telefonnummern sind bewusst nicht vorgedruckt.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI, ohne Fremdbilder.",
+      // Vergleichspreis = reale Summe dieser Einzelprodukte (siehe js/crosssell.js, wird aus config berechnet)
+      includes: ["pet-planer-bundle", "infoblatt-notfallplan", "welpen-starter", "urlaub-packliste", "katzen-umzug", "hunde-gesundheitsmappe", "senior-pflegeplaner"],
+      alsoIn: ["pet-planer-impflog"], // Impf-Log ist Teil des Pet-Planer-Bundles, nicht extra gezählt
+      featured: false,
+      paymentLink: "https://buy.stripe.com/9B6bJ29IT6Cj2Ge0oT5J60y"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
@@ -277,7 +336,8 @@ window.BLAZERIDGE_CONFIG = {
       longDescription:
         "A focused pilot of the BlazeRidge faceless Shorts pipeline: topic → script flow, packaging defaults, and a clear production handoff so you can ship Shorts without building the system from scratch. One-time setup fee via Stripe.",
       featured: false,
-      paymentLink: "https://buy.stripe.com/14AcN64ozd0H0y68Vp5J60h"
+      // Derzeit nicht buchbar (Stripe-Link inaktiv, 02.10.2026 Rechts-Check). Link erst nach Reaktivierung + § 312k-Kündigungsbutton eintragen.
+      paymentLink: ""
     },
     {
       id: "pipeline-seat",
@@ -294,7 +354,8 @@ window.BLAZERIDGE_CONFIG = {
       longDescription:
         "Ongoing monthly seat for the BlazeRidge faceless Shorts pipeline: continued access to the pipeline flow, packaging rhythm, and production handoff as you ship. Cancel anytime via Stripe; digital shop products stay separate.",
       featured: false,
-      paymentLink: "https://buy.stripe.com/6oUaEY5sD9Ov80y5Jd5J60i"
+      // Derzeit nicht buchbar (Stripe-Link inaktiv, 02.10.2026 Rechts-Check). Link erst nach Reaktivierung + § 312k-Kündigungsbutton eintragen.
+      paymentLink: ""
     }
   ]
 };

@@ -46,12 +46,12 @@
       <div class="dl-confirm" id="dl-confirm">
         <p><strong>Vertragsbestätigung:</strong> Du hast vor dem Kauf ausdrücklich zugestimmt, dass wir vor Ablauf der Widerrufsfrist mit der Bereitstellung des digitalen Inhalts beginnen, und bestätigt, dass du dadurch mit Beginn der Bereitstellung dein Widerrufsrecht verlierst (§ 356 Abs. 6 Nr. 2 BGB). Diese Bestätigung erhältst du zusätzlich mit deiner Rechnung per E-Mail.</p>
         <p lang="en"><em>Confirmation: before purchase you expressly agreed that provision of the digital content begins before the withdrawal period ends and acknowledged that you thereby lose your right of withdrawal. You also receive this confirmation with your invoice by email.</em></p>
-        <p>Anbieter: Dennis Abate, BlazeRidge, Blumenstr. 6, 89168 Niederstotzingen, Einkaufnow@outlook.de · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. · <a href="agb.html">AGB</a>
-      <a href="agb-services.html">AGB Services</a> · <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a></p>
+        <p>Anbieter: Dennis Abate, BlazeRidge, Blumenstr. 6, 89168 Niederstotzingen, Einkaufnow@outlook.de · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. · <a href="agb.html">AGB</a> · <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a></p>
         <p><button class="btn-ghost btn-sm" type="button" id="dl-save-confirm">Bestätigung speichern (.txt)</button></p>
       </div>
 
       <p><a class="btn" id="dl-btn" href="#" hidden>Download</a></p>
+      <div id="dl-cross"></div>
       <p class="dl-note">Setz dir ein Lesezeichen für diese Seite, um die Datei später erneut zu laden. / Bookmark this page to download again later.
         Probleme? Schreib an <a href="mailto:Einkaufnow@outlook.de">Einkaufnow@outlook.de</a> mit deiner Belegnummer. / Problems? Email us with your receipt number.</p>
       <p class="dl-note">Bildungsinhalt – keine Anlage-, Finanz-, Steuer- oder Rechtsberatung. Nur für den persönlichen Gebrauch; bitte nicht weitergeben oder weiterverkaufen. / Educational content only; personal use.</p>
@@ -69,6 +69,8 @@
     </nav>
     </div>
   </footer>
+  <script src="config.js"></script>
+  <script src="js/crosssell.js"></script>
   <script>
   (async function () {
     const q = new URLSearchParams(location.search);
@@ -93,6 +95,7 @@
       const meta = cat[fid];
       if (!meta) return fail("Zu diesem Link wurde keine Datei gefunden. / File not found for this link.");
       title = meta.t; $t.textContent = meta.t;
+      try { if (meta.i && window.BlazeRidgeCrossSell) document.getElementById("dl-cross").innerHTML = BlazeRidgeCrossSell.html(meta.i); } catch (e) {}
       const b64 = key.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((key.length + 3) % 4);
       const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
       const ck = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);

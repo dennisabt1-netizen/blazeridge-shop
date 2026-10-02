@@ -122,3 +122,19 @@
 
   global.BlazeRidgeNewsletter = { bind, submit, endpoint };
 })(window);
+
+
+/* Einwilligungshinweis unter jedem Anmeldeformular (Art. 7 DSGVO / Transparenz). */
+(function () {
+  function addNotes() {
+    document.querySelectorAll("form[data-newsletter-form]").forEach(function (f) {
+      if (f.parentNode.querySelector(".newsletter-consent")) return;
+      var p = document.createElement("p");
+      p.className = "newsletter-consent muted";
+      p.style.cssText = "font-size:.8rem;margin:.5rem 0 0";
+      p.innerHTML = 'Mit der Anmeldung willigst du in den Versand des Newsletters ein. Abmeldung jederzeit per E-Mail an <a href="mailto:Einkaufnow@outlook.de">Einkaufnow@outlook.de</a>. Infos: <a href="datenschutz.html">Datenschutzerklärung</a>.';
+      f.insertAdjacentElement("afterend", p);
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", addNotes); else addNotes();
+})();
