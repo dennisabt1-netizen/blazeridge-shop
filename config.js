@@ -323,6 +323,38 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/9B6bJ29IT6Cj2Ge0oT5J60y"
     },
     {
+      id: "neuer-job",
+      slug: "neuer-job",
+      image: "images/neuer-job.png",
+      name: "Neuer Job, neues Budget: Bewerbungs-Kit + Budget-Rechenblatt + Habit × Money Tracker",
+      tag: "ZIP · PDF + Excel · Deutsch & Englisch",
+      price: 19.9,
+      description:
+        "Von der Bewerbung bis zum Budget für den neuen Job: Bewerbungs-Kit Kompakt (23 Seiten), Budget-Rechenblatt zum Ausfüllen und der Habit × Money Tracker (Excel, CSV, Notion). Summe der Einzelpreise: 28,90 € – im Paket 19,90 €.",
+      longDescription:
+        "Ein ZIP-Download für Jobwechsler: Das Bewerbungs-Kit Kompakt (23 Seiten, Deutsch) mit Lebenslauf, drei Anschreiben-Mustern, Checkliste vor dem Absenden, 10 Interviewfragen mit STAR-Methode und Satzbausteinen für die Gehaltsverhandlung. Dazu eine Start-Seite mit Reihenfolge und ein Budget-Rechenblatt (A4, Deutsch) zum Ausfüllen vor dem ersten Gehalt sowie der Habit × Money Tracker (Excel, CSV, Notion-Vorlage und Kurzanleitung, englischsprachig).\n\nENTHALTEN\nNeuer-Job_Bundle_A4_DE.pdf (Start-Seite, Rechenblatt + Bewerbungs-Kit, 25 Seiten) · BlazeRidge_Bewerbungs-Kit_Kompakt.pdf (23 Seiten) · Habit_x_Money_Tracker/ (xlsx, csv, md, Anleitung-PDF) · LIESMICH.txt\n\nSumme der aktuellen Einzelpreise: Bewerbungs-Kit 9,90 € + Habit × Money Tracker 19 € = 28,90 € – im Paket 19,90 €. Der Habit × Money Tracker ist englischsprachig, das Bewerbungs-Kit deutsch. Allgemeine Orientierungs- und Organisationshilfe, keine Finanz-, Steuer-, Rechts- oder Karriereberatung; keine Garantie für Einladungen, Zusagen, ein bestimmtes Gehalt oder Einsparungen. Digitaler Download, es wird nichts versendet. Sofort-Download nach der Zahlung, nur für den persönlichen Gebrauch.",
+      // Vergleichspreis = Summe dieser Einzelprodukte (Stand config.js)
+      includes: ["bewerbungs-kit", "habit-tracker"],
+      featured: false,
+      paymentLink: "https://buy.stripe.com/00waEYdZ9d0Ha8G7Rl5J60z"
+    },
+    {
+      id: "geld-reset",
+      slug: "geld-reset",
+      image: "images/geld-reset.png",
+      name: "Geld-Reset: Geld-Entscheidungs-Kit + Subscription Audit + Habit × Money Tracker",
+      tag: "ZIP · PDF + Excel · Deutsch & Englisch",
+      price: 24.9,
+      description:
+        "Dein Geld-Reset in drei Schritten: 3 Regeln gegen teure Denkfehler, Abos prüfen und Monatslimits mit Wochen-Check. Geld-Entscheidungs-Kit, Subscription Audit und Habit × Money Tracker plus 4-Wochen-Plan. Summe der Einzelpreise: 37 € – im Paket 24,90 €.",
+      longDescription:
+        "Ein ZIP-Download für alle, die ihre Finanzgewohnheiten neu aufsetzen wollen: Das Geld-Entscheidungs-Kit (12 Seiten, Deutsch) mit 5 Denkfehlern, den 3 Regeln „Warten. Drei Fakten. Ein Budget.“, Arbeitsblättern und 30-Tage-Tracker, der Subscription Audit 1-Pager (Abos aufs Jahr rechnen und je Abo entscheiden) und der Habit × Money Tracker (Excel, CSV, Notion-Vorlage und Kurzanleitung). Dazu eine Start-Seite mit Reihenfolge, 4-Wochen-Plan und Abo-Rechenblatt (A4, Deutsch).\n\nENTHALTEN\nGeld-Reset_Bundle_A4_DE.pdf (Start-Seite, Plan + Geld-Entscheidungs-Kit + Subscription Audit, 15 Seiten) · BlazeRidge_Geld-Entscheidungs-Kit.pdf (12 Seiten) · BlazeRidge_Subscription_Audit_1-Pager.pdf (1 Seite) · Habit_x_Money_Tracker/ (xlsx, csv, md, Anleitung-PDF) · LIESMICH.txt\n\nSumme der aktuellen Einzelpreise: Geld-Entscheidungs-Kit 9 € + Subscription Audit 9 € + Habit × Money Tracker 19 € = 37 € – im Paket 24,90 €. Subscription Audit und Habit × Money Tracker sind englischsprachig, das Geld-Entscheidungs-Kit deutsch. Bildungsinhalt, keine Anlage-, Finanz-, Steuer- oder Rechtsberatung und keine Empfehlung für Finanzprodukte; es werden keine Einsparungen, Gewinne oder Renditen zugesagt. Digitaler Download, es wird nichts versendet. Sofort-Download nach der Zahlung, nur für den persönlichen Gebrauch.",
+      // Vergleichspreis = Summe dieser Einzelprodukte (Stand config.js)
+      includes: ["geld-entscheidungs-kit", "subscription-audit", "habit-tracker"],
+      featured: false,
+      paymentLink: "https://buy.stripe.com/aFadRag7h5yf1CadbF5J60A"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",

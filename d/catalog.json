@@ -101,5 +101,15 @@
   "t": "Pet-Komplett: 7 Hunde- & Katzen-Pakete (ZIP)",
   "f": "Pet-Komplett_DE_A4.zip",
   "i": "pet-komplett"
+ },
+ "7f28f3f6c14061f4d6fbf805ef1c8070": {
+  "t": "Neuer Job, neues Budget (ZIP, A4 DE)",
+  "f": "Neuer-Job_DE_A4.zip",
+  "i": "neuer-job"
+ },
+ "7c40d9d35e9bd68ccdc5039fb67b0272": {
+  "t": "Geld-Reset (ZIP, A4 DE)",
+  "f": "Geld-Reset_DE_A4.zip",
+  "i": "geld-reset"
  }
 }
