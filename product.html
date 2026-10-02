@@ -124,7 +124,7 @@
         root.innerHTML = `
           <div class="product-visual has-image">${BlazeRidgeApp.productImage(p, "product-cover")}</div>
           <div class="product-meta">
-            <p class="tag">${escape(p.tag)}${p.comingSoon ? " · Coming soon" : ""}</p>
+            <p class="tag">${escape(p.tag)}${(p.comingSoon || !p.paymentLink) ? " · Coming soon" : ""}</p>
             <h1>${escape(p.name)}</h1>
             <p class="muted">${escape(p.longDescription || p.description)}</p>
             <span class="price">${formatPrice(p)}</span>

@@ -194,6 +194,76 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/7sYeVe9IT9Ov4Om0oT5J60m"
     },
     {
+      id: "pet-planer-bundle",
+      slug: "pet-planer-bundle",
+      image: "images/pet-planer-bundle.png",
+      name: "Pet-Planer-Bundle: 5 Blätter für Hundebesitzer (A4, DE)",
+      tag: "PDF · 5 Seiten · A4",
+      price: 7.9,
+      description:
+        "Fünf druckbare Planer-Blätter für Hund & Katze: Training, Impf-Log, Sitter-Infoblatt, Futter- & Gewichtslog, Monatsbudget. Sofort-Download als PDF.",
+      longDescription:
+        "Alles Wichtige für dein Tier auf 5 übersichtlichen A4-Seiten – zum Ausdrucken, Abheften und Mitnehmen.\n\nENTHALTEN\n1) Hunde-Training – Wochenplan (Übungen abhaken, Tages-Check)\n2) Impf- & Gesundheitslog (Impfungen, Entwurmung, Floh/Zecke, Tierarztbesuche)\n3) Sitter-Infoblatt (Kontakte, Tagesablauf, Regeln, Notfall)\n4) Futter- & Gewichtslog\n5) Tier-Budget (Monat)\nAls Gesamt-PDF und als Einzelblätter (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %, nicht \"an Seite anpassen\").\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Dokumentationsvorlage für deine eigenen Einträge; ersetzt weder Impfpass noch tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/8x24gAbR17Gn4Om8Vp5J60q"
+    },
+    {
+      id: "pet-planer-impflog",
+      slug: "pet-planer-impflog",
+      image: "images/pet-planer-impflog.png",
+      name: "Impf- & Gesundheitslog (Einzelblatt, A4, DE)",
+      tag: "PDF · 1 Seite · A4",
+      price: 3.9,
+      description:
+        "Ein druckbares A4-Blatt für Impfungen, Entwurmung, Floh/Zecke und Tierarztbesuche deines Tieres. Sofort-Download als PDF.",
+      longDescription:
+        "Der Impf- & Gesundheitslog als einzelnes A4-Blatt – zum Ausdrucken, Abheften und Mitnehmen zum Tierarzt.\n\nENTHALTEN\nImpf- & Gesundheitslog (Impfungen, Entwurmung, Floh/Zecke, Tierarztbesuche)\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %, nicht \"an Seite anpassen\").\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Dokumentationsvorlage für deine eigenen Einträge; ersetzt weder Impfpass noch tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/9B6fZig7h3q72Ge5Jd5J60r"
+    },
+    {
+      id: "infoblatt-notfallplan",
+      slug: "infoblatt-notfallplan",
+      image: "images/infoblatt-notfallplan.png",
+      name: "Haustier-Infoblatt & Notfallplan (6 Seiten, A4, DE)",
+      tag: "PDF · 6 Seiten · A4",
+      price: 6.9,
+      description:
+        "Steckbrief, Notfall-Kontakte, Notfall-Checkliste, Sitter-Infoblatt, Evakuierungsplan und Impf-/Medikamentenübersicht für Hund & Katze. Zum Ausdrucken und Ausfüllen. Sofort-Download als PDF.",
+      longDescription:
+        "Alles Wichtige für Notfall, Urlaub und Sitter auf 6 übersichtlichen A4-Seiten – zum Ausdrucken, Ausfüllen und Abheften.\n\nENTHALTEN\n1) Haustier-Steckbrief (Stammdaten, Chip, Besonderheiten)\n2) Notfall-Kontakte (Tierarzt, Notdienst, Giftnotruf-Feld, Vertrauensperson)\n3) Notfall-Checkliste (Hitze, Vergiftungsverdacht, Verletzung – allgemeine Hinweise)\n4) Sitter-Infoblatt (Tagesablauf, Regeln, Notfall-Vorgehen)\n5) Evakuierungs- & Notfalltaschen-Plan\n6) Impf- & Medikamentenübersicht (zum Eintragen)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %, nicht „an Seite anpassen“).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Telefonnummern sind bewusst nicht vorgedruckt (regional verschieden) – du trägst sie selbst ein.\n• Allgemeine Hinweise und Dokumentationsvorlage. Ersetzt keine tierärztliche Beratung, keinen Impfpass und keinen Notruf. Im Notfall sofort Tierarzt bzw. tierärztlichen Notdienst kontaktieren.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/dRm3cw2grbWD6WuefJ5J60s"
+    },
+    {
+      id: "welpen-starter",
+      slug: "welpen-starter",
+      image: "images/welpen-starter.png",
+      name: "Welpen-Starter-Paket: Checklisten & Planer (6 Seiten, A4, DE)",
+      tag: "PDF · 6 Seiten · A4",
+      price: 4.9,
+      description:
+        "Erstausstattung-Checkliste, Tagesplan & Stubenreinheits-Log, Impf-/Entwurmungsplan, Sozialisierungs-Checkliste, Kosten-Übersicht und 8-Wochen-Trainingsplan für den Start mit Welpe. Sofort-Download als PDF.",
+      longDescription:
+        "Der Start mit Welpe, übersichtlich auf 6 A4-Seiten – zum Ausdrucken und Abhaken.\n\nENTHALTEN\n1) Erstausstattung-Checkliste\n2) Tagesplan & Stubenreinheits-Log (Woche)\n3) Impf- & Entwurmungsplan zum Eintragen\n4) Sozialisierungs-Checkliste\n5) Kosten-Übersicht (einmalig & monatlich)\n6) Wochen-Trainingsplan (8 Wochen, Anregungen zum Anpassen)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Allgemeine Orientierung und Dokumentationsvorlage. Impf-/Entwurmungszeitpunkte legt deine Tierarztpraxis fest. Ersetzt keine tierärztliche Beratung und keine Hundetrainer:in; keine Erfolgsgarantie.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/6oU9AU3kvaSz3Ki7Rl5J60t"
+    },
+    {
+      id: "urlaub-packliste",
+      slug: "urlaub-packliste",
+      image: "images/urlaub-packliste.png",
+      name: "Urlaub mit Hund: Packliste & Reise-Checkpunkte (2 Seiten, A4, DE)",
+      tag: "PDF · 2 Seiten · A4",
+      price: 3.9,
+      description:
+        "Packliste für den Urlaub mit Hund plus allgemeine Reise-Checkpunkte (vor Abreise, unterwegs). Zum Ausdrucken und Abhaken. Sofort-Download als PDF.",
+      longDescription:
+        "Nichts vergessen beim Urlaub mit Hund – 2 A4-Seiten zum Ausdrucken und Abhaken.\n\nENTHALTEN\n1) Packliste (Dokumente, Futter, Sicherheit, Komfort, Pflege/Reiseapotheke)\n2) Reise-Checkpunkte (Planung, kurz vor Abreise, unterwegs, Notizfelder)\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Nur allgemeine Punkte, ohne Gewähr. Einreise- und Impfbestimmungen sind je Land verschieden und ändern sich: Bitte aktuelle Bestimmungen bei offiziellen Stellen und der Tierarztpraxis prüfen.\n• Ersetzt keine tierärztliche Beratung. Nur für den persönlichen Gebrauch.\n• Gestaltung/Layout selbst erstellt, ohne generative KI.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/9B6bJ24oz6Cj6Wu6Nh5J60u"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
