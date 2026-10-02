@@ -124,6 +124,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/cNi7sM1cngcT1Ca1sX5J60j"
     },
     {
+      id: "mealprep-kit",
+      slug: "mealprep-kit",
+      image: "images/mealprep-kit.png",
+      name: "Wochenplan & Einkaufs-Kit: Meal-Prep sparsam",
+      tag: "PDF · 21 Seiten · Deutsch",
+      price: 7.9,
+      description:
+        "Vorlagen zum Planen, Einkaufen und Vorkochen: 4-Wochen-Speiseplan zum Ausfüllen, Einkaufslisten nach Supermarkt-Abteilung, Vorrats-Inventar, Resteverwertungs-Matrix, Wochenbudget-Tracker und 20 einfache Basisrezepte.",
+      longDescription:
+        "21-seitiges PDF (Deutsch) mit Formularfeldern zum Ausfüllen am Bildschirm oder zum Ausdrucken: vier Wochenplan-Vorlagen, Stammliste und leere Einkaufsliste nach Abteilung, Vorrats-Inventar für Schrank, Kühlschrank und Gefrierfach, Resteverwertungs-Matrix, Wochenbudget-Tracker mit Monatsübersicht, Meal-Prep-Anleitung mit allgemeinen Hinweisen zur Lagerung (Herstellerangaben beachten) und 20 Basisrezepte ohne Nährwertangaben. Allgemeine Organisationshilfe, keine Ernährungs-, Diät-, Gesundheits- oder Finanzberatung; keine Garantie für bestimmte Ausgaben oder Ergebnisse. Sofort-Download nach der Zahlung.",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/dRm5kE5sDd0Hft0dbF5J60p"
+    },
+    {
       id: "bewerbungs-kit",
       slug: "bewerbungs-kit",
       image: "images/bewerbungs-kit.png",
