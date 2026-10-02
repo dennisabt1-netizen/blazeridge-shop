@@ -166,6 +166,20 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/28E4gA08j0dVft0c7B5J60o"
     },
     {
+      id: "haushaltsbuch-kit",
+      slug: "haushaltsbuch-kit",
+      image: "images/haushaltsbuch-kit.png",
+      name: "Haushaltsbuch-Kit Kompakt: Monatsplan, Fixkosten, Jahresübersicht & Journal",
+      tag: "PDF · 19 Seiten · Deutsch",
+      price: 8.9,
+      description:
+        "Dein Haushaltsbuch zum Ausfüllen: Fixkosten-Übersicht, Monatsplan mit Geplant und Tatsächlich, Ausgaben-Journal, Jahresübersicht, Zielplaner und Checklisten. Jahresunabhängig, am Bildschirm oder zum Ausdrucken.",
+      longDescription:
+        "19-seitiges PDF (Deutsch) mit Eingabefeldern zum Ausfüllen am Bildschirm oder zum Ausdrucken: Startübersicht für Einnahmen, Konten und Fixkosten, Umrechnung von Jahres- und Quartalskosten auf den Monat, drei Monatspläne (Geplant, Tatsächlich, Differenz), Ausgaben-Journal mit Wochenstand, Jahresübersicht und Jahreskalender, Zielplaner, Zahlungskalender, Unterlagen-Übersicht sowie Monats-, Quartals- und Jahres-Check. Jahresunabhängig: Du startest, wann du willst. Organisations-Werkzeug, keine Finanz-, Steuer-, Rechts- oder Schuldnerberatung; keine Spar- oder Anlageempfehlung, keine Garantie für ein bestimmtes Ergebnis. Musterzahlen sind frei erfunden. Sofort-Download nach der Zahlung, nur für den persönlichen Gebrauch; Vervielfältigung und Weitergabe über die private Nutzung hinaus sind nicht gestattet.",
+      featured: false,
+      paymentLink: "" // TODO: nach Anlage in Stripe die Payment-Link-URL (https://buy.stripe.com/...) eintragen
+    },
+    {
       id: "geld-entscheidungs-kit",
       slug: "geld-entscheidungs-kit",
       image: "images/geld-entscheidungs-kit.png",
