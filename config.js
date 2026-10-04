@@ -264,6 +264,21 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/6oU9AU3kvaSz3Ki7Rl5J60t"
     },
     {
+      id: "welpen-trainingsplan",
+      slug: "welpen-trainingsplan",
+      image: "images/welpen-trainingsplan.png",
+      name: "Welpen-Trainingsplan 8 Wochen (7 Seiten, A4, DE)",
+      tag: "PDF · 7 Seiten · A4",
+      price: 6.9,
+      description:
+        "8-Wochen-Plan mit Wochenseiten zum Abhaken, Übungs-Log und Fortschritts-Rückblick. Zum Ausdrucken. Sofort-Download als PDF.",
+      longDescription:
+        "Welpen-Training in kleinen Schritten – 7 A4-Seiten zum Ausdrucken und Ausfüllen.\n\nENTHALTEN\n1) Übersicht mit Zielen und 8-Wochen-Überblick\n2) Wochenseiten 1–2, 3–4, 5–6, 7–8 (Anregungen zum Abhaken, Tages-Check Mo–So, Schreibfelder)\n3) Übungs-Log (15 Zeilen)\n4) Rückblick & Fortschritt (Selbsteinschätzung Woche 2/4/6/8)\nAls Gesamt-PDF und als Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF drucken (A4, Skalierung 100 %, nicht „an Seite anpassen“).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Allgemeine Anregungen und Dokumentationsvorlage, keine Erfolgsgarantie. Ersetzt weder Hundetrainer:in noch tierärztliche Beratung.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Farben können je nach Drucker abweichen.\n• Gestaltung/Layout selbst erstellt, ohne generative KI, ohne Fremdbilder.",
+      crossSell: "welpen-starter",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/4gM8wQ08jd0Hft09Zt5J60C"
+    },
+    {
       id: "urlaub-packliste",
       slug: "urlaub-packliste",
       image: "images/urlaub-packliste.png",
