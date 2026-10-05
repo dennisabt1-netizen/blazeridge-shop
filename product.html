@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
     <title>Product — BlazeRidge</title>
   <meta name="description" content="BlazeRidge digital tool: details, price and secure Stripe checkout." />
@@ -83,6 +85,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/safe.js"></script>
   <script src="js/outbound.js"></script>
   <script src="js/crosssell.js"></script>
   <script src="js/shop-loader.js"></script>
@@ -90,6 +93,7 @@
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/offers.js"></script>
 
   <script>
     (function () {
@@ -103,22 +107,23 @@
         const escape = BlazeRidgeApp.escapeHtml;
         const formatPrice = BlazeRidgeApp.formatPrice;
         const service = BlazeRidgeApp.isService(p);
+        const pay = BlazeRidgeApp.safePaymentUrl(p.paymentLink);
         document.title = p.name + " — BlazeRidge";
         const actions = service
           ? `<span class="availability availability-large">Currently not bookable</span>`
           : `<button type="button" class="btn" data-add-cart="${escape(p.id)}">Add to cart</button>
-              ${p.paymentLink
-                ? `<a class="btn-ghost" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a>`
+              ${pay
+                ? `<a class="btn-ghost" href="${escape(pay)}" target="_blank" rel="noopener noreferrer">Buy now</a>`
                 : `<span class="availability availability-large">Stripe checkout is being prepared</span>`}`;
         const note = service
           ? "This service is currently not bookable."
-          : (p.paymentLink
+          : (pay
               ? "Secure Stripe checkout. Digital file after payment — keep your receipt email handy. Endpreis; gemäß § 19 UStG wird keine Umsatzsteuer berechnet."
               : "You can save this product in your cart now. Checkout activates as soon as its Stripe Payment Link is added.");
         root.innerHTML = `
           <div class="product-visual has-image">${BlazeRidgeApp.productImage(p, "product-cover")}</div>
           <div class="product-meta">
-            <p class="tag">${escape(p.tag)}${(p.comingSoon || !p.paymentLink) ? " · Coming soon" : ""}</p>
+            <p class="tag">${escape(p.tag)}${(!service && (p.comingSoon || !pay)) ? " · Coming soon" : ""}</p>
             <h1>${escape(p.name)}</h1>
             <p class="muted">${escape(p.longDescription || p.description)}</p>
             <span class="price">${formatPrice(p)}</span>
@@ -136,6 +141,7 @@
           </div>
         `;
         BlazeRidgeApp.bindAddButtons(root);
+        if (window.BlazeRidgeOffers) BlazeRidgeOffers.mountProductUpsell(root, p);
         try {
           const base = "https://dennisabt1-netizen.github.io/blazeridge-shop/";
           const url = base + "product.html?id=" + encodeURIComponent(p.id);
@@ -151,7 +157,7 @@
           set('link[rel="canonical"]', "href", url);
           if (img) { set('meta[property="og:image"]', "content", img); set('meta[name="twitter:image"]', "content", img); }
           const offer = { "@type": "Offer", price: Number(p.price).toFixed(2), priceCurrency: "EUR", url: url,
-            availability: p.paymentLink ? "https://schema.org/InStock" : "https://schema.org/PreOrder" };
+            availability: pay ? "https://schema.org/InStock" : "https://schema.org/PreOrder" };
           if (p.interval === "month") offer.priceSpecification = { "@type": "UnitPriceSpecification", price: Number(p.price).toFixed(2), priceCurrency: "EUR", billingDuration: 1, unitCode: "MON" };
           const ld = { "@context": "https://schema.org", "@type": "Product", name: p.name, description: p.longDescription || p.description,
             brand: { "@type": "Brand", name: "BlazeRidge" }, url: url, offers: offer };

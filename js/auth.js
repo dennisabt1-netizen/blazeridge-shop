@@ -1,11 +1,10 @@
 /**
  * BlazeRidge authentication UI.
  * Google Sign-In uses Google Identity Services when auth-config.js supplies a client ID.
- * Email/Password: Firebase when FIREBASE_* keys are set; otherwise localStorage demo mode.
+ * Email/Password: Firebase only. Passwords are never stored in this browser.
  */
 (function (global) {
   const authConfig = global.BLAZERIDGE_AUTH || {};
-  const DEMO_USERS_KEY = "blazeridge_demo_users";
   const SESSION_KEY = "blazeridge_auth_session";
   let googleReady = false;
   let googleInitPromise = null;
@@ -76,11 +75,21 @@
     return googleInitPromise;
   }
 
-  function decodeCredential(credential) {
+  async function verifyGoogleIdToken(credential) {
+    const clientId = googleClientId();
+    if (!credential || !clientId) return null;
     try {
-      const encoded = credential.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
-      const bytes = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
-      return JSON.parse(new TextDecoder().decode(bytes));
+      const res = await fetch("https://oauth2.googleapis.com/tokeninfo?id_token=" + encodeURIComponent(credential));
+      if (!res.ok) return null;
+      const profile = await res.json();
+      const aud = profile && profile.aud;
+      const audOk = aud === clientId || (Array.isArray(aud) && aud.indexOf(clientId) !== -1);
+      if (!profile || !audOk) return null;
+      if (profile.iss !== "https://accounts.google.com" && profile.iss !== "accounts.google.com") return null;
+      if (String(profile.email_verified) !== "true") return null;
+      const exp = Number(profile.exp);
+      if (!Number.isFinite(exp) || exp * 1000 <= Date.now()) return null;
+      return profile;
     } catch (_) {
       return null;
     }
@@ -106,19 +115,31 @@
   }
 
   function handleGoogleCredential(response) {
-    const profile = decodeCredential(response.credential);
-    if (profile) {
+    const credential = response && response.credential;
+    verifyGoogleIdToken(credential).then((profile) => {
+      if (!profile || !profile.sub || !profile.email) {
+        const msg = document.getElementById("oauth-msg");
+        if (msg) {
+          msg.textContent = "Google sign-in could not be verified. Try again.";
+          msg.classList.add("show", "warn");
+        }
+        return;
+      }
+      const picture = typeof profile.picture === "string" && profile.picture.startsWith("https://")
+        ? profile.picture
+        : "";
       const user = {
         provider: "google",
-        sub: profile.sub,
-        name: profile.name || "",
-        email: profile.email || "",
-        picture: profile.picture || ""
+        sub: String(profile.sub),
+        name: String(profile.name || ""),
+        email: String(profile.email),
+        picture
       };
       global.localStorage.setItem("blazeridge_google_user", JSON.stringify(user));
       setSession(user);
       global.dispatchEvent(new CustomEvent("blazeridge:google-signed-in", { detail: user }));
-    }
+      updateLoginUi();
+    });
   }
 
   function initGoogle() {
@@ -173,101 +194,59 @@
     return firebaseInitPromise;
   }
 
-  function demoUsers() {
-    try {
-      return JSON.parse(global.localStorage.getItem(DEMO_USERS_KEY) || "{}");
-    } catch (_) {
-      return {};
-    }
-  }
-
-  function saveDemoUsers(map) {
-    global.localStorage.setItem(DEMO_USERS_KEY, JSON.stringify(map));
-  }
-
-  /* Lightweight demo hash — not security; demo mode only */
-  function demoHash(password) {
-    let h = 0;
-    const s = String(password);
-    for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
-    return "d" + (h >>> 0).toString(16);
+  function emailUnavailable() {
+    return {
+      ok: false,
+      message: "Email login isn’t available yet. Use Google, or shop without an account. Passwords are not stored in this browser."
+    };
   }
 
   async function emailSignUp(email, password) {
     email = String(email || "").trim().toLowerCase();
+    if (!hasFirebase()) return emailUnavailable();
     if (!email || !password || password.length < 6) {
       return { ok: false, message: "Use a valid email and a password of at least 6 characters." };
     }
-
-    if (hasFirebase()) {
-      const ready = await initFirebase();
-      if (!ready) return { ok: false, message: "Firebase could not load. Check your keys." };
-      try {
-        const cred = await firebaseAuth.createUserWithEmailAndPassword(email, password);
-        const user = {
-          provider: "email",
-          mode: "firebase",
-          sub: cred.user.uid,
-          name: "",
-          email: cred.user.email || email
-        };
-        setSession(user);
-        return { ok: true, message: "Account created. Signed in." };
-      } catch (err) {
-        return { ok: false, message: err.message || "Sign-up failed." };
-      }
+    const ready = await initFirebase();
+    if (!ready) return { ok: false, message: "Firebase could not load. Check your keys." };
+    try {
+      const cred = await firebaseAuth.createUserWithEmailAndPassword(email, password);
+      const user = {
+        provider: "email",
+        mode: "firebase",
+        sub: cred.user.uid,
+        name: "",
+        email: cred.user.email || email
+      };
+      setSession(user);
+      return { ok: true, message: "Account created. Signed in." };
+    } catch (err) {
+      return { ok: false, message: err.message || "Sign-up failed." };
     }
-
-    const users = demoUsers();
-    if (users[email]) {
-      return { ok: false, message: "That email already has a demo account on this device." };
-    }
-    users[email] = { hash: demoHash(password), createdAt: new Date().toISOString() };
-    saveDemoUsers(users);
-    const user = { provider: "email", mode: "demo", sub: "demo:" + email, name: "", email };
-    setSession(user);
-    return {
-      ok: true,
-      message: "Demo account saved on this device. Add Firebase keys for real email auth."
-    };
   }
 
   async function emailSignIn(email, password) {
     email = String(email || "").trim().toLowerCase();
+    if (!hasFirebase()) return emailUnavailable();
     if (!email || !password) {
       return { ok: false, message: "Enter email and password." };
     }
-
-    if (hasFirebase()) {
-      const ready = await initFirebase();
-      if (!ready) return { ok: false, message: "Firebase could not load. Check your keys." };
-      try {
-        const cred = await firebaseAuth.signInWithEmailAndPassword(email, password);
-        const user = {
-          provider: "email",
-          mode: "firebase",
-          sub: cred.user.uid,
-          name: "",
-          email: cred.user.email || email
-        };
-        setSession(user);
-        return { ok: true, message: "Signed in." };
-      } catch (err) {
-        return { ok: false, message: err.message || "Sign-in failed." };
-      }
+    const ready = await initFirebase();
+    if (!ready) return { ok: false, message: "Firebase could not load. Check your keys." };
+    try {
+      const cred = await firebaseAuth.signInWithEmailAndPassword(email, password);
+      const user = {
+        provider: "email",
+        mode: "firebase",
+        sub: cred.user.uid,
+        name: "",
+        email: cred.user.email || email
+      };
+      setSession(user);
+      return { ok: true, message: "Signed in." };
+    } catch (err) {
+      return { ok: false, message: err.message || "Sign-in failed." };
     }
-
-    const users = demoUsers();
-    const rec = users[email];
-    if (!rec || rec.hash !== demoHash(password)) {
-      return { ok: false, message: "Wrong email or password (demo accounts are per-browser)." };
-    }
-    const user = { provider: "email", mode: "demo", sub: "demo:" + email, name: "", email };
-    setSession(user);
-    return {
-      ok: true,
-      message: "Signed in (demo mode — local only until Firebase keys are added)."
-    };
   }
 
   async function sendMagicLink(email) {
@@ -276,7 +255,7 @@
     if (!hasFirebase()) {
       return {
         ok: false,
-        message: "Magic Link needs Firebase. Add FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, and FIREBASE_PROJECT_ID — or use password (demo) for now."
+        message: "Magic Link needs Firebase. Add FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, and FIREBASE_PROJECT_ID, or use Google sign-in."
       };
     }
     const ready = await initFirebase();
@@ -325,35 +304,39 @@
         note.textContent = "Email auth uses Firebase on this site.";
         note.classList.remove("warn-note");
       } else {
-        note.textContent =
-          "Demo mode: email/password is stored only in this browser until you add Firebase keys (FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_PROJECT_ID).";
+        note.textContent = "Email login isn’t available yet. Use Google, or shop without an account.";
         note.classList.add("warn-note");
       }
     }
     if (modeBadge) {
-      modeBadge.textContent = hasFirebase() ? "Firebase" : "Demo";
+      modeBadge.textContent = hasFirebase() ? "Firebase" : "Off";
       modeBadge.hidden = false;
     }
 
     const session = getSession();
     const sessionEl = document.getElementById("auth-session");
     if (sessionEl) {
-      if (session && session.email) {
+      const email = session && typeof session.email === "string" ? session.email : "";
+      sessionEl.replaceChildren();
+      if (email) {
         sessionEl.hidden = false;
-        sessionEl.innerHTML =
-          "Signed in as <strong>" +
-          session.email.replace(/</g, "&lt;") +
-          "</strong>" +
-          (session.mode === "demo" ? " <span class=\"muted\">(demo)</span>" : "") +
-          ' · <button type="button" class="linkish" id="btn-signout">Sign out</button>';
-        const out = document.getElementById("btn-signout");
-        if (out) out.addEventListener("click", () => {
+        sessionEl.append("Signed in as ");
+        const strong = document.createElement("strong");
+        strong.textContent = email;
+        sessionEl.append(strong);
+        sessionEl.append(" · ");
+        const out = document.createElement("button");
+        out.type = "button";
+        out.className = "linkish";
+        out.id = "btn-signout";
+        out.textContent = "Sign out";
+        out.addEventListener("click", () => {
           clearSession();
           updateLoginUi();
         });
+        sessionEl.append(out);
       } else {
         sessionEl.hidden = true;
-        sessionEl.innerHTML = "";
       }
     }
 
@@ -424,7 +407,7 @@
       return hasFirebase();
     },
     isDemoEmail() {
-      return !hasFirebase();
+      return false;
     },
     getSession,
     signOut: clearSession,
@@ -438,7 +421,7 @@
       if (provider === "email") {
         return hasFirebase()
           ? "Email auth via Firebase."
-          : "Email auth runs in local demo mode until Firebase keys are set.";
+          : "Email login isn’t available yet. Passwords are not stored in this browser.";
       }
       return "Apple Sign-In is not enabled for this site.";
     },
@@ -461,6 +444,7 @@
   global.BlazeRidgeAuth = Auth;
 
   function boot() {
+    try { global.localStorage.removeItem("blazeridge_demo_users"); } catch (_) { /* ignore */ }
     // Google Identity Services nur auf der Login-Seite laden (Datenschutz, pending-legal 2026-09-25)
     if (hasGoogle() && document.getElementById("google-signin-button")) initGoogle();
     bindEmailForm();

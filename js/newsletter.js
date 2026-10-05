@@ -28,6 +28,27 @@
     global.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
+  function trapFilled(form) {
+    const trap = form.querySelector("[data-hp]");
+    return !!(trap && trap.value.trim());
+  }
+
+  function ensureTrap(form) {
+    if (form.querySelector("[data-hp]")) return;
+    const label = document.createElement("label");
+    label.className = "hp-field";
+    label.setAttribute("aria-hidden", "true");
+    label.textContent = "Website";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "website";
+    input.tabIndex = -1;
+    input.autocomplete = "off";
+    input.setAttribute("data-hp", "");
+    label.appendChild(input);
+    form.appendChild(label);
+  }
+
   function setStatus(form, text, kind) {
     const el = form.querySelector("[data-newsletter-status]");
     if (!el) return;
@@ -40,8 +61,13 @@
   async function submit(form) {
     const nameInput = form.querySelector('[name="name"]');
     const emailInput = form.querySelector('[name="email"]');
-    const name = (nameInput && nameInput.value || "").trim();
-    const email = (emailInput && emailInput.value || "").trim();
+    const name = (nameInput && nameInput.value || "").trim().slice(0, 80);
+    const email = (emailInput && emailInput.value || "").trim().slice(0, 254);
+    if (trapFilled(form)) {
+      setStatus(form, "You're on the list — thanks!", "ok");
+      form.reset();
+      return;
+    }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus(form, "Please enter a valid email.", "warn");
       return;
@@ -74,13 +100,13 @@
       } else {
         saveLocal(entry);
         const mailto =
-          "mailto:hello@blazeridge.local?subject=" +
+          "mailto:Einkaufnow@outlook.de?subject=" +
           encodeURIComponent("Newsletter signup") +
           "&body=" +
           encodeURIComponent("Name: " + entry.name + "\nEmail: " + entry.email);
         setStatus(
           form,
-          "Saved locally on this device. Add FORMSPREE_ENDPOINT in config.js to collect for real. Or email us via mailto.",
+          "Saved on this device only. Email Einkaufnow@outlook.de if it should be collected for real.",
           "warn"
         );
         const link = form.querySelector("[data-newsletter-mailto]");
@@ -103,6 +129,7 @@
     (root || document).querySelectorAll("[data-newsletter-form]").forEach((form) => {
       if (form._brBound) return;
       form._brBound = true;
+      ensureTrap(form);
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         submit(form);

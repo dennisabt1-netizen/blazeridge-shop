@@ -4,13 +4,20 @@
  * is purchasable (has a paymentLink) and is actually cheaper than the sum.
  */
 (function (global) {
+  function payable(link) {
+    if (global.BlazeRidgeSafe && global.BlazeRidgeSafe.safePaymentUrl) return !!global.BlazeRidgeSafe.safePaymentUrl(link);
+    try {
+      var url = new URL(String(link || "").trim());
+      return url.protocol === "https:" && url.hostname === "buy.stripe.com" && /^\/[A-Za-z0-9]+/.test(url.pathname);
+    } catch (e) { return false; }
+  }
   function eur(n) { return Number(n).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €"; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]; }); }
   function info(productId) {
     var cfg = global.BLAZERIDGE_CONFIG || { products: [] };
     var list = cfg.products || [];
     var bundle = list.filter(function (x) { return x.id === "pet-komplett"; })[0];
-    if (!bundle || !bundle.paymentLink || !bundle.includes) return null;
+    if (!bundle || !payable(bundle.paymentLink) || !bundle.includes) return null;
     var eligible = bundle.includes.concat(bundle.alsoIn || []);
     if (productId === bundle.id || eligible.indexOf(productId) === -1) return null;
     var sum = 0;

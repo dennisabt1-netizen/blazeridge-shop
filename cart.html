@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
     <title>Cart — BlazeRidge</title>
   <meta name="description" content="Your BlazeRidge shopping cart." />
@@ -82,6 +84,7 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/safe.js"></script>
   <script src="js/outbound.js"></script>
   <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
@@ -92,6 +95,7 @@
   <script>
     (function () {
       const money = BlazeRidgeApp.money;
+      const escape = BlazeRidgeApp.escapeHtml;
       const root = document.getElementById("cart-root");
 
       function render() {
@@ -113,20 +117,20 @@
               </thead>
               <tbody>
                 ${items.map(i => `
-                  <tr data-id="${i.id}">
+                  <tr data-id="${escape(i.id)}">
                     <td>
-                      <div class="cart-item-name"><a href="product.html?id=${encodeURIComponent(i.id)}">${i.name}</a></div>
-                      <div class="muted" style="font-size:.8rem">${i.tag}</div>
+                      <div class="cart-item-name"><a href="product.html?id=${encodeURIComponent(i.id)}">${escape(i.name)}</a></div>
+                      <div class="muted" style="font-size:.8rem">${escape(i.tag)}</div>
                     </td>
                     <td>
                       <div class="qty-ctrl">
-                        <button type="button" data-dec="${i.id}" aria-label="Decrease">−</button>
-                        <span>${i.qty}</span>
-                        <button type="button" data-inc="${i.id}" aria-label="Increase">+</button>
+                        <button type="button" data-dec="${escape(i.id)}" aria-label="Decrease">−</button>
+                        <span>${escape(i.qty)}</span>
+                        <button type="button" data-inc="${escape(i.id)}" aria-label="Increase">+</button>
                       </div>
                     </td>
-                    <td>${money(i.lineTotal)}</td>
-                    <td><button type="button" class="btn-ghost btn-sm" data-remove="${i.id}">Remove</button></td>
+                    <td>${escape(money(i.lineTotal))}</td>
+                    <td><button type="button" class="btn-ghost btn-sm" data-remove="${escape(i.id)}">Remove</button></td>
                   </tr>
                 `).join("")}
               </tbody>

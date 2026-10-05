@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
     <title>Contact — BlazeRidge</title>
   <meta name="description" content="Contact BlazeRidge about digital products, payments, downloads, or partnerships." />
@@ -81,7 +83,8 @@
       <a class="footer-withdraw" href="vertrag-widerrufen.html">Vertrag widerrufen</a>
     </nav>
   </footer>
-  <script src="auth-config.js"></script><script src="config.js"></script><script src="js/cart.js"></script>
+  <script src="auth-config.js"></script><script src="config.js"></script>
+  <script src="js/safe.js"></script><script src="js/cart.js"></script>
   <script src="js/app.js"></script><script src="js/contact.js"></script>
 </body>
 </html>

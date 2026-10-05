@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
     <title>BlazeRidge Shop — Money rules that stick</title>
   <meta name="description" content="Digitale Finanz-Tools von BlazeRidge: Money Rules, Bias-Checkliste, Habit-Tracker, Subscription Audit." />
@@ -43,7 +45,8 @@
       <p class="lede">Short downloads for people who watch finance Shorts — not sit through courses. Grab a worksheet, use it today, move on.</p>
       <div class="hero-actions">
         <a class="btn" href="shop.html">See the tools</a>
-        <a class="btn-ghost" href="about.html">Why BlazeRidge</a>
+        <a class="btn-ghost" href="stack.html">Calm Money Stack</a>
+        <a class="btn-ghost" href="https://www.youtube.com/@blazeridgeorigin" target="_blank" rel="noopener noreferrer">YouTube</a>
       </div>
     </section>
 
@@ -59,6 +62,8 @@
         <a class="btn" href="downloads/5-money-rules.pdf" download>Download free PDF</a>
       </div>
     </section>
+
+    <section class="wrap section" id="money-stack" hidden></section>
 
     <section class="wrap section home-newsletter">
       <div class="panel newsletter-panel">
@@ -130,12 +135,14 @@
   </footer>
   <script src="auth-config.js"></script>
   <script src="config.js"></script>
+  <script src="js/safe.js"></script>
   <script src="js/outbound.js"></script>
   <script src="js/shop-loader.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/newsletter.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/offers.js"></script>
 
   <script>
     (function () {
@@ -147,6 +154,7 @@
           catalog.filter(p => !p.featured)
         ).slice(0, 4);
         const escape = BlazeRidgeApp.escapeHtml;
+        const pay = (product) => BlazeRidgeApp.safePaymentUrl(product.paymentLink);
         el.innerHTML = products.map(p => `
           <article class="card${p.featured ? " featured" : ""}">
             <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
@@ -159,8 +167,8 @@
               <span class="price">${formatPrice(p)}</span>
               <div class="card-actions">
                 <button type="button" class="btn-ghost btn-sm" data-add-cart="${escape(p.id)}">Add</button>
-                ${p.paymentLink
-                  ? `<a class="btn btn-sm" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy</a>`
+                ${pay(p)
+                  ? `<a class="btn btn-sm" href="${escape(pay(p))}" target="_blank" rel="noopener noreferrer">Buy</a>`
                   : `<span class="availability">Coming soon</span>`}
               </div>
             </div>
