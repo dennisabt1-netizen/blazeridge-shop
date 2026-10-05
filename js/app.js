@@ -164,12 +164,6 @@
       }
     });
     document.querySelectorAll(".footer-nav").forEach((nav) => {
-      if (!nav.querySelector('a[href="services.html"]')) {
-        const shop = nav.querySelector('a[href="shop.html"]');
-        const link = '<a href="services.html">Services</a>';
-        if (shop) shop.insertAdjacentHTML("afterend", link);
-        else nav.insertAdjacentHTML("afterbegin", link);
-      }
       if (!nav.querySelector('a[href="friends.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
       }

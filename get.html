@@ -7,7 +7,20 @@
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="referrer" content="no-referrer" />
   <base href="/blazeridge-shop/" />
-  <title>Dein Download — BlazeRidge</title>
+    <title>Dein Download — BlazeRidge</title>
+  <meta name="description" content="Dein BlazeRidge-Download." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://dennisabt1-netizen.github.io/blazeridge-shop/get.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BlazeRidge" />
+  <meta property="og:title" content="Dein Download — BlazeRidge" />
+  <meta property="og:description" content="Dein BlazeRidge-Download." />
+  <meta property="og:url" content="https://dennisabt1-netizen.github.io/blazeridge-shop/get.html" />
+  <meta property="og:image" content="https://dennisabt1-netizen.github.io/blazeridge-shop/images/komplett-bundle.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dein Download — BlazeRidge" />
+  <meta name="twitter:description" content="Dein BlazeRidge-Download." />
+  <meta name="twitter:image" content="https://dennisabt1-netizen.github.io/blazeridge-shop/images/komplett-bundle.png" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     .dl-card{max-width:680px;margin:2rem auto 3rem;padding:2rem;border:1px solid rgba(255,106,26,.35);border-radius:16px;background:rgba(255,255,255,.03)}
@@ -40,6 +53,7 @@
       </div>
 
       <p><a class="btn" id="dl-btn" href="#" hidden>Download</a></p>
+      <div id="dl-cross"></div>
       <p class="dl-note">Setz dir ein Lesezeichen für diese Seite, um die Datei später erneut zu laden. / Bookmark this page to download again later.
         Probleme? Schreib an <a href="mailto:Einkaufnow@outlook.de">Einkaufnow@outlook.de</a> mit deiner Belegnummer. / Problems? Email us with your receipt number.</p>
       <p class="dl-note">Bildungsinhalt – keine Anlage-, Finanz-, Steuer- oder Rechtsberatung. Nur für den persönlichen Gebrauch; bitte nicht weitergeben oder weiterverkaufen. / Educational content only; personal use.</p>
@@ -50,12 +64,15 @@
     <nav class="footer-legal" aria-label="Rechtliches">
       <a href="impressum.html">Impressum</a>
       <a href="agb.html">AGB</a>
+      <a href="agb-services.html">AGB Services</a>
       <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
       <a href="datenschutz.html">Datenschutz</a>
       <a class="footer-withdraw" href="vertrag-widerrufen.html">Vertrag widerrufen</a>
     </nav>
     </div>
   </footer>
+  <script src="config.js"></script>
+  <script src="js/crosssell.js"></script>
   <script>
   (async function () {
     const q = new URLSearchParams(location.search);
@@ -84,6 +101,7 @@
         return fail("Die Datei ist nicht als PDF oder ZIP hinterlegt. / This file is not a PDF or ZIP.");
       }
       title = String(meta.t || "Download"); $t.textContent = title;
+      try { if (meta.i && window.BlazeRidgeCrossSell) document.getElementById("dl-cross").innerHTML = BlazeRidgeCrossSell.html(meta.i); } catch (e) {}
       const b64 = key.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((key.length + 3) % 4);
       const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
       const ck = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
@@ -91,7 +109,7 @@
       if (!res.ok) throw new Error("fetch");
       const buf = new Uint8Array(await res.arrayBuffer());
       const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: buf.slice(0, 12) }, ck, buf.slice(12));
-      const type = meta.f.endsWith(".zip") ? "application/zip" : "application/pdf";
+      const type = /\.zip$/i.test(fileName) ? "application/zip" : "application/pdf";
       const url = URL.createObjectURL(new Blob([plain], { type }));
       $b.href = url; $b.download = fileName; $b.textContent = "Download " + fileName; $b.hidden = false;
       $s.textContent = "Deine Datei ist bereit. Klick auf den Button, um sie zu speichern. / Your file is ready.";

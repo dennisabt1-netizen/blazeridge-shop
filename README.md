@@ -37,7 +37,14 @@ Current Payment Links (live):
 | Subscription Audit | €9 | https://buy.stripe.com/8x214og7hd0H94C9Zt5J604 |
 | Payday Automation | €9 | https://buy.stripe.com/cNidRaf3d8KreoW8Vp5J606 |
 | Debt Snowball | €9 | https://buy.stripe.com/eVq9AU2gr2m30y6b3x5J605 |
+| Wochenplan & Einkaufs-Kit: Meal-Prep sparsam (DE) | €7,90 | https://buy.stripe.com/dRm5kE5sDd0Hft0dbF5J60p |
+| Bewerbungs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/cNifZi2grbWD94C7Rl5J60n |
+| Umzugs-Kit Kompakt (DE) | €9,90 | https://buy.stripe.com/28E4gA08j0dVft0c7B5J60o |
+| Haushaltsbuch-Kit Kompakt (DE) | €8,90 | https://buy.stripe.com/eVqcN6aMX5yf6Wu0oT5J60B |
 | Geld-Entscheidungs-Kit (DE) | €9 | https://buy.stripe.com/8x2dRag7h4ub80ygnR5J60k |
+| Komplett-Bundle (ZIP, 8 Produkte) | €29 | https://buy.stripe.com/7sYeVe9IT9Ov4Om0oT5J60m |
+| Neuer Job (ZIP, Bundle) | €19,90 | https://buy.stripe.com/00waEYdZ9d0Ha8G7Rl5J60z |
+| Geld-Reset (ZIP, Bundle) | €24,90 | https://buy.stripe.com/aFadRag7h5yf1CadbF5J60A |
 
 ## Login
 

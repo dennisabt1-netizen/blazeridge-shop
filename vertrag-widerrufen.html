@@ -6,7 +6,20 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.googleusercontent.com; connect-src 'self' https://formspree.io https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://accounts.google.com https://www.google.com; form-action 'self' https://formspree.io mailto:; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <base href="/blazeridge-shop/" />
-  <title>Vertrag widerrufen — BlazeRidge</title>
+    <title>Vertrag widerrufen — BlazeRidge</title>
+  <meta name="description" content="Widerrufsfunktion: Vertrag bei BlazeRidge online widerrufen." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://dennisabt1-netizen.github.io/blazeridge-shop/vertrag-widerrufen.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BlazeRidge" />
+  <meta property="og:title" content="Vertrag widerrufen — BlazeRidge" />
+  <meta property="og:description" content="Widerrufsfunktion: Vertrag bei BlazeRidge online widerrufen." />
+  <meta property="og:url" content="https://dennisabt1-netizen.github.io/blazeridge-shop/vertrag-widerrufen.html" />
+  <meta property="og:image" content="https://dennisabt1-netizen.github.io/blazeridge-shop/images/komplett-bundle.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vertrag widerrufen — BlazeRidge" />
+  <meta name="twitter:description" content="Widerrufsfunktion: Vertrag bei BlazeRidge online widerrufen." />
+  <meta name="twitter:image" content="https://dennisabt1-netizen.github.io/blazeridge-shop/images/komplett-bundle.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -33,7 +46,7 @@
   <input type="hidden" name="form_type" value="widerruf" />
   <label>Ihr Name *<input type="text" name="name" autocomplete="name" required /></label>
   <label>E-Mail-Adresse für die Eingangsbestätigung *<input type="email" name="email" autocomplete="email" required /></label>
-  <label>Beleg- oder Rechnungsnummer (aus der Stripe-E-Mail) *<input type="text" name="beleg" required /></label>
+  <label>Beleg- oder Rechnungsnummer (aus der Stripe-E-Mail, falls zur Hand)<input type="text" name="beleg" /></label>
   <label>Produkt<input type="text" name="produkt" /></label>
   <label>Kaufdatum<input type="date" name="kaufdatum" /></label>
   <label>Nachricht (optional)<textarea name="nachricht" rows="3"></textarea></label>
@@ -66,6 +79,7 @@
     <nav class="footer-legal" aria-label="Rechtliches">
       <a href="impressum.html">Impressum</a>
       <a href="agb.html">AGB</a>
+      <a href="agb-services.html">AGB Services</a>
       <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
       <a href="datenschutz.html">Datenschutz</a>
       <a class="footer-withdraw" href="vertrag-widerrufen.html">Vertrag widerrufen</a>
@@ -80,7 +94,7 @@
     function endpoint() { var a = window.BLAZERIDGE_AUTH || {}; return String(a.FORMSPREE_ENDPOINT || a.formspreeEndpoint || "").trim(); }
     function summary(fd) {
       return "Hiermit widerrufe ich den folgenden Vertrag.\n" +
-        "Name: " + fd.get("name") + "\nE-Mail: " + fd.get("email") + "\nBeleg-/Rechnungsnr.: " + fd.get("beleg") +
+        "Name: " + fd.get("name") + "\nE-Mail: " + fd.get("email") + "\nBeleg-/Rechnungsnr.: " + (fd.get("beleg") || "-") +
         "\nProdukt: " + (fd.get("produkt") || "-") + "\nKaufdatum: " + (fd.get("kaufdatum") || "-") +
         (fd.get("nachricht") ? "\nNachricht: " + fd.get("nachricht") : "");
     }
@@ -88,8 +102,8 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var fd = new FormData(form);
-      if (!fd.get("name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email") || "") || !fd.get("beleg")) {
-        alert("Bitte Name, gültige E-Mail-Adresse und Beleg-/Rechnungsnummer angeben."); return;
+      if (!fd.get("name") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get("email") || "")) {
+        alert("Bitte Name und eine gültige E-Mail-Adresse angeben."); return;
       }
       $("wd-summary").textContent = summary(fd); form.hidden = true; review.hidden = false;
     });

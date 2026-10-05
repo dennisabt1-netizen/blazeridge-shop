@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blazeridge-shop/get.html
+Disallow: /blazeridge-shop/d/
+Sitemap: https://dennisabt1-netizen.github.io/blazeridge-shop/sitemap.xml

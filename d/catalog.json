@@ -1,34 +1,124 @@
 {
  "8dae30a946431445eb236cce2c195b69": {
   "t": "27 Money Rules That Stick",
-  "f": "BlazeRidge_27_Money_Rules_That_Stick.pdf"
+  "f": "BlazeRidge_27_Money_Rules_That_Stick.pdf",
+  "i": "money-rules"
  },
  "ed8ab41e01f0f55787d26612e6970376": {
   "t": "Buyer's Bias Checklist",
-  "f": "BlazeRidge_Buyers_Bias_Checklist.pdf"
+  "f": "BlazeRidge_Buyers_Bias_Checklist.pdf",
+  "i": "bias-checklist"
  },
  "96e797527c345f625852999885751b9e": {
   "t": "Habit × Money Tracker (ZIP pack)",
-  "f": "BlazeRidge_Habit_x_Money_Tracker_Pack.zip"
+  "f": "BlazeRidge_Habit_x_Money_Tracker_Pack.zip",
+  "i": "habit-tracker"
  },
  "679c1f0298c0f476ddde34df711f9d70": {
   "t": "Subscription Audit 1-Pager",
-  "f": "BlazeRidge_Subscription_Audit_1-Pager.pdf"
+  "f": "BlazeRidge_Subscription_Audit_1-Pager.pdf",
+  "i": "subscription-audit"
  },
  "5c11f5968f37d161dc5a53eaeded49ad": {
   "t": "Payday Automation Checklist",
-  "f": "BlazeRidge_Payday_Automation_Checklist.pdf"
+  "f": "BlazeRidge_Payday_Automation_Checklist.pdf",
+  "i": "payday-automation"
  },
  "91d8b147aa49dce7e20cc9dcc47970e1": {
   "t": "Debt Snowball One-Pager",
-  "f": "BlazeRidge_Debt_Snowball_One-Pager.pdf"
+  "f": "BlazeRidge_Debt_Snowball_One-Pager.pdf",
+  "i": "debt-snowball"
  },
  "fb9f5226f460becc2973846f3360edfd": {
   "t": "52-Week Savings Challenge",
-  "f": "BlazeRidge_52_Week_Savings_Challenge.pdf"
+  "f": "BlazeRidge_52_Week_Savings_Challenge.pdf",
+  "i": "savings-challenge"
+ },
+ "368e6d29d5137287590093f8e79be908": {
+  "t": "Wochenplan & Einkaufs-Kit: Meal-Prep sparsam",
+  "f": "BlazeRidge_Wochenplan_Einkaufs-Kit_MealPrep.pdf"
+ },
+ "a7c4ee3b530ba2e3d4ead741175259ea": {
+  "t": "Bewerbungs-Kit Kompakt",
+  "f": "BlazeRidge_Bewerbungs-Kit_Kompakt.pdf",
+  "i": "bewerbungs-kit"
+ },
+ "24cc9f151506d299ef90b5fa5711b085": {
+  "t": "Umzugs-Kit Kompakt",
+  "f": "BlazeRidge_Umzugs-Kit_Kompakt.pdf"
+ },
+ "c8eba42071ff3e5403f0b68e7781f0f0": {
+  "t": "Haushaltsbuch-Kit Kompakt",
+  "f": "BlazeRidge_Haushaltsbuch-Kit_Kompakt.pdf"
  },
  "9ecf452e87de96bac22b7992ced969ee": {
   "t": "Das Geld-Entscheidungs-Kit",
-  "f": "BlazeRidge_Geld-Entscheidungs-Kit.pdf"
+  "f": "BlazeRidge_Geld-Entscheidungs-Kit.pdf",
+  "i": "geld-entscheidungs-kit"
+ },
+ "075092c27ddbd1ebac79d012c7a2d1ab": {
+  "t": "BlazeRidge Komplett-Bundle (8 Produkte)",
+  "f": "BlazeRidge_Komplett-Bundle.zip",
+  "i": "komplett-bundle"
+ },
+ "c9faea3713b52c5df0c44eead2cfa815": {
+  "t": "Pet-Planer-Bundle (5 Blätter, A4 DE)",
+  "f": "Pet-Planer-Bundle_DE_A4.zip",
+  "i": "pet-planer-bundle"
+ },
+ "0feb333b1f6a3a1573ca1753844f4a09": {
+  "t": "Impf- & Gesundheitslog (A4 DE)",
+  "f": "planer_02_impf-gesundheitslog_A4_DE.pdf",
+  "i": "pet-planer-impflog"
+ },
+ "0aec55a5fcf0633ee44e6de321e424ad": {
+  "t": "Haustier-Infoblatt & Notfallplan (6 Seiten, A4 DE)",
+  "f": "Haustier-Infoblatt-Notfallplan_DE_A4.zip",
+  "i": "infoblatt-notfallplan"
+ },
+ "dee4bf715fa28eace9637b216dd2adb4": {
+  "t": "Welpen-Starter-Paket (6 Seiten, A4 DE)",
+  "f": "Welpen-Starter-Paket_DE_A4.zip",
+  "i": "welpen-starter"
+ },
+ "3e88ff417b2c0e4ec893b9b6247fbcfa": {
+  "t": "Urlaub mit Hund: Packliste & Reise-Checkpunkte (A4 DE)",
+  "f": "Urlaub-mit-Hund_DE_A4.zip",
+  "i": "urlaub-packliste"
+ },
+ "dceefcd4a70a3f1a94f120ed5aa6838f": {
+  "t": "Katzen-Umzug: Checkliste & Eingewöhnung (A4 DE)",
+  "f": "Katzen-Umzug_DE_A4.zip",
+  "i": "katzen-umzug"
+ },
+ "9e7b331350e928f7f69cf4b653c89169": {
+  "t": "Hunde-Gesundheitsmappe: Tracker & Logs (A4 DE)",
+  "f": "Hunde-Gesundheitsmappe_DE_A4.zip",
+  "i": "hunde-gesundheitsmappe"
+ },
+ "ce5728e2d5cdedcc1c92938ae3a48a28": {
+  "t": "Senior-Hund-Pflegeplaner (A4 DE)",
+  "f": "Senior-Hund-Pflegeplaner_DE_A4.zip",
+  "i": "senior-pflegeplaner"
+ },
+ "72e5e61ba33350822697841913cb8355": {
+  "t": "Pet-Komplett: 7 Hunde- & Katzen-Pakete (ZIP)",
+  "f": "Pet-Komplett_DE_A4.zip",
+  "i": "pet-komplett"
+ },
+ "7f28f3f6c14061f4d6fbf805ef1c8070": {
+  "t": "Neuer Job, neues Budget (ZIP, A4 DE)",
+  "f": "Neuer-Job_DE_A4.zip",
+  "i": "neuer-job"
+ },
+ "7c40d9d35e9bd68ccdc5039fb67b0272": {
+  "t": "Geld-Reset (ZIP, A4 DE)",
+  "f": "Geld-Reset_DE_A4.zip",
+  "i": "geld-reset"
+ },
+ "f7f063a6c0a2a2e98add64706fa33890": {
+  "t": "Welpen-Trainingsplan 8 Wochen (7 Seiten, A4 DE)",
+  "f": "Welpen-Trainingsplan_DE_A4.zip",
+  "i": "welpen-trainingsplan"
  }
 }
