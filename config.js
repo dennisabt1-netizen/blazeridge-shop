@@ -49,13 +49,9 @@ window.BLAZERIDGE_CONFIG = {
       description:
         "25 everyday money face-offs — Lease vs Buy, coffee habit vs investing, rent vs mortgage — each with 10-year cost math, a verdict, and a line for your own number.",
       longDescription:
-        "A printable English workbook of 25 everyday money face-offs in a VS format. Each page sets two options against each other (for example Lease vs Buy, coffee habit vs an index fund, rent vs mortgage, subscription vs one-time), walks through soft 10-year cost math, gives a plain verdict, and leaves a fill-in line for your numbers.\n\nMade for Shorts watchers who want a decision aid, not a course. Educational content only — not personalized financial, tax, or investment advice. Returns and outcomes are never guaranteed; plug in your own figures.\n\nCOMING SOON: the PDF is not ready yet. Checkout stays closed until the file and download blob are in place — no buy button until delivery works.",
+        "A printable English workbook of 25 everyday money face-offs in a VS format. Each page sets two options against each other (for example Lease vs Buy, coffee habit vs an index fund, rent vs mortgage, subscription vs one-time), walks through soft 10-year cost math, gives a plain verdict, and leaves a fill-in line for your numbers.\n\nMade for Shorts watchers who want a decision aid, not a course. Educational content only — not personalized financial, tax, or investment advice. Returns and outcomes are never guaranteed; plug in your own figures.",
       featured: false,
-      comingSoon: true,
-      // Stripe Payment Link ready (do NOT activate until PDF + blob exist):
-      // https://buy.stripe.com/fZubJ2dZ9gcT1CaefJ5J60D
-      // Redirect target (from delivery/keys.json money-faceoffs.url): get.html?p=<fid>&k=<key>&session_id={CHECKOUT_SESSION_ID}
-      paymentLink: ""
+      paymentLink: "https://buy.stripe.com/fZubJ2dZ9gcT1CaefJ5J60D"
     },
     {
       id: "bias-checklist",
