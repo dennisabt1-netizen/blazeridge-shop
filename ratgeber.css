@@ -45,3 +45,9 @@
   .sheet-note { color: #333; }
   .sheet::after { content: "Kostenlose Vorlage von BlazeRidge – dennisabt1-netizen.github.io/blazeridge-shop"; display: block; margin-top: 1rem; font-size: .75rem; color: #555; }
 }
+
+/* QA 2026-10-06: Tabelle auf schmalen Screens horizontal scrollbar statt Seiten-Overflow */
+@media screen and (max-width: 760px) {
+  .hh-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .hh-table td { min-width: 4.5rem; }
+}
