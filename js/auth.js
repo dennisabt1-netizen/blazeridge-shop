@@ -442,14 +442,12 @@
       }
       return "Apple Sign-In is not enabled for this site.";
     },
-    start(provider) {
+    /* Google (GIS) wird erst nach Nutzerklick geladen (§ 25 TDDDG): Skript injizieren, initialisieren, Button rendern. */
+    async start(provider) {
       if (provider === "google" && hasGoogle()) {
-        if (!googleReady) {
-          initGoogle();
-          return { ok: false, message: "Google Sign-In is loading. Please try again." };
-        }
-        global.google.accounts.id.prompt();
-        return { ok: true, message: "" };
+        const ok = googleReady || await initGoogle();
+        if (!ok) return { ok: false, message: "Google Sign-In could not be loaded. Please try again later." };
+        return { ok: true, message: "Google geladen – bitte im Google-Button anmelden." };
       }
       return { ok: false, message: this.explain(provider) };
     },
@@ -461,8 +459,7 @@
   global.BlazeRidgeAuth = Auth;
 
   function boot() {
-    // Google Identity Services nur auf der Login-Seite laden (Datenschutz, pending-legal 2026-09-25)
-    if (hasGoogle() && document.getElementById("google-signin-button")) initGoogle();
+    // Google Identity Services NICHT automatisch laden – erst nach Klick auf "Mit Google anmelden" (start("google")).
     bindEmailForm();
     updateLoginUi();
     completeMagicLinkIfPresent();

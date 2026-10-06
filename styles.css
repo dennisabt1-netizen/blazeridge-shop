@@ -672,3 +672,9 @@ main { flex: 1; }
   /* cart-shortcut sits above sticky buy when both visible */
   body.has-sticky-buy .cart-shortcut { bottom: 4.75rem; }
 }
+
+/* Newsletter aus, bis Double-Opt-in läuft: Formulare erst sichtbar, wenn NEWSLETTER_ENABLED=true (html.nl-on) */
+html:not(.nl-on) [data-newsletter-form],
+html:not(.nl-on) .footer-newsletter,
+html:not(.nl-on) .newsletter-consent { display: none !important; }
+.newsletter-paused { margin: .5rem 0 0; color: var(--muted); font-size: .92rem; }

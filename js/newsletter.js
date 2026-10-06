@@ -110,7 +110,25 @@
     });
   }
 
+  function enabled() {
+    const cfg = global.BLAZERIDGE_CONFIG || {};
+    return cfg.NEWSLETTER_ENABLED === true;
+  }
+
+  /* Solange kein echter Double-Opt-in läuft: keine Formulare rendern. */
+  function disableForms() {
+    document.querySelectorAll(".footer-newsletter").forEach((el) => el.remove());
+    document.querySelectorAll("form[data-newsletter-form]").forEach((form) => {
+      const p = document.createElement("p");
+      p.className = "newsletter-paused";
+      p.textContent = "Anmeldung bald wieder möglich.";
+      form.replaceWith(p);
+    });
+  }
+
   function init() {
+    if (!enabled()) { disableForms(); return; }
+    document.documentElement.classList.add("nl-on");
     bind();
   }
 
@@ -120,7 +138,7 @@
     init();
   }
 
-  global.BlazeRidgeNewsletter = { bind, submit, endpoint };
+  global.BlazeRidgeNewsletter = { bind, submit, endpoint, enabled };
 })(window);
 
 

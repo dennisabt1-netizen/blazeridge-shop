@@ -6,6 +6,8 @@
  */
 window.BLAZERIDGE_CONFIG = {
   siteName: "BlazeRidge",
+  // Newsletter-Anmeldung aus, bis echter Double-Opt-in läuft (Formulare werden nicht gerendert).
+  NEWSLETTER_ENABLED: false,
   currency: "EUR",
   currencySymbol: "€",
   basePath: "/blazeridge-shop/",
