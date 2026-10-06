@@ -99,7 +99,18 @@
     });
   }
 
+
+  /** Klartext vor dem Kauf: kündigt die Stripe-Pflicht-Checkbox an (Rechtstexte unverändert). */
+  function digitalConsentHintHtml() {
+    return '<p class="notice notice-digital">' +
+      '<strong>Digitaler Download:</strong> Auf der Stripe-Seite bestätigst du per Pflicht-Haken, dass die Bereitstellung sofort beginnt und du damit dein Widerrufsrecht verlierst. ' +
+      'Details: <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>.' +
+      '<br /><span lang="en">Digital download: on the Stripe page you tick a required box agreeing to immediate delivery, which ends your right of withdrawal.</span>' +
+      '</p>';
+  }
+
   function init() {
+    document.querySelectorAll("[data-consent-hint]").forEach((el) => { el.innerHTML = digitalConsentHintHtml(); });
     document.querySelectorAll(".nav").forEach((nav) => {
       if (!nav.querySelector('a[href="contact.html"]')) {
         const link = document.createElement("a");
@@ -143,6 +154,7 @@
     updateCartBadge,
     toast,
     bindAddButtons,
+    digitalConsentHintHtml,
     cfg
   };
 })(window);

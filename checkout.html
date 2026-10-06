@@ -106,6 +106,7 @@
           return;
         }
         root.innerHTML = `
+          ${items.some(i => i.paymentLink) ? BlazeRidgeApp.digitalConsentHintHtml() : ""}
           <div class="panel">
             <ul class="checkout-list">
               ${items.map(i => `

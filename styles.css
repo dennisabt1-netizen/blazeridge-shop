@@ -605,3 +605,7 @@ main { flex: 1; }
 .footer-cta { margin:0 0 1.25rem; padding:.9rem 1rem; border:1px solid var(--line); border-radius:12px; display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; justify-content:space-between; }
 .footer-cta p { margin:0; }
 .cross-sell { margin-top: 1.25rem; }
+
+/* Hinweis vor Kaufbutton (Stripe-Checkbox-Ankündigung) */
+.notice-digital { margin: .85rem 0; font-size: .86rem; line-height: 1.45; }
+.notice-digital span[lang="en"] { opacity: .8; }

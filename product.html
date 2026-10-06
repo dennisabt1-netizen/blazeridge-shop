@@ -122,6 +122,7 @@
             <h1>${escape(p.name)}</h1>
             <p class="muted">${escape(p.longDescription || p.description)}</p>
             <span class="price">${formatPrice(p)}</span>
+            ${(!service && p.paymentLink) ? BlazeRidgeApp.digitalConsentHintHtml() : ""}
             <div class="actions">
               ${actions}
             </div>
