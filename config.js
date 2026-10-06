@@ -400,6 +400,36 @@ window.BLAZERIDGE_CONFIG = {
       paymentLink: "https://buy.stripe.com/aFadRag7h5yf1CadbF5J60A"
     },
     {
+      id: "wohnungsmappe",
+      slug: "wohnungsmappe",
+      image: "images/wohnungsmappe.png",
+      name: "Wohnungsbewerbungs-Mappe (10 Seiten, A4, DE, ausfüllbar)",
+      tag: "PDF · 10 Seiten · ausfüllbar",
+      price: 9.9,
+      description:
+        "Ausfüllbare Mappe für die Wohnungssuche: Kurzprofil, Anschreiben-Muster + Vorlage, Mieterselbstauskunft (freiwillige Standardangaben), Unterlagen-Checkliste, Besichtigungs-Notizen, Mietkosten-Check und Bewerbungs-Übersicht. Sofort-Download.",
+      longDescription:
+        "Bewerben wie ein Profi – am Computer ausfüllen oder ausdrucken. 10 A4-Seiten mit Formularfeldern.\n\nENTHALTEN\n1) Deckblatt & Anleitung\n2) Kurzprofil (wer zieht ein?)\n3) 2 Anschreiben-Muster (Einzelperson, Paar/Familie) mit Platzhaltern – auch als Textdatei\n4) Anschreiben zum Ausfüllen\n5–6) Mieterselbstauskunft für 2 Personen – datensparsam, orientiert an der Orientierungshilfe der Datenschutzkonferenz (DSK, Stand 01/2026), mit Hinweis zur Zweckbindung und Löschung\n7) Unterlagen-Checkliste\n8) Besichtigungs-Notizen\n9) Mietkosten-Check (Warmmiete vs. Netto, Einzugskosten)\n10) Übersicht Bewerbungen (14 Zeilen)\nAls Gesamt-PDF und Einzelseiten (ZIP).\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF z. B. in Adobe Acrobat Reader ausfüllen und speichern (oder drucken: A4, 100 %).\n\nWICHTIG\n• Digitales Produkt – es wird nichts versendet.\n• Vorlage zur Selbstorganisation, keine Rechtsberatung, keine Garantie für eine Zusage.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Gestaltung/Layout selbst erstellt, ohne Fremdbilder und Fremdmarken.",
+      crossSell: "umzugs-kit",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/00wbJ2f3dgcT6Wu5Jd5J60E"
+    },
+    {
+      id: "notfallordner",
+      slug: "notfallordner",
+      image: "images/notfallordner.png",
+      name: "Notfallordner Kompakt (11 Seiten, A4, DE, ausfüllbar)",
+      tag: "PDF · 11 Seiten · ausfüllbar",
+      price: 12.9,
+      description:
+        "Ausfüllbare Organisationshilfe: Notfallkontakte, Konten, Versicherungen, Verträge, digitale Konten und Fundorte wichtiger Dokumente an einem Ort. Keine Rechtsberatung, ersetzt keine Vollmacht/Verfügung/Testament.",
+      longDescription:
+        "Ordnen statt aufschieben: 11 A4-Seiten mit Formularfeldern – Kontakte, Konten, Versicherungen, Verträge, digitale Konten und Fundorte an einem Ort.\n\nENTHALTEN\n1) Deckblatt & Hinweise\n2) Persönliches & Notfallkontakte\n3) Gesundheit – Kontakte & Fundorte\n4) Vorsorgedokumente – nur Fundorte (+ Links zu kostenlosen BMJ-Formularen und zum Zentralen Vorsorgeregister)\n5) Konten & Finanzen (ohne PINs/Passwörter)\n6) Versicherungen\n7) Verträge & Abos\n8) Wohnen, Fahrzeuge & Schlüssel\n9) Digitaler Nachlass – Fundort-Liste (ohne Passwörter)\n10) Wo liegt was?\n11) Jahres-Update & Änderungsprotokoll\nAls Gesamt-PDF und Einzelseiten (ZIP). Stand: Oktober 2026.\n\nWICHTIGER HINWEIS\nDer „Notfallordner Kompakt“ ist eine Organisationshilfe zum Sammeln eigener Informationen. Er ist keine Rechtsberatung und ersetzt weder Vorsorgevollmacht noch Patientenverfügung noch Testament. Diese Dokumente unterliegen gesetzlichen Formvorschriften: Ein Testament ist z. B. nur wirksam, wenn es vollständig eigenhändig geschrieben und unterschrieben ist. Für Grundstücke ist eine beglaubigte Vollmacht nötig, und Banken verlangen oft eigene Vordrucke. Kostenlose amtliche Formulare und Erläuterungen findest du beim Bundesministerium der Justiz; im Zweifel hilft dir eine Notarin, ein Notar oder eine Anwältin bzw. ein Anwalt.\n\nAllgemeine Organisationshilfe ohne Einzelfallprüfung. Keine Vorlagen für Testament, Vorsorgevollmacht oder Patientenverfügung, keine Prüfung ausgefüllter Bögen.\n\nSO FUNKTIONIERT'S\nBezahlen → Download-Seite öffnen → PDF z. B. in Adobe Acrobat Reader ausfüllen und speichern (oder drucken: A4, 100 %).\n\n• Digitales Produkt – es wird nichts versendet.\n• Nur für den persönlichen Gebrauch, kein Weiterverkauf oder Weitergabe.\n• Gestaltung/Layout selbst erstellt, ohne Fremdbilder.",
+      crossSell: "subscription-audit",
+      featured: false,
+      paymentLink: "https://buy.stripe.com/fZu7sMbR17Gn6WudbF5J60F"
+    },
+    {
       id: "pipeline-pilot",
       slug: "pipeline-pilot",
       name: "Pipeline Pilot",
