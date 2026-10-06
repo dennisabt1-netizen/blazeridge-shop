@@ -225,7 +225,7 @@ window.BLAZERIDGE_CONFIG = {
       id: "pet-planer-bundle",
       slug: "pet-planer-bundle",
       image: "images/pet-planer-bundle.png",
-      name: "Pet-Planer-Bundle: 5 Blätter für Hundebesitzer (A4, DE)",
+      name: "Pet-Planer-Bundle: 5 Blätter für Hund & Katze (A4, DE)",
       tag: "PDF · 5 Seiten · A4",
       price: 7.9,
       description:
