@@ -109,6 +109,43 @@
       '</p>';
   }
 
+
+  /** Structured "Enthalten" list from the ENTHALTEN block of longDescription (verified against the delivered files). */
+  function splitContents(p) {
+    const raw = String(p.longDescription || p.description || "");
+    const m = raw.match(/(^|\n)ENTHALTEN[^\n]*\n([\s\S]*?)(?=\n\n|$)/);
+    if (!m) return { items: [], rest: raw };
+    let lines = m[2].split(/\n/);
+    if (lines.length === 1) lines = lines[0].split(/\s+·\s+/);
+    const items = lines
+      .map((l) => l.replace(/^\s*\d+\)\s*/, "").replace(/^\s*[·•\-]\s*/, "").trim())
+      .filter((l) => l.length > 2)
+      .slice(0, 14);
+    const head = m[0].replace(/^\n/, "").split("\n")[0].replace(/^ENTHALTEN\s*/, "").trim();
+    const rest = (raw.slice(0, m.index) + (m[1] || "") + raw.slice(m.index + m[0].length)).replace(/\n{3,}/g, "\n\n").trim();
+    return { items, rest, note: head.replace(/^\(|\)$/g, "") };
+  }
+
+  function contentsHtml(p) {
+    const c = splitContents(p);
+    if (!c.items.length) return "";
+    return '<ul class="product-contents" aria-label="Enthalten"><li class="product-contents-title">Enthalten' +
+      (c.note ? ' <span class="muted">(' + escapeHtml(c.note) + ')</span>' : "") + "</li>" +
+      c.items.map((t) => "<li>" + escapeHtml(t) + "</li>").join("") + "</ul>";
+  }
+
+  function trustMicroHtml() {
+    return '<p class="trust-micro">Anbieter: <a href="impressum.html">Dennis Abate · BlazeRidge</a> · Zahlung über Stripe · ' +
+      'Download-Seite direkt nach der Zahlung · kein Konto nötig</p>';
+  }
+
+  /** Free sample — only for products that contain the real "27 Money Rules" PDF the sample is taken from. */
+  function sampleHtml(p) {
+    if (!p || (p.id !== "money-rules" && p.id !== "komplett-bundle")) return "";
+    return '<p class="trust-micro"><a href="downloads/5-money-rules.pdf" download>Gratis-Probe: 5 Money Rules (PDF, 2 Seiten)</a>' +
+      ' – kostenloses Probeblatt zu „27 Money Rules That Stick“, direkter Download ohne E-Mail.</p>';
+  }
+
   function init() {
     document.querySelectorAll("[data-consent-hint]").forEach((el) => { el.innerHTML = digitalConsentHintHtml(); });
     document.querySelectorAll(".nav").forEach((nav) => {
@@ -155,6 +192,10 @@
     toast,
     bindAddButtons,
     digitalConsentHintHtml,
+    splitContents,
+    contentsHtml,
+    trustMicroHtml,
+    sampleHtml,
     cfg
   };
 })(window);

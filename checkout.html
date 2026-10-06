@@ -137,7 +137,8 @@
           </p>
           <p class="notice notice-warn" style="margin-top:.75rem">
             Multi-item carts check out <strong>one product at a time</strong> (Payment Links). There is no combined Checkout Session on this static site.
-          </p>`;
+          </p>
+          ${BlazeRidgeApp.trustMicroHtml()}`;
 
         document.getElementById("clear-after").addEventListener("click", () => {
           BlazeRidgeCart.clear();

@@ -120,13 +120,16 @@
           <div class="product-meta">
             <p class="tag">${escape(p.tag)}${(p.comingSoon || !p.paymentLink) ? " · Coming soon" : ""}</p>
             <h1>${escape(p.name)}</h1>
-            <p class="muted">${escape(p.longDescription || p.description)}</p>
+            <p class="muted">${escape(service ? (p.longDescription || p.description) : BlazeRidgeApp.splitContents(p).rest)}</p>
+            ${service ? "" : BlazeRidgeApp.contentsHtml(p)}
             <span class="price">${formatPrice(p)}</span>
             ${(!service && p.paymentLink) ? BlazeRidgeApp.digitalConsentHintHtml() : ""}
             <div class="actions">
               ${actions}
             </div>
             <p class="muted purchase-note">${note}</p>
+            ${(!service && p.paymentLink) ? BlazeRidgeApp.trustMicroHtml() : ""}
+            ${service ? "" : BlazeRidgeApp.sampleHtml(p)}
             ${window.BlazeRidgeCrossSell ? BlazeRidgeCrossSell.html(p.id) : ""}
             <ul class="product-facts" aria-label="Purchase information">
               <li><strong>Format</strong><span>${escape(p.tag)}</span></li>
@@ -136,6 +139,14 @@
             </ul>
           </div>
         `;
+        if (!service && p.paymentLink) {
+          root.insertAdjacentHTML("beforeend",
+            `<div class="product-sticky-cta" aria-label="Kaufen">
+              <span class="price">${formatPrice(p)}</span>
+              <div class="actions"><a class="btn" href="${escape(p.paymentLink)}" target="_blank" rel="noopener">Buy now</a></div>
+            </div>`);
+          document.body.classList.add("has-sticky-buy");
+        }
         BlazeRidgeApp.bindAddButtons(root);
         try {
           const base = "https://dennisabt1-netizen.github.io/blazeridge-shop/";

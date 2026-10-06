@@ -1,7 +1,7 @@
 /**
- * Cross-sell box "Pet-Komplett". Comparison price = real sum of the single products listed in
- * the bundle's `includes` (config.js) — computed, never hard-coded. Shown only if the bundle
- * is purchasable (has a paymentLink) and is actually cheaper than the sum.
+ * Cross-sell box "Pet-Komplett" (product page + get.html).
+ * Bundle rule: show only the bundle's own price and an honest list of what's inside —
+ * no comparison prices, no savings claims. Shown only if the bundle is purchasable.
  */
 (function (global) {
   function eur(n) { return Number(n).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €"; }
@@ -13,23 +13,21 @@
     if (!bundle || !bundle.paymentLink || !bundle.includes) return null;
     var eligible = bundle.includes.concat(bundle.alsoIn || []);
     if (productId === bundle.id || eligible.indexOf(productId) === -1) return null;
-    var sum = 0;
+    var names = [];
     for (var i = 0; i < bundle.includes.length; i++) {
       var q = list.filter(function (x) { return x.id === bundle.includes[i]; })[0];
       if (!q) return null;
-      sum += Math.round(Number(q.price) * 100);
+      names.push(q.name);
     }
-    sum = sum / 100;
-    if (!(sum > bundle.price)) return null;
-    return { bundle: bundle, sum: sum, save: Math.round((sum - bundle.price) * 100) / 100, pct: Math.round((1 - bundle.price / sum) * 100) };
+    return { bundle: bundle, names: names };
   }
   function html(productId) {
     var x = info(productId);
     if (!x) return "";
-    return '<aside class="panel cross-sell" aria-label="Pet-Komplett"><p class="eyebrow" style="margin:0 0 .25rem">Alle Pakete</p>' +
-      '<p style="margin:0 0 .5rem"><strong>Pet-Komplett: ' + eur(x.bundle.price) + ' statt ' + eur(x.sum) + '</strong> bei Einzelkauf der ' + x.bundle.includes.length +
-      ' enthaltenen Pakete (' + x.pct + ' % günstiger, du sparst ' + eur(x.save) + ').</p>' +
-      '<p class="muted" style="margin:0 0 .75rem">7 Pakete, 34 A4-Seiten für Hund &amp; Katze als ein ZIP-Download. Summe = Einzelpreise der enthaltenen Pakete laut Shop.</p>' +
+    return '<aside class="panel cross-sell" aria-label="Pet-Komplett"><p class="eyebrow" style="margin:0 0 .25rem">Alle Pet-Pakete</p>' +
+      '<p style="margin:0 0 .5rem"><strong>Pet-Komplett · ' + eur(x.bundle.price) + '</strong> – alle ' + x.names.length +
+      ' Pet-Pakete (34 A4-Seiten) als ein ZIP-Download.</p>' +
+      '<p class="muted" style="margin:0 0 .75rem">Enthalten: ' + x.names.map(esc).join(" · ") + '.</p>' +
       '<a class="btn btn-sm" href="product.html?id=' + esc(x.bundle.id) + '">Pet-Komplett ansehen</a></aside>';
   }
   global.BlazeRidgeCrossSell = { info: info, html: html };
