@@ -74,7 +74,7 @@ window.BLAZERIDGE_CONFIG = {
       slug: "habit-tracker",
       image: "images/habit-tracker.png",
       name: "Habit × Money Tracker",
-      tag: "Bundle · Excel + Notion",
+      tag: "Bundle · Excel + CSV + Notion",
       price: 19,
       description:
         "Link your weekly habits to spending caps. Excel + Notion pack you can reuse every month.",
@@ -115,7 +115,7 @@ window.BLAZERIDGE_CONFIG = {
       id: "debt-snowball",
       slug: "debt-snowball",
       image: "images/debt-snowball.png",
-      name: "Debt Snowball",
+      name: "Debt Snowball One-Pager",
       tag: "Tracker · printable",
       price: 9,
       description:
