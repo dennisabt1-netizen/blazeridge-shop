@@ -24,6 +24,8 @@
 
   function isOAuthReturn() {
     const query = new URLSearchParams(global.location.search);
+    const state = query.get("state") || "";
+    if (state.indexOf("tt.") === 0) return false;
     if (query.has("code") || query.has("state") || query.has("error")) return true;
     return /(?:^|[?#&])(?:code|state|error)=/.test(global.location.hash || "");
   }

@@ -353,18 +353,21 @@
     const session = getSession();
     const sessionEl = document.getElementById("auth-session");
     if (sessionEl) {
-      if (sessionExpired && !(session && (session.email || session.address))) {
+      const who = session && (session.email || session.name || session.address);
+      if (sessionExpired && !who) {
         sessionEl.hidden = false;
         sessionEl.textContent = "Your session has expired. Please sign in again.";
-      } else if (session && (session.email || session.address)) {
-        const who = session.email || session.address;
+      } else if (session && who) {
+        const provider = String(session.provider || "");
         const tag = session.mode === "demo"
           ? " <span class=\"muted\">(demo)</span>"
-          : (String(session.provider || "").indexOf("phantom") === 0 ? " <span class=\"muted\">(Phantom)</span>" : "");
+          : (provider.indexOf("phantom") === 0
+            ? " <span class=\"muted\">(Phantom)</span>"
+            : (provider === "tiktok" ? " <span class=\"muted\">(TikTok)</span>" : ""));
         sessionEl.hidden = false;
         sessionEl.innerHTML =
           "Signed in as <strong>" +
-          escapeText(who) +
+          escapeText(session.email || session.name || session.address) +
           "</strong>" +
           tag +
           ' · <button type="button" class="linkish" id="btn-signout">Sign out</button>';
