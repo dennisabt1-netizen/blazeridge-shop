@@ -9,6 +9,8 @@
   let sdk = null;
   let loadPromise = null;
   let restoreGen = 0;
+  let acceptedGen = -1;
+  let ownedMark = null;
 
   function authConfig() {
     return global.BLAZERIDGE_AUTH || {};
@@ -74,11 +76,23 @@
     return "phantom";
   }
 
+  function sessionMark(session) {
+    if (!session) return "";
+    return String(session.provider || "") + "\0" + String(session.sub || "") + "\0" + String(session.address || "") + "\0" + String(session.email || "");
+  }
+
+  function liveSession() {
+    return global.BlazeRidgeAuth && global.BlazeRidgeAuth.getSession && global.BlazeRidgeAuth.getSession();
+  }
+
   function recordConnection(data) {
+    const existing = liveSession();
+    const replacedOther = ownedMark !== null && existing && sessionMark(existing) !== ownedMark
+      && String(existing.provider || "").indexOf("phantom") !== 0;
+    if (replacedOther) return;
     const addresses = (data && data.addresses) || (sdk && sdk.isConnected() ? sdk.getAddresses() : []);
     const address = solanaAddress(addresses);
     if (!address || !global.BlazeRidgeAuth || !global.BlazeRidgeAuth.noteSession) return;
-    const existing = global.BlazeRidgeAuth.getSession && global.BlazeRidgeAuth.getSession();
     const connectedAt = existing && existing.address === address && existing.connectedAt
       ? Number(existing.connectedAt)
       : Date.now();
@@ -108,6 +122,7 @@
         autoConnect: !!autoConnect
       });
       sdk.on("connect", (event) => {
+        if (acceptedGen !== restoreGen) return;
         recordConnection({
           addresses: event && event.addresses,
           provider: event && event.provider
@@ -136,7 +151,10 @@
     try {
       const instance = await ensureSdk(false);
       if (gen !== restoreGen) return { ok: false, message: "Anmeldung abgebrochen." };
+      ownedMark = null;
+      acceptedGen = gen;
       const result = await instance.connect({ provider: provider });
+      if (gen !== restoreGen) return { ok: false, message: "Anmeldung abgebrochen." };
       recordConnection({
         addresses: (result && result.addresses) || instance.getAddresses(),
         provider: provider
@@ -176,30 +194,37 @@
   }
 
   async function restoreIfNeeded() {
-    if (!appId() || !global.BlazeRidgeAuth) return;
+    if (!appId() || !global.BlazeRidgeAuth) {
+      if (hasAuthParams()) stripPhantomQuery();
+      return;
+    }
+    if (hasAuthParams() && !isOAuthReturn()) stripPhantomQuery();
     const oauthReturn = isOAuthReturn();
-    const session = global.BlazeRidgeAuth.getSession && global.BlazeRidgeAuth.getSession();
+    const session = liveSession();
     const keep = session && String(session.provider || "").indexOf("phantom") === 0;
     if (!oauthReturn && !keep) return;
     const gen = restoreGen;
+    const started = sessionMark(session);
+    ownedMark = started;
     try {
       const instance = await ensureSdk(true);
-      if (gen !== restoreGen) {
-        if (oauthReturn) stripPhantomQuery();
-        return;
-      }
-      if (!instance.isConnected()) await instance.autoConnect();
-      if (oauthReturn) stripPhantomQuery();
       if (gen !== restoreGen) return;
-      if (instance.isConnected()) {
-        recordConnection({ addresses: instance.getAddresses(), provider: (session && session.provider) || "phantom" });
-        return;
+      if (!instance.isConnected()) {
+        acceptedGen = gen;
+        await instance.autoConnect();
       }
-      if (keep && global.BlazeRidgeAuth.markSessionExpired) global.BlazeRidgeAuth.markSessionExpired();
+      if (gen !== restoreGen || sessionMark(liveSession()) !== started) return;
+      if (!instance.isConnected()) return;
+      const current = liveSession();
+      recordConnection({
+        addresses: instance.getAddresses(),
+        provider: (current && current.provider) || (session && session.provider) || "phantom"
+      });
     } catch (_) {
-      if (oauthReturn) stripPhantomQuery();
       if (gen !== restoreGen) return;
       show("Phantom-Sitzung konnte nicht geladen werden. Die lokale Anmeldung bleibt.", true);
+    } finally {
+      if (oauthReturn) stripPhantomQuery();
     }
   }
 
