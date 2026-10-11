@@ -151,14 +151,21 @@
     try {
       const instance = await ensureSdk(false);
       if (gen !== restoreGen) return { ok: false, message: "Anmeldung abgebrochen." };
-      ownedMark = null;
-      acceptedGen = gen;
+      const previous = ownedMark;
       const result = await instance.connect({ provider: provider });
       if (gen !== restoreGen) return { ok: false, message: "Anmeldung abgebrochen." };
+      ownedMark = null;
       recordConnection({
         addresses: (result && result.addresses) || instance.getAddresses(),
         provider: provider
       });
+      const recorded = liveSession();
+      if (recorded && String(recorded.provider || "").indexOf("phantom") === 0) {
+        ownedMark = sessionMark(recorded);
+        acceptedGen = gen;
+      } else {
+        ownedMark = previous;
+      }
       global.sessionStorage.removeItem(PENDING_KEY);
       return { ok: true, message: "Angemeldet. Die Solana-Adresse liegt in dieser Sitzung (7 Tage)." };
     } catch (error) {
