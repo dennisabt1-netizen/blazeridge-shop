@@ -5,8 +5,10 @@
  */
 (function (global) {
   const SDK_URL = "https://esm.sh/@phantom/browser-sdk@2.0.4";
+  const PENDING_KEY = "blazeridge_phantom_pending";
   let sdk = null;
   let loadPromise = null;
+  let restoreGen = 0;
 
   function authConfig() {
     return global.BLAZERIDGE_AUTH || {};
@@ -22,12 +24,28 @@
     return "https://dennisabt1-netizen.github.io/blazeridge-shop/login.html";
   }
 
-  function isOAuthReturn() {
+  function hasAuthParams() {
     const query = new URLSearchParams(global.location.search);
     const state = query.get("state") || "";
     if (state.indexOf("tt.") === 0) return false;
     if (query.has("code") || query.has("state") || query.has("error")) return true;
     return /(?:^|[?#&])(?:code|state|error)=/.test(global.location.hash || "");
+  }
+
+  function isOAuthReturn() {
+    if (global.sessionStorage.getItem(PENDING_KEY) !== "1") return false;
+    return hasAuthParams();
+  }
+
+  function stripPhantomQuery() {
+    const url = new URL(global.location.href);
+    ["code", "state", "error", "error_description"].forEach((key) => {
+      url.searchParams.delete(key);
+    });
+    if (/(?:^|[?#&])(?:code|state|error)=/.test(url.hash || "")) url.hash = "";
+    const next = url.pathname + (url.search ? url.search : "") + url.hash;
+    global.history.replaceState({}, "", next);
+    global.sessionStorage.removeItem(PENDING_KEY);
   }
 
   function show(text, warning) {
@@ -113,15 +131,20 @@
       return { ok: false, message: "Nur Google und Apple sind für Phantom freigeschaltet." };
     }
     if (!appId()) return { ok: false, message: missingAppMessage() };
+    global.sessionStorage.setItem(PENDING_KEY, "1");
+    const gen = restoreGen;
     try {
       const instance = await ensureSdk(false);
+      if (gen !== restoreGen) return { ok: false, message: "Anmeldung abgebrochen." };
       const result = await instance.connect({ provider: provider });
       recordConnection({
         addresses: (result && result.addresses) || instance.getAddresses(),
         provider: provider
       });
+      global.sessionStorage.removeItem(PENDING_KEY);
       return { ok: true, message: "Angemeldet. Die Solana-Adresse liegt in dieser Sitzung (7 Tage)." };
     } catch (error) {
+      global.sessionStorage.removeItem(PENDING_KEY);
       const text = error && error.message ? String(error.message) : "";
       if (/reject|cancel|closed|denied/i.test(text)) {
         return { ok: false, message: "Anmeldung abgebrochen." };
@@ -131,6 +154,8 @@
   }
 
   async function disconnect() {
+    restoreGen += 1;
+    global.sessionStorage.removeItem(PENDING_KEY);
     if (!sdk) return;
     try {
       await sdk.disconnect();
@@ -152,19 +177,29 @@
 
   async function restoreIfNeeded() {
     if (!appId() || !global.BlazeRidgeAuth) return;
+    const oauthReturn = isOAuthReturn();
     const session = global.BlazeRidgeAuth.getSession && global.BlazeRidgeAuth.getSession();
     const keep = session && String(session.provider || "").indexOf("phantom") === 0;
-    if (!isOAuthReturn() && !keep) return;
+    if (!oauthReturn && !keep) return;
+    const gen = restoreGen;
     try {
       const instance = await ensureSdk(true);
+      if (gen !== restoreGen) {
+        if (oauthReturn) stripPhantomQuery();
+        return;
+      }
       if (!instance.isConnected()) await instance.autoConnect();
+      if (oauthReturn) stripPhantomQuery();
+      if (gen !== restoreGen) return;
       if (instance.isConnected()) {
         recordConnection({ addresses: instance.getAddresses(), provider: (session && session.provider) || "phantom" });
         return;
       }
       if (keep && global.BlazeRidgeAuth.markSessionExpired) global.BlazeRidgeAuth.markSessionExpired();
     } catch (_) {
-      if (keep && global.BlazeRidgeAuth.markSessionExpired) global.BlazeRidgeAuth.markSessionExpired();
+      if (oauthReturn) stripPhantomQuery();
+      if (gen !== restoreGen) return;
+      show("Phantom-Sitzung konnte nicht geladen werden. Die lokale Anmeldung bleibt.", true);
     }
   }
 

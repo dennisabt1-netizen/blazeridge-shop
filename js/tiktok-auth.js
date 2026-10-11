@@ -70,7 +70,7 @@
   function profileFrom(data) {
     const body = data && typeof data === "object" ? data : {};
     const openId = String(body.open_id || body.openId || "").trim();
-    const name = String(body.display_name || body.displayName || "").trim();
+    const name = String(body.display_name || body.displayName || "").trim() || openId;
     const picture = String(body.avatar_url || body.avatarUrl || "").trim();
     if (!openId && !name) return null;
     return {

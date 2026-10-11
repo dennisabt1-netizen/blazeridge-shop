@@ -353,7 +353,7 @@
     const session = getSession();
     const sessionEl = document.getElementById("auth-session");
     if (sessionEl) {
-      const who = session && (session.email || session.name || session.address);
+      const who = session && (session.email || session.name || session.address || session.sub);
       if (sessionExpired && !who) {
         sessionEl.hidden = false;
         sessionEl.textContent = "Your session has expired. Please sign in again.";
@@ -367,7 +367,7 @@
         sessionEl.hidden = false;
         sessionEl.innerHTML =
           "Signed in as <strong>" +
-          escapeText(session.email || session.name || session.address) +
+          escapeText(session.email || session.name || session.address || session.sub) +
           "</strong>" +
           tag +
           ' · <button type="button" class="linkish" id="btn-signout">Sign out</button>';
