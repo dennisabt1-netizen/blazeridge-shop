@@ -26,7 +26,7 @@ Telefon-Ort bis nach Auftrag 1 und 2: ________________________________
 
 Bewegungsform, ein Satz, dieselbe Form an allen sieben Tagen: ________________________________
 
-Geplante Ausgaben der Woche, die über 10 € liegen dürfen. Was nicht hier steht, ist ungeplant.
+Ausgaben über 10 €, die erlaubt sein sollen. Geplant ist nur, was am Vorabend auf der Tageskarte steht. Am Startabend gilt diese Tabelle für Tag 1, ab Tag 2 nur die Zeile vom Vorabend.
 
 | Tag | Ausgabe | Betrag |
 | --- | --- | --- |
@@ -145,7 +145,7 @@ Tag gilt: ja / nein
 
 Datum: ____________
 
-Fokus: Auftrag 5 liest nur die Zeile „für morgen“ auf dem Blatt von Tag 3. Das ist der Plan für heute. Was dort nicht steht und über 10 € liegt, ist Bruch, auch wenn der Kauf sinnvoll war.
+Fokus: Auftrag 5 liest nur die Zeile „für morgen“ auf dem Blatt von Tag 3. Das ist der Plan für heute. Die Tabelle auf der Startseite gilt an diesem Tag nicht. Was in der Zeile nicht steht und über 10 € liegt, ist Bruch, auch wenn der Kauf sinnvoll war.
 
 Geplante Ausgaben über 10 € für morgen: ________________________________ Betrag: ________
 

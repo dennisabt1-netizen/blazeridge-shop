@@ -146,6 +146,6 @@ Eine Ausgabe bekommt eine Nummer. Die teurere von zwei Kandidaten ist die Zeile.
 
 Das Haushaltsbuch-Kit bleibt der Monat mit Geplant und Tatsächlich. Dieses Blatt ersetzt es nicht und braucht es nicht.
 
-Läuft parallel das 7-Tage-Protokoll, ist die eine Zahl dort Auftrag 4. Dieselbe Zahl wird hier in Minute 0–2 eingetragen. Zwei verschiedene Zahlen am selben Abend sind nicht vorgesehen. Dann gilt die Zahl des laufenden Protokolls, und die Art auf dieser Startseite wird für die Restdauer darauf umgestellt. Die Umstellung wird mit Datum auf die Startseite geschrieben. Die Nächte davor bleiben in der alten Art stehen und werden in den Summen getrennt gezählt.
+Läuft parallel das 7-Tage-Protokoll, bleibt die Art hier die angekreuzte, vierzehn Nächte, ohne Umstellung. Auftrag 4 wird nicht in Minute 0–2 übernommen: die Zahl wechselt dort von Tag zu Tag, und an Tag 4 ist es die größte einzelne Ausgabe. Die größte einzelne Ausgabe bleibt die Leck-Zeile. Zwei Zahlen am selben Abend sind zulässig, eine auf jedem Blatt. Nacht 15 zählt nur die Art von dieser Startseite.
 
 Der Sonntags-Reset setzt die Wochengrenze. Die Morgen-Grenze hier ist der Tagesanteil. Beide können gleichzeitig existieren: die Wochenzahl am Sonntag, die Tageszahl jeden Abend.

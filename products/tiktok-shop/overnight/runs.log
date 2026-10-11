@@ -1,5 +1,0 @@
-2026-10-11T22:55:00Z fallback
-language: Python was the planned runner (`cursor_sdk` / Agent.prompt). The repo is a static HTML shop, not a Python or TypeScript app. Python was chosen because the user was asleep and a language question would stall the night.
-sdk: not started
-reason: CURSOR_API_KEY is unset in this environment. The package `cursor_sdk` is not installed. No key was read from disk and none is recorded here.
-passes: done in this session with local edits under products/tiktok-shop/ only. No agent id, no run id.
