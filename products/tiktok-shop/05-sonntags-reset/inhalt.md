@@ -79,7 +79,7 @@ Wer kein Hindernis nennen kann, schreibt in das Hindernisfeld: „nicht hingeseh
 Sechs Zeilen, abgeschrieben, nicht neu erfunden. Quelle sind die Blöcke oben.
 
 1. Weckzeit morgen: ________
-2. Bewegung morgen: ja / nein (folgt aus den angekreuzten Tagen)
+2. Bewegungstage dieser Woche, dieselben Kreuze: Mo Di Mi Do Fr Sa So. Morgen: ja / nein
 3. Wochenlimit, noch frei zum Wochenstart = das gesetzte Limit: ________
 4. Geldaktion, Nummer und Datum: ________
 5. Gegenregel, derselbe Satz: ________________________________
@@ -133,7 +133,7 @@ Reset gilt: ja / nein
 ### Montagskarte Woche 1
 
 1. Weckzeit morgen: ________
-2. Bewegung morgen: ja / nein
+2. Bewegungstage: Mo Di Mi Do Fr Sa So. Morgen: ja / nein
 3. Wochenlimit frei: ________
 4. Aktion und Datum: ________
 5. Gegenregel: ________________________________
@@ -166,7 +166,7 @@ Reset gilt: ja / nein
 ### Montagskarte Woche 2
 
 1. Weckzeit morgen: ________
-2. Bewegung morgen: ja / nein
+2. Bewegungstage: Mo Di Mi Do Fr Sa So. Morgen: ja / nein
 3. Wochenlimit frei: ________
 4. Aktion und Datum: ________
 5. Gegenregel: ________________________________
@@ -199,7 +199,7 @@ Reset gilt: ja / nein
 ### Montagskarte Woche 3
 
 1. Weckzeit morgen: ________
-2. Bewegung morgen: ja / nein
+2. Bewegungstage: Mo Di Mi Do Fr Sa So. Morgen: ja / nein
 3. Wochenlimit frei: ________
 4. Aktion und Datum: ________
 5. Gegenregel: ________________________________
@@ -232,7 +232,7 @@ Reset gilt: ja / nein
 ### Montagskarte Woche 4
 
 1. Weckzeit morgen: ________
-2. Bewegung morgen: ja / nein
+2. Bewegungstage: Mo Di Mi Do Fr Sa So. Morgen: ja / nein
 3. Wochenlimit frei: ________
 4. Aktion und Datum: ________
 5. Gegenregel: ________________________________

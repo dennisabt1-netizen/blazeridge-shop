@@ -16,7 +16,7 @@ Begründung: Dieselbe Impulsstufe wie die Bias-Checkliste (9 €, `config.js`). 
 
 **Externer Checkout.** Kein natives TikTok-Shop-Listing. EU-Policy führt digitale Downloads als unsupported. Finanzdienstleistungen sind dort ebenfalls prohibited. Dieses Blatt ist keine Beratung und kein Finanzprodukt. Es ist ein Formular. Trotzdem kein Shop-Listing, weil die Datei ein digitaler Download ist.
 
-Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung. Profil-Link auf die Produktseite. Video ohne Shop-Tag.
+Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung. Ziel ist die Produktseite. Klickbarer Profil-Link nur, wenn der Account ihn setzen darf. Video ohne Shop-Tag.
 
 ## 1-Satz-Versprechen
 
@@ -38,7 +38,7 @@ Der Kauf-Stopp ist die Karte für den Moment, in dem der Gegenstand schon in der
 
 Zwanzig Vorgänge. Ein vorzeitiger Kauf bleibt als Bruch stehen.
 
-PDF, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Finanzberatung, keine Zusage, dass weniger ausgegeben wird.
+PDF, 9 Euro, BlazeRidge-Shop. Die Adresse der Produktseite wird im Video gesagt. Bildungsinhalt. Keine Finanzberatung, keine Zusage, dass weniger ausgegeben wird.
 
 ## Short-Hooks
 
@@ -51,5 +51,7 @@ PDF, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Finanzberatung,
 - PDF aus `inhalt.md`, A4, 100 %. Die Ablaufkarte auf eine Seite, das Log auf die folgenden Seiten, zwanzig Zeilen fertig, nicht „Vorlage folgt“.
 - Stripe, sofortiger Download.
 - Im Video einen echten oder gestellten Warenkorb zeigen, Preis tippen, Tab schließen, Startzeit ins Log.
-- CTA: „Profil-Link, 9 Euro. Die Linie wird vor dem nächsten Kauf eingetragen.“
+- CTA: „9 Euro. Die Linie steht vor dem nächsten Kauf. Produktseite.“ Die URL wird gesagt. Klickbarer Profil-Link nur ab 1.000 Followern oder als Verified Business Account. Sonst anpinnen.
+- Content-Disclosure an, eigene Marke, bevor das Video live geht.
+- Vor der Zahlung die Pflicht-Checkbox auf der Bezahlseite. Widerruf nach der bestehenden Widerrufsbelehrung. Download über `get.html` direkt nach der Stripe-Zahlung.
 - Kein Shop-Tag. Keine Aufforderung, den Kauf über eine DM zu verschieben.

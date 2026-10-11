@@ -10,7 +10,7 @@ Adapter-Kontext: Der Adapter-Server verlangt eine Anmeldung. Die Anmeldung ließ
 
 ### EU, einschließlich Deutschland
 
-Die [TikTok Shop EU Prohibited Products Policy](https://seller-ie.tiktok.com/university/essay?knowledge_id=748151570286357) trägt das Datum **06/08/2026** und gilt ausdrücklich für Belgien, **Deutschland**, Spanien, Frankreich, Irland, Italien, die Niederlande und Polen. Verkäufer dürfen die dort gelisteten Produkte nicht verkaufen. „Unsupported“ heißt auf derselben Seite: derzeit nicht zum Verkauf zugelassen.
+Die [TikTok Shop EU Prohibited Products Policy](https://seller-ie.tiktok.com/university/essay?knowledge_id=748151570286357) trägt das Datum **06/08/2026** und gilt ausdrücklich für Belgien, **Deutschland**, Spanien, Frankreich, Irland, Italien, die Niederlande und Polen. Dieselbe Knowledge-ID im [deutschen Seller Center](https://seller-de.tiktok.com/university/essay?knowledge_id=748151570286357) trägt dasselbe Datum und dieselben Abschnitte 3.20 und 3.34. **Lesart des Datums: 6. August 2026.** Die UK-Fassung derselben Policy-Familie trägt 25/08/2026, und 25 ist kein Monat, also Tag/Monat. [Novoca](https://novoca.io/en/sell/how-to-sell-digital-products-on-tiktok) (Stand 20. September 2026) nennt dasselbe EU-Update mit dem 6. August 2026. Die EU-Seite schreibt „6. August“ nicht selbst aus. Die Monat-Tag-Lesart (8. Juni) widerspricht diesen beiden Ankern. Verkäufer dürfen die dort gelisteten Produkte nicht verkaufen. „Unsupported“ heißt auf derselben Seite: derzeit nicht zum Verkauf zugelassen.
 
 Unter **3.20 Media Products (Unsupported)** stehen unter anderem digitale Medien, Apps, Websites, Blogs und **„Digital downloads of books, magazines, newspapers, music, videos“**.
 
@@ -44,17 +44,28 @@ Die abgerufene Virtual-Goods-Seite sagt nicht selbst „Applies to: United State
 
 [Avoid Redirecting Traffic](https://seller-us.tiktok.com/university/essay?knowledge_id=4588077398099713) vom **06/22/2026** gilt für Creator **auf TikTok Shop**: Käufe über die Shop-Links in Video und LIVE. Verboten sind unter anderem Aufforderungen, das beworbene Produkt über externe Links, DMs, Websites oder den Bio-Link zu kaufen, und ein Shop-Produkt zu verlinken, wenn der Kauf woanders stattfinden soll.
 
-**Schlussfolgerung für diese fünf Dateien:** Sie bekommen keinen TikTok-Shop-Produkt-Tag. Der Kauf läuft außerhalb, über den bestehenden BlazeRidge-Shop. Video und Profil verweisen auf die Produktseite. Ein Shop-Tag plus „Link in Bio“ wäre die Kombination, die diese Regel verbietet.
+**Schlussfolgerung für diese fünf Dateien:** Sie bekommen keinen TikTok-Shop-Produkt-Tag. Der Kauf läuft außerhalb, über den bestehenden BlazeRidge-Shop. Video und, wo vorhanden, der Profil-Link verweisen auf die Produktseite, nicht auf die Startseite. Ein Shop-Tag plus externer Kauf wäre die Kombination, die die US-Creator-Regel verbietet.
+
+### Profil-Link und Kennzeichnung, Stand der abgerufenen Hilfeseiten
+
+Zwei getrennte Regeln, nicht zu einer zusammengezogen:
+
+- [About TikTok account entitlements](https://ads.tiktok.com/help/article/about-tiktok-account-entitlements) (Last updated: May 2026): Auf einem General TikTok Account können Business-Informationen und der Bio-Link nicht angezeigt werden. Advanced Access darf den Bio-Link bearbeiten, aber nicht auf dem Profil anzeigen. Organic Conversion Anchors, also ein Ziel-Link an Video oder Profil, stehen in der Tabelle bei Verified Business Account.
+- [Switching to a Creator or Business account](https://support.tiktok.com/en/using-tiktok/growing-your-audience/switching-to-a-creator-or-business-account): Der direkte Abruf am 11. Oktober 2026 lieferte keinen Artikeltext. Der indexierte Hilfetext derselben URL sagt: „General TikTok Accounts with at least 1,000 followers can post a website link on their profile.“ Und: „Verified Business Accounts can post a website link on their profile to promote a website.“ Das ist der Beleg für die 1.000-Follower-Schwelle. Er ist indexiert, nicht aus dem gerenderten Artikelkörper abgeschrieben.
+
+**Schlussfolgerung:** Solange der Account weder die 1.000 Follower für den Website-Link hat noch ein Verified Business Account ist, gibt es keinen belegten klickbaren Profil-Link. Dann wird die Produkt-URL gesprochen und in den angehefteten Kommentar geschrieben. Ein bloßes Umschalten auf Business ohne Verifizierung reicht nach der Entitlements-Tabelle vom Mai 2026 nicht, um den Bio-Link öffentlich zu zeigen. Novoca formuliert die Business-Abkürzung weiter; diese Dateien folgen der engeren Tabelle.
+
+[Promoting a brand, product, or service](https://support.tiktok.com/en/business-and-creator/creator-and-business-accounts/promoting-a-brand-product-or-service): Wer eigene Ware bewirbt, schaltet die Content-Disclosure ein und wählt die eigene Marke. Das veröffentlichte Video wird als Promotional content gekennzeichnet. Die Kennzeichnung ist Teil jedes Videos zu diesen fünf Dateien.
 
 Physische Brücke: Die US-Policy erlaubt eine DVD mit digitalem Inhalt als physisches Produkt und verbietet, digitale Ansprüche als physische Ware auszugeben. Die gelesene EU-Policy enthält diesen DVD-Satz nicht. BlazeRidge versendet heute nichts (`README.md`: Stripe, Download). Ein Schein-Versand, hinter dem nur eine PDF steckt, wird nicht empfohlen.
 
 ### Konkretes Verkaufsmodell
 
-**Stripe Payment Link im bestehenden Shop** unter https://dennisabt1-netizen.github.io/blazeridge-shop/ — derselbe Weg wie die live Produkte in `config.js`. Auslieferung: PDF nach Zahlung über `get.html`. Profil-Link zeigt auf die jeweilige Produktseite, nicht auf die Startseite.
+**Stripe Payment Link im bestehenden Shop** unter https://dennisabt1-netizen.github.io/blazeridge-shop/ — derselbe Weg wie die live Produkte in `config.js`. Auslieferung: PDF nach Zahlung über `get.html`. Die Zieladresse ist die Produktseite, nicht die Startseite. Ob sie als klickbarer Profil-Link steht, entscheiden die Regeln im Abschnitt „Profil-Link und Kennzeichnung“.
 
 Stan Store und Gumroad sind funktionierende Alternativen, kein natives Shop-Listing. Stan Store nennt auf der eigenen Vergleichsseite **29–99 US-Dollar im Monat, 0 % Plattformgebühr** ([Stan Store vs Gumroad](https://stan.store/blog/stan-store-vs-gumroad/)). Gumroad auf derselben Seite: **10 % + 0,50 US-Dollar** pro Direktverkauf. BlazeRidge hat den Stripe-Weg schon. Ein zweites Shop-System ist für diese fünf Dateien nicht nötig.
 
-[Novoca](https://novoca.io/en/sell/how-to-sell-digital-products-on-tiktok) schreibt, digitale Downloads seien im EU-Shop nicht unterstützt (Policy-Update 6. August 2026) und der Verkauf laufe über eine Seite außerhalb von TikTok, erreicht über den Profil-Link. Das trifft die gelesene EU-Policy.
+[Novoca](https://novoca.io/en/sell/how-to-sell-digital-products-on-tiktok) (Seite aktualisiert 20. September 2026) schreibt, digitale Downloads seien im EU-Shop nicht unterstützt (Policy-Update 6. August 2026) und der Verkauf laufe über eine Seite außerhalb von TikTok. Das trifft die gelesene EU-Policy. Novoca nennt dafür den Profil-Link und, unter 1.000 Followern, den angehefteten Kommentar. Die engere Grenze für den klickbaren Link steht im Abschnitt oben, nicht bei Novoca.
 
 ## 2. Was in kurzen Videos kauft
 
@@ -107,11 +118,16 @@ Jedes Produkt ist in einem Satz zeigbar und am selben Tag benutzbar. Keine Fat-L
 - Der Satz „Applies to: United States“ stand im abgerufenen Virtual-Goods-Text nicht. US-only stammt aus Sekundärquellen.
 - Keine API-Lieferpflicht auf der Virtual-Goods-Seite gefunden.
 - Keine benannten deutschen Wettbewerber-Accounts mit verifizierten Preisen.
+- Der Hilfetext zur 1.000-Follower-Schwelle für den Website-Link ist indexiert. Der Artikelkörper ließ sich am 11. Oktober 2026 nicht rendern. Die Entitlements-Tabelle vom Mai 2026 ist gerendert und gilt für den Business-Bio-Link, nicht als Widerspruch zur indexierten Schwelle.
 - Umsatzzahlen aus einzelnen Blogposts zu Habit-Apps (Lock-In, Go Tall, HabitKit) sind nicht die Grundlage dieser Preise und werden hier nicht als belegt weiterverwendet. Zenith+ ist die Ausnahme: die Preise stehen auf der App-Store-Seite.
 
 ## Sources
 
-- [TikTok Shop EU Prohibited Products Policy](https://seller-ie.tiktok.com/university/essay?knowledge_id=748151570286357) (06/08/2026)
+- [TikTok Shop EU Prohibited Products Policy](https://seller-ie.tiktok.com/university/essay?knowledge_id=748151570286357) (06/08/2026, Lesart 6. August 2026)
+- [Dieselbe Policy im deutschen Seller Center](https://seller-de.tiktok.com/university/essay?knowledge_id=748151570286357) (06/08/2026)
+- [About TikTok account entitlements](https://ads.tiktok.com/help/article/about-tiktok-account-entitlements) (May 2026)
+- [Switching to a Creator or Business account](https://support.tiktok.com/en/using-tiktok/growing-your-audience/switching-to-a-creator-or-business-account) (indexierter Hilfetext, 11. Oktober 2026)
+- [Promoting a brand, product, or service](https://support.tiktok.com/en/business-and-creator/creator-and-business-accounts/promoting-a-brand-product-or-service)
 - [TikTok Shop UK Prohibited Products Policy](https://seller-uk.tiktok.com/university/essay?knowledge_id=7753824408307457) (25/08/2026)
 - [TikTok Shop US Prohibited Products Policy](https://seller-us.tiktok.com/university/essay?knowledge_id=1399532709988097)
 - [Virtual Goods Requirements](https://seller-us.tiktok.com/university/essay?knowledge_id=7563407075510030) (09/01/2026)

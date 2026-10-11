@@ -16,7 +16,7 @@ Begründung: Der Habit-×-Money-Tracker liegt im Shop bei 19 € (`config.js`). 
 
 **Externer Checkout.** Kein natives TikTok-Shop-Listing. EU: digitale Downloads und virtuelle Produkte unsupported. Ein 25-Minuten-System als Datei ist kein Invite-only-Kurs und wird nicht als Kurs in den US-Shop gestellt. BlazeRidge verkauft aus Deutschland.
 
-Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung. Profil-Link auf die Produktseite. Video ohne Shop-Tag.
+Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung. Ziel ist die Produktseite. Klickbarer Profil-Link nur, wenn der Account ihn setzen darf. Video ohne Shop-Tag.
 
 ## 1-Satz-Versprechen
 
@@ -38,18 +38,20 @@ Fünf Blöcke. Zahlen der letzten Woche. Drei Befehle: Weckzeit, Bewegungstage, 
 
 Vier Wochen liegen fertig im PDF. Wer den Sonntag verpasst, setzt den Timer Montag um 06:00. Um 06:26 ohne Karte gilt die Woche ohne Reset.
 
-19 Euro, BlazeRidge-Shop, Profil-Link, PDF nach der Zahlung. Bildungsinhalt. Keine Finanzberatung, keine Zusage, dass das Limit gehalten wird.
+19 Euro, BlazeRidge-Shop, PDF nach der Zahlung. Die Adresse der Produktseite wird im Video gesagt. Bildungsinhalt. Keine Finanzberatung, keine Zusage, dass das Limit gehalten wird.
 
 ## Short-Hooks
 
 1. „Sonntag, fünfundzwanzig Minuten. Drei Befehle. Eine Geldaktion. Die Montagskarte, oder der Reset gilt nicht.“
 2. „Der Fehler ist die Wochenplanung ohne Uhrzeit. Hier endet der Timer, und die Karte ist geschrieben.“
-3. „Eine Aktion. Abo, Rechnung, Dauerauftrag, Grenze, Rückerstattung oder Bargeld. Der erste Klick hat ein Datum.“
+3. „Eine Aktion. Abo, Rechnung, Dauerauftrag, Linie, Rückerstattung oder Bargeld. Der erste Schritt hat ein Datum.“
 
 ## Delivery
 
 - PDF aus `inhalt.md`, A4, 100 %. Vier Wochenblätter fertig. Die Montagskarte als eigene Seite zum Abtrennen.
 - Stripe, sofortiger Download über den bestehenden Shop.
 - Im Video einen Timer von 0:25 und eine gefüllte Montagskarte zeigen. Ein Block reicht als Beweis, die drei Befehle.
-- CTA: „Profil-Link, 19 Euro. Nächster Sonntag, oder Montag 06:00.“
+- CTA: „19 Euro. Nächster Sonntag, oder Montag 06:00. Produktseite.“ Die URL wird gesagt. Klickbarer Profil-Link nur ab 1.000 Followern oder als Verified Business Account. Sonst anpinnen.
+- Content-Disclosure an, eigene Marke, bevor das Video live geht.
+- Vor der Zahlung die Pflicht-Checkbox auf der Bezahlseite. Widerruf nach der bestehenden Widerrufsbelehrung. Download über `get.html` direkt nach der Stripe-Zahlung.
 - Kein Shop-Tag. Kein Termin-Coaching, keine Live-Session als Teil des Preises.

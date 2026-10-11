@@ -55,9 +55,9 @@ Aufgabe heute: ________________________________
 
 ### 4. Bewegung an fünf von sieben Tagen
 
-Maß: 20 Minuten am Stück an diesem Tag. Fünf solche Tage in der Woche erfüllen den Befehl für die Woche. Ein einzelner Tag ohne Bewegung ist 0 für diesen Tag und bleibt erlaubt, solange die Woche fünf erreicht.
+Maß: 20 Minuten am Stück an diesem Tag, sonst 0. Die Woche erfüllt Befehl 4, wenn mindestens fünf Tage 1 sind.
 
-Bruch an einem Bewegungstag, der ausfällt und die Woche unter fünf drückt: am nächsten Morgen stehen die 20 Minuten vor Befehl 3. Die Arbeitseinheit beginnt danach.
+Bruch, sobald die restlichen Tage fünf Einsen nicht mehr erreichen können: am nächsten Morgen stehen die 20 Minuten vor Befehl 3. Die Arbeitseinheit beginnt danach. Der Tag mit 0 bleibt 0. Beispiel: nach Mittwoch null Einsen. Donnerstag bis Sonntag sind vier Tage. 0 plus 4 ist kleiner als 5. Die Vorziehung gilt ab Donnerstag früh.
 
 ### 5. Eine Mahlzeit steht vor 12 Uhr auf dem Zettel
 
@@ -71,7 +71,7 @@ Mahlzeit: ________________________________
 
 Maß: Jeder ungeplante Kauf über der eingetragenen Linie hat Startzeit und Endzeit, Abstand mindestens 24 Stunden, bevor Geld fließt. Geplant ist, was vor dem Kauf in einem Satz auf der Karte steht.
 
-Bruch: Geld ist trotzdem geflossen. Der Betrag wird heute in die Bruchzeile geschrieben. Am nächsten Tag ist Befehl 6 erst 1, wenn kein weiterer Bruch dazukommt. Der bereits getätigte Kauf wird nicht zurückgerechnet.
+Bruch: Geld ist trotzdem geflossen. Der Betrag steht heute in der Bruchzeile. Befehl 6 ist heute 0. Der Kauf wird nicht rückgängig gemacht und nicht auf morgen verschoben. Morgen wird Befehl 6 nur an den Käufen von morgen gemessen.
 
 Bruchzeile Betrag: ________ Gegenstand: ________________________________
 

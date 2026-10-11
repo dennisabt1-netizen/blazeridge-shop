@@ -41,7 +41,7 @@ Die gewählte Art. Ein Betrag. Kein zweiter Betrag, kein Pfeil, kein „ungefäh
 
 ### Minute 2–4 — Leck-Zeile
 
-Die größte einzelne Ausgabe seit dem letzten Abschluss. Betrag. Eine Kategorie, eine davon:
+Die Leck-Zeile ist die größte einzelne Ausgabe seit dem letzten Abschluss. Betrag. Eine Kategorie, eine davon:
 
 1. Essen außer Haus
 2. Lieferung

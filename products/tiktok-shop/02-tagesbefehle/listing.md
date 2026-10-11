@@ -16,7 +16,7 @@ Begründung: Buyer’s Bias Checklist und weitere Einseiter im Shop liegen bei 9
 
 **Externer Checkout.** Kein natives TikTok-Shop-Listing. EU-Policy: digitale Downloads und virtuelle Produkte unsupported, Deutschland in der Geltungsliste.
 
-Konkret: Stripe Payment Link im bestehenden BlazeRidge-Shop, PDF nach Zahlung. Profil-Link auf die Produktseite. Video ohne Shop-Produkt-Tag.
+Konkret: Stripe Payment Link im bestehenden BlazeRidge-Shop, PDF nach Zahlung. Ziel ist die Produktseite. Klickbarer Profil-Link nur, wenn der Account ihn setzen darf. Video ohne Shop-Produkt-Tag.
 
 ## 1-Satz-Versprechen
 
@@ -38,7 +38,7 @@ Die Tageskarte gilt ab morgen früh. Weckzeit am Vorabend. Erste Stunde ohne Fee
 
 Am Sonntag: wie viele Befehle haben fünf von sieben Tagen. Unter acht ist die Woche unter der Linie.
 
-PDF, A4, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Beratung, keine Effektzusage.
+PDF, A4, 9 Euro, BlazeRidge-Shop. Die Adresse der Produktseite wird im Video gesagt. Bildungsinhalt. Keine Beratung, keine Effektzusage.
 
 ## Short-Hooks
 
@@ -51,5 +51,7 @@ PDF, A4, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Beratung, k
 - PDF aus `inhalt.md`, A4, 100 %. Die Befehlskarte auf eine Seite, die Wochenblätter dahinter.
 - Stripe, Download-Seite des Shops, sofort nach Zahlung.
 - Im Video die Karte hochhalten und einen Befehl vorlesen: Maß, dann Bruchregel.
-- CTA: „Profil-Link, 9 Euro.“
+- CTA: „9 Euro. Produktseite.“ Die URL wird gesagt. Klickbarer Profil-Link nur ab 1.000 Followern oder als Verified Business Account. Sonst anpinnen.
+- Content-Disclosure an, eigene Marke, bevor das Video live geht.
+- Vor der Zahlung die Pflicht-Checkbox auf der Bezahlseite. Widerruf nach der bestehenden Widerrufsbelehrung. Download über `get.html` direkt nach der Stripe-Zahlung.
 - Kein Shop-Tag, kein DM-Versand der Datei.

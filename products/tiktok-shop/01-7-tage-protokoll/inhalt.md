@@ -145,7 +145,7 @@ Tag gilt: ja / nein
 
 Datum: ____________
 
-Fokus: Auftrag 5 liest nur die geplante Zeile von Tag 3. Was dort nicht steht und über 10 € liegt, ist Bruch, auch wenn der Kauf sinnvoll war.
+Fokus: Auftrag 5 liest nur die Zeile „für morgen“ auf dem Blatt von Tag 3. Das ist der Plan für heute. Was dort nicht steht und über 10 € liegt, ist Bruch, auch wenn der Kauf sinnvoll war.
 
 Geplante Ausgaben über 10 € für morgen: ________________________________ Betrag: ________
 
@@ -169,7 +169,7 @@ Tag gilt: ja / nein
 
 Datum: ____________
 
-Fokus: Auftrag 2. Pause, Telefonblick oder ein zweiten Block später am Tag setzen den Timer auf 0. Zwanzig Minuten am Stück oder 0.
+Fokus: Auftrag 2. Pause, Telefonblick oder ein zweiter Block später am Tag setzen den Timer auf 0. Zwanzig Minuten am Stück oder 0.
 
 Geplante Ausgaben über 10 € für morgen: ________________________________ Betrag: ________
 

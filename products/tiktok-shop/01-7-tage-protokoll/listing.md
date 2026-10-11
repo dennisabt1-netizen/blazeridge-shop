@@ -18,7 +18,7 @@ Begründung: „27 Money Rules That Stick“ liegt im Shop bei 12 € (`config.j
 
 Die EU-Policy (Deutschland in der Geltungsliste, Stand 06/08/2026) führt digitale Downloads von Büchern und virtuelle Produkte als unsupported. Dieses Produkt ist eine PDF.
 
-Konkret: neues Stripe Payment Link, eingetragen in `config.js`, Zahlung im bestehenden BlazeRidge-Shop, Download über `get.html`. Profil-Link auf die Produktseite. Video **ohne** Shop-Produkt-Tag.
+Konkret: neues Stripe Payment Link, eingetragen in `config.js`, Zahlung im bestehenden BlazeRidge-Shop, Download über `get.html`. Ziel ist die Produktseite. Klickbarer Profil-Link nur, wenn der Account ihn setzen darf. Video **ohne** Shop-Produkt-Tag.
 
 Stan Store oder Gumroad nur, wenn der bestehende Shop nicht genutzt werden soll. Für BlazeRidge ist Stripe der vorhandene Weg.
 
@@ -42,7 +42,7 @@ Das 7-Tage-Protokoll ist ein Lauf. Sechs Aufträge, sieben Morgen, eine Wertung.
 
 Die Aufträge stehen vor Tag 1. In der Woche kommt kein siebter hinzu. Am siebten Abend steht die Wochenzahl: fünf Tage mit sechs von sechs, oder die Woche gilt nicht.
 
-PDF, A4, sofort nach der Zahlung über den BlazeRidge-Shop. Profil-Link. Bildungsinhalt, keine Finanz-, Steuer-, Rechts- oder Gesundheitsberatung. Keine Zusage eines Spar-, Einkommens- oder Körpereffekts.
+PDF, A4, sofort nach der Zahlung über den BlazeRidge-Shop. Die Adresse der Produktseite wird im Video gesagt. Bildungsinhalt, keine Finanz-, Steuer-, Rechts- oder Gesundheitsberatung. Keine Zusage eines Spar-, Einkommens- oder Körpereffekts.
 
 ## Short-Hooks
 
@@ -55,5 +55,7 @@ PDF, A4, sofort nach der Zahlung über den BlazeRidge-Shop. Profil-Link. Bildung
 - Datei: PDF aus `inhalt.md`, A4, Skalierung 100 %.
 - Zugang: Stripe-Zahlung, Weiterleitung auf die bestehende Download-Seite. Kein Code, keine manuelle E-Mail, kein TikTok-Shop-Versandstatus.
 - Im Video die ausgefüllte Tag-1-Karte zeigen: zwei Uhrzeiten, sechs Kästchen, die 10-€-Zeile.
-- CTA gesprochen und im Bild: „Profil-Link, 12 Euro, PDF.“
+- CTA gesprochen und im Bild: „12 Euro. PDF. Produktseite.“ Die URL wird gesagt. Ein klickbarer Profil-Link nur ab 1.000 Followern auf einem General Account oder als Verified Business Account. Sonst anpinnen.
+- Content-Disclosure an, eigene Marke, bevor das Video live geht.
+- Vor der Zahlung die Pflicht-Checkbox auf der Bezahlseite. Widerruf nach der bestehenden Widerrufsbelehrung des Shops. Download über `get.html` direkt nach der Stripe-Zahlung.
 - Kein Shop-Orange-Tag, kein QR auf eine fremde Kasse, kein „schreib mir, ich schick dir das PDF“.

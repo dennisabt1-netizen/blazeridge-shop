@@ -14,8 +14,8 @@ Fünf fertige Dateien. Verkauf außerhalb von TikTok Shop. Preise in EUR, brutto
 
 1. Inhalt aus `inhalt.md` als PDF setzen (A4, 100 %).
 2. SKU in `config.js` plus Stripe Payment Link, gleiches Muster wie die live Produkte.
-3. Profil-Link auf die Produktseite `product.html?id=<sku>`, nicht auf die Startseite.
-4. Video ohne TikTok-Shop-Produkt-Tag. Ein Tag plus externer Kauf verstößt gegen [Avoid Redirecting Traffic](https://seller-us.tiktok.com/university/essay?knowledge_id=4588077398099713).
+3. Zieladresse ist die Produktseite `product.html?id=<sku>`, nicht die Startseite. Klickbarer Profil-Link nur, wenn der Account ihn haben darf: mindestens 1.000 Follower auf einem General Account (indexierter TikTok-Hilfetext) oder Verified Business Account ([Entitlements, Mai 2026](https://ads.tiktok.com/help/article/about-tiktok-account-entitlements)). Sonst wird die URL gesprochen und angepinnt.
+4. Video ohne TikTok-Shop-Produkt-Tag. Ein Tag plus externer Kauf verstößt gegen [Avoid Redirecting Traffic](https://seller-us.tiktok.com/university/essay?knowledge_id=4588077398099713). Content-Disclosure für die eigene Marke ist an, bevor das Video live geht.
 
 Native Listings sind im EU-Shop für diese Dateien nicht der Weg. Begründung: `00-recherche-zusammenfassung.md`.
 
@@ -23,7 +23,7 @@ Native Listings sind im EU-Shop für diese Dateien nicht der Weg. Begründung: `
 
 1. Sieben Tage, sechs Aufträge, ein Tag gilt nur bei sechs von sechs.
 2. Zehn stehende Befehle, jeder mit Maß und Bruchregel, auf einer Karte.
-3. Jeden Abend in acht Minuten eine Zahl, eine Leck-Zeile, eine Grenze für morgen.
+3. Jeden Abend in acht Minuten eine Zahl, die größte Ausgabe, eine Grenze für morgen.
 4. Ein ungeplanter Kauf über der Linie wartet 24 Stunden, dann entscheiden drei Fakten.
 5. Sonntag in 25 Minuten: drei Befehle, eine Geldaktion, die Montagskarte.
 

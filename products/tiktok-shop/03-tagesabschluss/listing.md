@@ -16,11 +16,11 @@ Begründung: Gleiche Stufe wie Subscription Audit und Payday Automation im Shop,
 
 **Externer Checkout.** Kein natives TikTok-Shop-Listing. EU: digitale Downloads unsupported.
 
-Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung, Profil-Link auf die Produktseite, Video ohne Shop-Tag.
+Konkret: Stripe Payment Link, BlazeRidge-Shop, PDF nach Zahlung. Ziel ist die Produktseite. Klickbarer Profil-Link nur, wenn der Account ihn setzen darf. Video ohne Shop-Tag.
 
 ## 1-Satz-Versprechen
 
-Jeden Abend in acht Minuten eine Zahl, eine Leck-Zeile, eine Grenze für morgen.
+Jeden Abend in acht Minuten eine Zahl, die größte Ausgabe, eine Grenze für morgen.
 
 ## Nutzen
 
@@ -28,7 +28,7 @@ Jeden Abend in acht Minuten eine Zahl, eine Leck-Zeile, eine Grenze für morgen.
 - Die Art der Zahl bleibt 14 Tage gleich: Kontostand oder Ausgabensumme.
 - Die größte Ausgabe des Tages bekommt eine von acht festen Kategorien.
 - Eine versäumte Nacht bleibt eine Lücke. Rekonstruieren aus dem Gedächtnis ist nicht vorgesehen.
-- Am Ende der 14 Tage stehen drei Summen: Lückentage, Summe der größten Ausgaben, Anzahl der Tage über der Morgen-Grenze.
+- Am Ende der 14 Tage stehen drei Summen: Lückentage, Summe der größten Ausgaben, und nur bei der Art Ausgabensumme die Anzahl der Tage über der Morgen-Grenze. Bei Kontostand bleibt die dritte Summe ungeprüft.
 
 ## Listing-Text
 
@@ -38,7 +38,7 @@ Der Tagesabschluss ist kein Haushaltsbuch. Er ist der Schluss des Tages, Timer a
 
 Vierzehn Nächte. Eine versäumte Nacht bleibt leer. Am fünfzehnten Abend stehen drei Summen.
 
-PDF, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Beratung, keine Ersparniszusage. Die Grenze ist ein Eintrag, kein Soll von BlazeRidge.
+PDF, 9 Euro, BlazeRidge-Shop. Die Adresse der Produktseite wird im Video gesagt. Bildungsinhalt. Keine Beratung, keine Ersparniszusage. Die Grenze ist ein Eintrag, kein Soll von BlazeRidge.
 
 ## Short-Hooks
 
@@ -51,5 +51,7 @@ PDF, 9 Euro, BlazeRidge-Shop, Profil-Link. Bildungsinhalt. Keine Beratung, keine
 - PDF aus `inhalt.md`, A4, 100 %. Die ersten 14 Tage sind das Produkt, nicht eine Anleitung auf ein späteres Produkt.
 - Stripe, sofortiger Download.
 - Im Video den Timer und eine gefüllte Zeile zeigen: Zahl, Kategorie, Grenze, 1 oder 0.
-- CTA: „Profil-Link, 9 Euro, heute Abend Zeile 1.“
+- CTA: „9 Euro. Heute Abend Zeile 1. Produktseite.“ Die URL wird gesagt. Klickbarer Profil-Link nur ab 1.000 Followern oder als Verified Business Account. Sonst anpinnen.
+- Content-Disclosure an, eigene Marke, bevor das Video live geht.
+- Vor der Zahlung die Pflicht-Checkbox auf der Bezahlseite. Widerruf nach der bestehenden Widerrufsbelehrung. Download über `get.html` direkt nach der Stripe-Zahlung.
 - Kein Shop-Tag.

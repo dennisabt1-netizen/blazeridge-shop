@@ -235,6 +235,16 @@ A: ___ B: ___ C: ___ Entscheidung: ________ Datum: ________
 
 ---
 
+## Beispiel, frei erfunden
+
+Linie 15 €. Wochenlimit 40 €. Keine bereits entschiedenen Ja-Käufe.
+
+Zeile: Preis 8 €. Unter der Linie. Fakten leer. Entscheidung: unter der Linie.
+
+Zeile: Preis 28 €. Auslöser 1. Nach 24 Stunden A nein, B ja, C ja. Entscheidung: kein Kauf. Ein Nein reicht.
+
+Zeile: Preis 22 €. Geld fließt nach 3 Stunden. Entscheidung: Bruch. Die Zeile bleibt.
+
 ## Schluss des Hefts
 
 Gezählt wird nach Zeile 20, auch wenn Zeilen leer geblieben sind. Leere Zeilen zählen als nicht eröffnet.
