@@ -139,17 +139,17 @@ Befehl: das Blatt von Tag 43 oben mit „Fortsetzung“ beschriften, bevor der W
 
 ## Lektion 7 — Die Wochengrenze ab Woche fünf
 
-Bild: „ab Tag 29, Sonntag, eine Zahl“.
+Bild: „Abend von Tag 28, ab Tag 29, eine Zahl“.
 
 Gesprochen:
 
-Ab dem Sonntag, der auf Tag 28 folgt, kommt eine Wochengrenze dazu. Sie ist die Summe der geplanten Käufe über der Linie plus die Tageslinie, einmal hingeschrieben, für die kommenden sieben Tage. Sie ersetzt die Tageslinie nicht. Ein Impuls über der Tageslinie wartet weiter 24 Stunden, auch wenn die Woche Luft hat.
+Am Abend von Tag 28 kommt eine Wochengrenze dazu, danach alle sieben Tage wieder. Sie ist die Summe der geplanten Käufe über der Linie plus die Tageslinie, einmal hingeschrieben, für die kommenden sieben Tage. Sie ersetzt die Tageslinie nicht. Ein Impuls über der Tageslinie wartet weiter 24 Stunden, auch wenn die Woche Luft hat.
 
-Vor Tag 29 gibt es diese Grenze nicht, damit die ersten vier Wochen nicht schon an einer zweiten Zahl scheitern, die du dir ausdenkst, während die Art noch neu ist. Ab Tag 29 ist sie Pflicht. Ein Sonntag ohne Grenze ist ein Strich und macht den Sonntag nicht automatisch zum Nein in der Tag-Spalte, wenn die vier Felder stehen. Er macht die kommende Woche zur Woche ohne Deckel, und das wird am nächsten Sonntag mitgezählt: wie viele Sonntage die Grenze fehlte.
+Vor Tag 29 gibt es diese Grenze nicht, damit die ersten vier Wochen nicht schon an einer zweiten Zahl scheitern, die du dir ausdenkst, während die Art noch neu ist. Ab Tag 29 ist sie Pflicht. Fehlt die Grenze an einem dieser Abende, ist das ein Strich und macht diesen Abend nicht automatisch zum Nein in der Tag-Spalte, wenn die vier Felder stehen. Er macht die kommende Woche zur Woche ohne Deckel, und das wird am nächsten solchen Abend mitgezählt: wie viele dieser Abende die Grenze fehlte.
 
-Zwei fehlende Sonntage hintereinander ändern die Morgenbefehle nicht. Sie stehen als zwei Striche.
+Zwei dieser Abende hintereinander ohne Grenze ändern die Morgenbefehle nicht. Sie stehen als zwei Striche.
 
-Befehl: den Sonntag nach Tag 28 im Kalender markieren. An dem Abend die eine Zahl, oder der Strich.
+Befehl: den Abend von Tag 28 im Kalender markieren, danach alle sieben Tage. An jedem dieser Abende die eine Zahl, oder der Strich.
 
 ---
 
@@ -255,13 +255,13 @@ Bild: drei Zahlen untereinander. Kein Satz.
 
 Gesprochen:
 
-Am Abend von Tag 84, in den acht Minuten, zuerst die Art-Zahl dieses Tages, dann die drei Zähler: Ja-Tage aus 84, gehaltene Abende aus 84, durchgehaltene Stopps. Die Geldaktionen, die am Termin ja waren, als vierte Zahl darunter. Vier Zahlen. Kein Prozent, kein Vergleich, kein „wenn man die Reise rausnimmt“.
+Am Abend von Tag 84, in den acht Minuten, zuerst die Art-Zahl dieses Tages, dann die drei Zähler: Ja-Tage aus 84, gehaltene Abende aus 84, durchgehaltene Stopps. Drei Zahlen. Kein Prozent, kein Vergleich, kein „wenn man die Reise rausnimmt“.
 
 Die Reise bleibt drin. Der Flug bleibt drin. Die Klammer erklärt, sie subtrahiert nicht.
 
-Ein Zielsatz, der sich auf das Blatt geschlichen hat, wird vor dem Lesen der vier Zahlen gestrichen. Gestrichen heißt lesbar durchgestrichen. Danach liest du die vier Zahlen einmal laut. Das ist der Abschluss. Niemand in einem Call deutet sie für dich. Diese Series enthält den Call nicht.
+Ein Zielsatz, der sich auf das Blatt geschlichen hat, wird vor dem Lesen der drei Zahlen gestrichen. Gestrichen heißt lesbar durchgestrichen. Danach liest du die drei Zahlen einmal laut. Das ist der Abschluss. Niemand in einem Call deutet sie für dich. Diese Series enthält den Call nicht.
 
-Befehl: vier Zahlen, laut, einmal. Dann Stift für Lektion 15, oder Schluss.
+Befehl: drei Zahlen, laut, einmal. Dann Stift für Lektion 15, oder Schluss.
 
 ---
 
@@ -271,9 +271,9 @@ Bild: „neue Karte“ oder „Schluss“, eines von beiden.
 
 Gesprochen:
 
-Am selben Abend, nach den vier Zahlen, ein Wort: weiter oder Schluss. Weiter heißt: eine neue Karte für die nächsten 84 Tage, und an diesem Abend darfst du höchstens eine Uhrzeit ändern und höchstens die Art wechseln und höchstens eine neue Form in einem Satz schreiben. Drei Änderungen auf einmal sind eine neue Identität, und die ist hier nicht vorgesehen. Eine Änderung oder keine. Die Linie darfst du zusätzlich neu setzen, eine Zahl, weil sie kein Körperbefehl ist.
+Am selben Abend, nach den drei Zahlen, ein Wort: weiter oder Schluss. Weiter heißt: eine neue Karte für die nächsten 84 Tage, und an diesem Abend darfst du höchstens eine Uhrzeit ändern und höchstens die Art wechseln und höchstens eine neue Form in einem Satz schreiben. Drei Änderungen auf einmal sind eine neue Identität, und die ist hier nicht vorgesehen. Eine Änderung oder keine. Die Linie darfst du zusätzlich neu setzen, eine Zahl, weil sie kein Körperbefehl ist.
 
-Schluss heißt: kein neues Blatt. Die vier Zahlen bleiben die letzten. Ein Blatt, das du drei Tage später trotzdem anfängst, ist ein neues Protokoll, kein Anhängsel, und es erbt die Werte nicht heimlich. Entweder du schreibst sie bewusst ab, mit dem Wort „Fortsetzung“, oder du setzt eine der erlaubten Änderungen. Heimlich erben ist radieren.
+Schluss heißt: kein neues Blatt. Die drei Zahlen bleiben die letzten. Ein Blatt, das du drei Tage später trotzdem anfängst, ist ein neues Protokoll, kein Anhängsel, und es erbt die Werte nicht heimlich. Entweder du schreibst sie bewusst ab, mit dem Wort „Fortsetzung“, oder du setzt eine der erlaubten Änderungen. Heimlich erben ist radieren.
 
 Der Preis dieser Series ist danach nicht mehr verhandelbar, und er war es nach dem Veröffentlichen schon nicht. Wer den Kurs noch einmal kauft, kauft dieselben sechzehn Videos. Die Zahlen sind trotzdem neue Zahlen, weil es neue Tage sind.
 

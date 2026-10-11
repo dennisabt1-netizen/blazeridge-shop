@@ -21,7 +21,7 @@ Zwölf Wochen, drei Körperbefehle und eine Geldzahl, ein Tag gilt nur, wenn bei
 ## Nutzen
 
 - Dieselbe Karte wie die kurzen Series, über 84 Tage, ohne zweite Verhandlung.
-- Ab Woche fünf die Wochengrenze in einer Zahl, die am Sonntag steht.
+- Ab Woche fünf die Wochengrenze in einer Zahl, am Abend von Tag 28 und danach alle sieben Tage.
 - Ab Woche neun ein Abschlussprotokoll: Ja-Tage, gehaltene Abende, Käufe nach dem Stopp.
 - Kein Neustart in Woche sechs, weil die erste Hälfte „unsauber“ war.
 - Der Abend von Tag 84 schreibt die nächste Karte oder beendet sie. Nicht vorher.

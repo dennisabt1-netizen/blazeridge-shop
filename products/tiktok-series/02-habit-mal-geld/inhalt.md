@@ -47,7 +47,7 @@ Die Summe ist die Addition dessen, was heute das Konto oder das Portemonnaie ver
 
 Wer am Mittwoch wechselt, weil die Summe unbequem ist, nullt die gezählten Abende. Die Zeilen davor bleiben stehen, die Woche gilt als unterbrochen, und die Art der ersten Zeile gilt weiter. Der Wechsel wird durchgestrichen, nicht ausgeführt. Es gibt keine zweite Spalte „zur Kontrolle“. Eine zweite Spalte ist der Wechsel.
 
-Acht Minuten. Timer sichtbar. Minute 0 bis 2: die Zahl. Minute 2 bis 5: die größte Ausgabe in einem Wort und einem Betrag, auch wenn die Art nicht „größte Ausgabe“ ist. Das ist die Leck-Zeile, sie ersetzt die Art-Zahl nicht. Minute 5 bis 8: die Linie für morgen, unverändert, es sei denn, Lektion 7 hat eine neue Wochengrenze gesetzt.
+Acht Minuten. Timer sichtbar. Minute 0 bis 2: die Zahl. Minute 2 bis 5: die größte Ausgabe in einem Wort und einem Betrag, auch wenn die Art nicht „größte Ausgabe“ ist. Das ist die Leck-Zeile, sie ersetzt die Art-Zahl nicht. Minute 5 bis 8: die geplanten Käufe für morgen über der Linie, höchstens drei Zeilen, Gegenstand und Betrag.
 
 Wer die acht Minuten am nächsten Morgen nachholt, füllt den Abend nicht. Die Zeile bleibt leer. Leer ist ein ausgefallener Abend.
 
