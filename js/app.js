@@ -158,6 +158,9 @@
       }
     });
     document.querySelectorAll(".footer-nav").forEach((nav) => {
+      if (!nav.querySelector('a[href="tools.html"]')) {
+        nav.insertAdjacentHTML("beforeend", '<a href="tools.html">Tools</a>');
+      }
       if (!nav.querySelector('a[href="friends.html"]')) {
         nav.insertAdjacentHTML("beforeend", '<a href="friends.html">Tell a friend</a>');
       }

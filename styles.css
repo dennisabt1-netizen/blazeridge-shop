@@ -678,3 +678,12 @@ html:not(.nl-on) [data-newsletter-form],
 html:not(.nl-on) .footer-newsletter,
 html:not(.nl-on) .newsletter-consent { display: none !important; }
 .newsletter-paused { margin: .5rem 0 0; color: var(--muted); font-size: .92rem; }
+
+/* Werbe-/Affiliate-Kennzeichnung (tools.html, Startseite) */
+.ad-label { font-size: .85rem; color: var(--ember-2); margin: .5rem 0; }
+.notice-ad { margin-top: 1rem; }
+.tool-card { margin: 1.5rem 0; }
+.tool-card h3 { margin-top: 1rem; font-size: 1rem; }
+.tool-teaser { margin: 0; font-size: .92rem; color: var(--muted); }
+.tool-teaser .ad-label { display: inline-block; margin: 0 .5rem 0 0; font-weight: 600; }
+.prose a.btn { color: #1a0e05; }
