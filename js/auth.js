@@ -7,8 +7,10 @@
   const authConfig = global.BLAZERIDGE_AUTH || {};
   const DEMO_USERS_KEY = "blazeridge_demo_users";
   const SESSION_KEY = "blazeridge_auth_session";
+  const PHANTOM_SESSION_MS = 7 * 24 * 60 * 60 * 1000;
   let googleReady = false;
   let googleInitPromise = null;
+  let sessionExpired = false;
   let firebaseApp = null;
   let firebaseAuth = null;
   let firebaseInitPromise = null;
@@ -93,10 +95,23 @@
 
   function getSession() {
     try {
-      return JSON.parse(global.localStorage.getItem(SESSION_KEY) || "null");
+      const raw = JSON.parse(global.localStorage.getItem(SESSION_KEY) || "null");
+      if (!raw) return null;
+      if (String(raw.provider || "").indexOf("phantom") === 0 && raw.connectedAt) {
+        if (Date.now() - Number(raw.connectedAt) > PHANTOM_SESSION_MS) {
+          global.localStorage.removeItem(SESSION_KEY);
+          sessionExpired = true;
+          return null;
+        }
+      }
+      return raw;
     } catch (_) {
       return null;
     }
+  }
+
+  function escapeText(value) {
+    return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
   function clearSession() {
@@ -338,16 +353,27 @@
     const session = getSession();
     const sessionEl = document.getElementById("auth-session");
     if (sessionEl) {
-      if (session && session.email) {
+      if (sessionExpired && !(session && (session.email || session.address))) {
+        sessionEl.hidden = false;
+        sessionEl.textContent = "Your session has expired. Please sign in again.";
+      } else if (session && (session.email || session.address)) {
+        const who = session.email || session.address;
+        const tag = session.mode === "demo"
+          ? " <span class=\"muted\">(demo)</span>"
+          : (String(session.provider || "").indexOf("phantom") === 0 ? " <span class=\"muted\">(Phantom)</span>" : "");
         sessionEl.hidden = false;
         sessionEl.innerHTML =
           "Signed in as <strong>" +
-          session.email.replace(/</g, "&lt;") +
+          escapeText(who) +
           "</strong>" +
-          (session.mode === "demo" ? " <span class=\"muted\">(demo)</span>" : "") +
+          tag +
           ' · <button type="button" class="linkish" id="btn-signout">Sign out</button>';
         const out = document.getElementById("btn-signout");
         if (out) out.addEventListener("click", () => {
+          sessionExpired = false;
+          if (global.BlazeRidgePhantom && global.BlazeRidgePhantom.disconnect) {
+            global.BlazeRidgePhantom.disconnect();
+          }
           clearSession();
           updateLoginUi();
         });
@@ -427,7 +453,26 @@
       return !hasFirebase();
     },
     getSession,
-    signOut: clearSession,
+    signOut() {
+      sessionExpired = false;
+      if (global.BlazeRidgePhantom && global.BlazeRidgePhantom.disconnect) {
+        global.BlazeRidgePhantom.disconnect();
+      }
+      clearSession();
+    },
+    noteSession(user) {
+      sessionExpired = false;
+      setSession(user);
+      updateLoginUi();
+    },
+    markSessionExpired() {
+      clearSession();
+      sessionExpired = true;
+      updateLoginUi();
+    },
+    isSessionExpired() {
+      return sessionExpired;
+    },
     emailSignIn,
     emailSignUp,
     sendMagicLink,

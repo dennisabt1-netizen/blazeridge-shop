@@ -8,6 +8,9 @@ window.BLAZERIDGE_AUTH = {
     "google": true,
     "apple": false
   },
+  "phantomAppId": "",
+  "PHANTOM_APP_ID": "",
+  "phantomRedirectUrl": "https://dennisabt1-netizen.github.io/blazeridge-shop/login.html",
   "origin": "https://dennisabt1-netizen.github.io",
   "redirectUri": "https://dennisabt1-netizen.github.io/blazeridge-shop/",
   "FORMSPREE_ENDPOINT": "https://formspree.io/f/mjykkjbq",
