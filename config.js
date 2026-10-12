@@ -463,6 +463,45 @@ window.BLAZERIDGE_CONFIG = {
       featured: false,
       // Derzeit nicht buchbar (Stripe-Link inaktiv, 02.10.2026 Rechts-Check). Link erst nach Reaktivierung + § 312k-Kündigungsbutton eintragen.
       paymentLink: ""
+    },
+    {
+      id: "kurs-disziplin-6w",
+      slug: "kurs-disziplin-6w",
+      name: "Sechs-Wochen-Kommando",
+      tag: "Kurs · 6 Wochen · Deutsch",
+      price: 79,
+      description:
+        "Sechs Wochen, drei Befehle am Tag. Ein Tag gilt bei drei von drei: Weckzeit, Bildschirm-Ende, zwanzig Minuten in einer Form.",
+      longDescription:
+        "Ein Selbstlern-Kurs über sechs Wochen. Jede Woche hat die Regel im Klartext, sieben Tagesbefehle, ein Arbeitsblatt und einen Sonntagsabschluss. Drei Felder: eine Weckzeit, ein Bildschirm-Ende, zwanzig Minuten Bewegung in einer Form vor dem Telefon. Ein Tag gilt nur bei drei von drei. Kein Trainingsplan, keine Körperzusage. Bildungsinhalt, keine Gesundheitsberatung. Wer eine ärztliche Einschränkung hat, klärt die Form vorher. PDF nach der Zahlung, sobald der Stripe-Link steht. Bis dahin Coming soon. Nur für den persönlichen Gebrauch.",
+      featured: false,
+      paymentLink: ""
+    },
+    {
+      id: "kurs-habit-geld-6w",
+      slug: "kurs-habit-geld-6w",
+      name: "Habit × Money, sechs Wochen",
+      tag: "Kurs · 6 Wochen · Deutsch",
+      price: 99,
+      description:
+        "Sechs Wochen, jeden Abend eine Zahl. Ungeplante Käufe über der Linie warten 24 Stunden. Danach drei Fakten, dann ja oder nein.",
+      longDescription:
+        "Ein Selbstlern-Kurs über sechs Wochen, kein einzelnes Tracker-Blatt. Eine Art Zahl, 42 Abende, acht Minuten, eine Linie und ein 24-Stunden-Stopp. Pro Woche eine Geldaktion und ab Woche drei eine Wochengrenze. Kein Depot, kein Zielbetrag, keine Sparzusage. Die Beträge sind Einträge des Käufers. Bildungsinhalt, keine Finanz-, Steuer- oder Anlageberatung. PDF nach der Zahlung, sobald der Stripe-Link steht. Bis dahin Coming soon. Nur für den persönlichen Gebrauch.",
+      featured: false,
+      paymentLink: ""
+    },
+    {
+      id: "kurs-protokoll-12w",
+      slug: "kurs-protokoll-12w",
+      name: "Zwölf-Wochen-Protokoll",
+      tag: "Kurs · 12 Wochen · Deutsch",
+      price: 149,
+      description:
+        "Zwölf Wochen auf einer Karte. Drei Befehle und eine Abendzahl. Ein Tag gilt nur, wenn beides gehalten ist. Kein Neustart in Woche sieben.",
+      longDescription:
+        "Das lange Protokoll: 84 Tage, beide Systeme, ein Abschluss mit vier Zahlen. Weckzeit, Bildschirm-Ende, zwanzig Minuten in einer Form, und jeden Abend eine Zahl derselben Art. Ungeplante Käufe über der Linie warten 24 Stunden. Ab Woche fünf eine Wochengrenze, ab Woche neun ein Zählerblatt. Tag 43 ist kein Neubeginn. Kein Call, keine Gruppe. Nicht das 29-€-ZIP der kurzen Blätter. Bildungsinhalt, keine Finanz-, Steuer-, Rechts- oder Gesundheitsberatung, keine Spar-, Einkommens- oder Körperzusage. PDF nach der Zahlung, sobald der Stripe-Link steht. Bis dahin Coming soon. Nur für den persönlichen Gebrauch.",
+      featured: false,
+      paymentLink: ""
     }
   ]
 };
