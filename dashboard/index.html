@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>BlazeRidge · Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #120e0b;
+      --panel: #1a1410;
+      --panel-2: #221a14;
+      --text: #f7f0e6;
+      --muted: #b5a494;
+      --ember: #e85d04;
+      --ember-2: #f4a261;
+      --line: #3a2c22;
+      --ok: #3d9a6a;
+      --warn: #c45c26;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(232,93,4,.12), transparent 42%),
+        linear-gradient(180deg, #16110d 0%, var(--bg) 40%, #0e0b09 100%);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    .wrap { width: min(920px, 92%); margin: 0 auto; padding: 1.5rem 0 3rem; }
+    header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .75rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+    h1 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 0; }
+    h1 em { color: var(--ember); font-style: italic; }
+    .meta { color: var(--muted); font-size: .85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.15rem;
+    }
+    .card h2 {
+      margin: 0 0 .65rem;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ember-2);
+      font-weight: 700;
+    }
+    .stat { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; }
+    .stat small { display: block; font-size: .8rem; font-weight: 400; color: var(--muted); margin-top: .2rem; }
+    .badge {
+      display: inline-block;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 700;
+      background: rgba(196,92,38,.25);
+      color: var(--ember-2);
+      border: 1px solid rgba(196,92,38,.45);
+    }
+    .badge.ok { background: rgba(61,154,106,.2); color: #9fd4b5; border-color: rgba(61,154,106,.4); }
+    ul { margin: 0; padding-left: 1.1rem; }
+    li { margin: .35rem 0; color: var(--text); }
+    li span.when { color: var(--ember-2); font-variant-numeric: tabular-nums; font-size: .85rem; margin-right: .35rem; }
+    a { color: var(--ember-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: var(--muted); }
+    .products { max-height: 220px; overflow: auto; padding-right: .25rem; }
+    .products li { font-size: .9rem; }
+    .err { color: #e8c4b0; padding: 1rem; border: 1px solid var(--warn); border-radius: var(--radius); background: var(--panel-2); }
+    footer { margin-top: 1.5rem; color: var(--muted); font-size: .75rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Blaze<span style="color:var(--ember)">Ridge</span> · <em>Dashboard</em></h1>
+      <p class="meta" id="updated">lädt…</p>
+    </header>
+    <div id="root"><p class="muted">Daten werden geladen…</p></div>
+    <footer>Intern · nicht verlinkt · keine sensiblen Daten</footer>
+  </div>
+  <script>
+    async function load() {
+      const root = document.getElementById('root');
+      try {
+        const res = await fetch('data.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const d = await res.json();
+        document.getElementById('updated').textContent = 'Stand: ' + (d.updated_at || '—');
+
+        const posts = (d.next_posts || []).map(p =>
+          `<li><span class="when">${esc(p.when || '')}</span>${esc(p.vid ? p.vid + ' · ' : '')}${esc(p.title || '')}</li>`
+        ).join('') || '<li class="muted">Keine geplanten Posts gefunden</li>';
+
+        const products = (d.shop && d.shop.products || []).map(p =>
+          `<li><a href="${escAttr(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a></li>`
+        ).join('') || '<li class="muted">Keine Produkte</li>';
+
+        const todos = (d.todos || []).map(t => `<li>${esc(t)}</li>`).join('') || '<li class="muted">Keine</li>';
+        const af = d.affiliate || {};
+        const shop = d.shop || {};
+        const tk = d.tiktok || {};
+
+        root.innerHTML = `
+          <div class="grid">
+            <section class="card">
+              <h2>TikTok</h2>
+              <div class="stat">${esc(String(tk.followers ?? '—'))}
+small>${esc(tk.handle || '@blazeridge')} · Follower · Stand ${esc(tk.followers_as_of || '—')}</small></div>
+            </section>
+            <section class="card">
+              <h2>Shop-Bestellungen</h2>
+              <div class="stat">${esc(String(shop.orders ?? 0))}<small>bezahlt · Anzahl only</small></div>
+            </section>
+            <section class="card">
+              <h2>Shop-Produkte</h2>
+              <div class="stat">${esc(String(shop.product_count ?? 0))}<small><a href="${escAttr(shop.shop_url || '#')}" target="_blank" rel="noopener">Shop öffnen</a></small></div>
+            </section>
+            <section class="card">
+              <h2>Affiliate</h2>
+              <p><span class="badge">${esc(af.status || '—')}</span></p>
+              <p class="muted" style="margin:.6rem 0 0;font-size:.9rem">${esc(af.note || '')}</p>
+            </section>
+          </div>
+          <div class="grid">
+            <section class="card" style="grid-column:1/-1">
+              <h2>Nächste geplante Posts</h2>
+              <ul>${posts}</ul>
+            </section>
+            <section class="card">
+              <h2>Offene To-dos (Dennis)</h2>
+              <ul>${todos}</ul>
+            </section>
+            <section class="card">
+              <h2>Produkte</h2>
+              <ul class="products">${products}</ul>
+            </section>
+          </div>`;
+      } catch (e) {
+        root.innerHTML = '<p class="err">Daten konnten nicht geladen werden.</p>';
+        console.error(e);
+      }
+    }
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function escAttr(s) { return esc(s).replace(/`/g, ''); }
+    load();
+  </script>
+</body>
+</html>
